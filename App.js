@@ -25,7 +25,7 @@ import {
 const App = () => {
   return (
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={'#FFF'} />
+      <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent={true} />
       <Text >Hello from App.js</Text>
     </SafeAreaView>
   )
