@@ -14,6 +14,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 /*
@@ -27,6 +28,7 @@ const App = () => {
     <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
       <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent={true} />
       <Text >Hello from App.js</Text>
+      <Ionicons name={'home'} size={25} color={'#000'} />
     </SafeAreaView>
   )
 };
