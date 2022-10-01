@@ -14,7 +14,9 @@ import {
   Text,
   View,
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { Provider as PaperProvider } from 'react-native-paper';
+
+import { OnBoardingScreen } from './src/screens';
 
 
 /*
@@ -25,11 +27,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const App = () => {
   return (
-    <SafeAreaView style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFF' }}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent={true} />
-      <Text >Hello from App.js</Text>
-      <Ionicons name={'home'} size={25} color={'#000'} />
-    </SafeAreaView>
+    <PaperProvider>
+      <OnBoardingScreen />
+    </PaperProvider>
   )
 };
 
