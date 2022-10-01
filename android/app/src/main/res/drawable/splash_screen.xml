@@ -4,8 +4,8 @@
     <item android:drawable="@color/primary" />
 
     <item
-        android:width="200dp"
-        android:height="200dp"
+        android:width="75dp"
+        android:height="75dp"
         android:drawable="@mipmap/splashicon"
         android:gravity="center" />
 
