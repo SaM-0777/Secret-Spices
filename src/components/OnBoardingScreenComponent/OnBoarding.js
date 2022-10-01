@@ -20,21 +20,19 @@ const OnBoarding = ({ }) => {
 
   return (
     <View style={onBoardingStyles.container} >
-      <View style={onBoardingStyles.carouselWrapper} >
-        <FlatList
-          data={onBoardingData}
-          renderItem={({ item }) => <OnBoardingItem item={item} />}
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          pagingEnabled
-          bounces={false}
-          keyExtractor={(item) => item.id}
-          onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], { useNativeDriver: false, })}
-          onViewableItemsChanged={viewableItmesChanged}
-          viewabilityConfig={viewConfig}
-          ref={slidesRef}
-        />
-      </View>
+      <FlatList
+        data={onBoardingData}
+        renderItem={({ item }) => <OnBoardingItem item={item} />}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        pagingEnabled
+        bounces={false}
+        keyExtractor={(item) => item.id}
+        onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], { useNativeDriver: false, })}
+        onViewableItemsChanged={viewableItmesChanged}
+        viewabilityConfig={viewConfig}
+        ref={slidesRef}
+      />
       <View style={onBoardingStyles.paginatorWrapper} >
         <Paginator data={onBoardingData} scrollX={scrollX} />
       </View>
