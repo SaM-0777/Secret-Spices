@@ -76,5 +76,5 @@ export const paginatorStyles = StyleSheet.create({
         borderRadius: 10,
         backgroundColor: '#212134',
     },
-})
+});
 

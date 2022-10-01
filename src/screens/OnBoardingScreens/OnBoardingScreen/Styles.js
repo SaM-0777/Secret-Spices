@@ -15,4 +15,8 @@ export default styles = StyleSheet.create({
         marginTop: 60,
         // backgroundColor: 'red'
     },
+    footerWrapper: {
+        alignItems: 'center',
+        marginBottom: 35,
+    },
 });

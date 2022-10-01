@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StatusBar } from 'react-native';
 
-import { OnBoarding } from '../../../components';
+import { OnBoarding, PrimaryButton } from '../../../components';
 
 import Styles from './Styles';
+import AppStyles from '../../../../AppStyles';
 
 
 const OnBoardingScreen = ({  }) => {
@@ -13,8 +14,8 @@ const OnBoardingScreen = ({  }) => {
       <View style={Styles.wrapper} >
         <OnBoarding />
       </View>
-      <View style={Styles} >
-
+      <View style={Styles.footerWrapper} >
+        <PrimaryButton label={'Get Started'} onPress={() => console.log('Pressed')} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
       </View>
     </View>
   )
