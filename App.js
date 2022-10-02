@@ -4,19 +4,14 @@
  *
  * @format
  * @flow strict-local
- */
+*/
+
 
 import React from 'react';
-import {
-  SafeAreaView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 import { Provider as PaperProvider } from 'react-native-paper';
 
-import { OnBoardingScreen } from './src/screens';
+import Root from './src/Root';
 
 
 /*
@@ -25,18 +20,15 @@ import { OnBoardingScreen } from './src/screens';
 */
 
 
-const App = () => {
+const App = ({ }) => {
   return (
     <PaperProvider>
-      <OnBoardingScreen />
+      <NavigationContainer>
+        <Root />
+      </NavigationContainer>
     </PaperProvider>
   )
 };
-
-
-const styles = StyleSheet.create({
-  
-});
 
 
 export default App;

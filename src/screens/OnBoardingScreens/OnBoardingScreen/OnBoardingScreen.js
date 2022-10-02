@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StatusBar } from 'react-native';
+import { View, StatusBar } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { OnBoarding, PrimaryButton } from '../../../components';
 
@@ -7,15 +8,26 @@ import Styles from './Styles';
 import AppStyles from '../../../../AppStyles';
 
 
-const OnBoardingScreen = ({  }) => {
+const OnBoardingScreen = ({ setViewedOnBoarding }) => {
+  const onPrimaryButtonPress = async () => {
+    try {
+      await AsyncStorage.setItem('@viewedOnBoarding', 'true')
+      setViewedOnBoarding(await AsyncStorage.getItem('@viewedOnBoarding'))
+      console.log(await AsyncStorage.getItem('@viewedOnBoarding'))
+      console.log('done')
+    } catch (error) {
+      console.error('error reading async-storage for key @viewedOnBoarding', error)
+    }
+  }
+
   return (
     <View style={Styles.container} >
-      <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} />
+      <StatusBar barStyle={'dark-content'} backgroundColor={'#FFF'} />
       <View style={Styles.wrapper} >
         <OnBoarding />
       </View>
       <View style={Styles.footerWrapper} >
-        <PrimaryButton label={'Get Started'} onPress={() => console.log('Pressed')} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
+        <PrimaryButton label={'Get Started'} onPress={onPrimaryButtonPress} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
       </View>
     </View>
   )

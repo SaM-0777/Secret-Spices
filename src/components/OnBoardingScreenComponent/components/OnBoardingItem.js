@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Image } from 'react-native';
+import { Text } from 'react-native-paper';
 
 import { onBoardingItemStyles } from '../Styles';
 
@@ -9,8 +10,8 @@ const OnBoardingItem = ({ item }) => {
     <View style={onBoardingItemStyles.container} >
       <Image source={item.image} resizeMode={'contain'} style={onBoardingItemStyles.image} />
       <View style={onBoardingItemStyles.textWrapper} >
-        <Text style={onBoardingItemStyles.title} >{item.title}</Text>
-        <Text style={onBoardingItemStyles.description} >{item.description}</Text>
+        <Text variant={'bodyLarge'} style={onBoardingItemStyles.title} >{item.title}</Text>
+        <Text variant={'bodySmall'} style={onBoardingItemStyles.description} >{item.description}</Text>
       </View>
     </View>
   )
