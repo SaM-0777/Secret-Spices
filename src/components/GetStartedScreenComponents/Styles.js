@@ -10,11 +10,14 @@ export const headerStyle = StyleSheet.create({
     headerText: {
         color: AppStyles.primaryTextColor,
         textAlign: 'center',
+        fontSize: 32,
+        fontFamily: AppStyles.primaryFontFamilyBold,
     },
     headerSubText: {
         color: AppStyles.secondaryTextColor,
         fontSize: 16,
         textAlign: 'center',
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
         marginTop: 20,
     },
 });
@@ -48,14 +51,18 @@ export const socialLoginButtonStyle = StyleSheet.create({
         justifyContent: 'space-between',
         paddingHorizontal: 50,
         borderRadius: 15,
-        borderWidth: 1.5,
-        borderColor: AppStyles.secondaryColor,
+        /*borderWidth: 1.5,
+        borderColor: AppStyles.secondaryColor,*/
     },
     icon: {
         
     },
     text: {
-        
+        /*color: AppStyles.secondaryTextColor,*/
+        fontSize: 16,
+        fontFamily: AppStyles.secondaryFontFamilySemiBold,
+        fontWeight: '700',
+        letterSpacing: 0.5,
     },
     right: {
         

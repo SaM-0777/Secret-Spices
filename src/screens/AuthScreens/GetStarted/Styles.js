@@ -1,12 +1,14 @@
 import { StyleSheet } from "react-native";
 
+import AppStyles from "../../../../AppStyles";
+
 
 export default styles = StyleSheet.create({
     container: {
         flex: 1,
         alignItems: 'center',
         // justifyContent: 'center',
-        backgroundColor: '#FFF',
+        backgroundColor: AppStyles.primaryBackgroundColor,
     },
     wrapper: {
         flex: 1,
@@ -16,9 +18,14 @@ export default styles = StyleSheet.create({
     getStartedButtonWrapper: {
         marginTop: 70,
     },
-    signUpButtonText: {
+    loginButton: {
+        marginBottom: 25,
+    },
+    loginButtonText: {
+        color: AppStyles.primaryTextColor,
         fontSize: 16,
-        marginBottom: 30,
+        fontFamily: AppStyles.secondaryFontFamilySemiBold,
+        fontWeight: '700',
     },
 });
 

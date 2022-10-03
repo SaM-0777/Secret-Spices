@@ -34,12 +34,12 @@ const GetStarted = ({ navigation }) => {
           <PrimaryButton label={'Get Started'} onPress={onGetStarted} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
         </View>
         <Divider />
-        <SocialLoginButton onPress={continueWithFacebook} label={'Continue with Facebook'} icon={'logo-facebook'} />
+        <SocialLoginButton onPress={continueWithGoogle} label={'Continue with Google'} icon={'logo-google'} iconColor={'#000'} textColor={AppStyles.primaryTextColor} backgroundColor={'#FFF'} />
         <View style={{ marginTop: 10, }} >
-          <SocialLoginButton onPress={continueWithGoogle} label={'Continue with Google'} icon={'logo-google'} />
+          <SocialLoginButton onPress={continueWithFacebook} label={'Continue with Facebook'} icon={'logo-facebook'} iconColor={'#FFF'} textColor={'#FFF'} backgroundColor={'#1877F2'} />
         </View>
       </View>
-      <Button mode={'text'} onPress={onLogin} textColor={AppStyles.primaryTextColor} labelStyle={Styles.signUpButtonText} >Login</Button>
+      <Button mode={'text'} onPress={onLogin} textColor={AppStyles.primaryTextColor} labelStyle={Styles.loginButtonText} style={Styles.loginButton} >Login</Button>
     </View>
   )
 };

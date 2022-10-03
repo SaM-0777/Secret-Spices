@@ -1,5 +1,8 @@
 import { StyleSheet, Dimensions } from "react-native";
 
+import AppStyles from "../../../AppStyles";
+
+
 export const primaryButtonStyle = StyleSheet.create({
     buttonStyle: {
         width: 0.9 * Dimensions.get('window').width,
@@ -9,9 +12,8 @@ export const primaryButtonStyle = StyleSheet.create({
         borderRadius: 15,
     },
     textStyle: {
-        fontFamily: 'Mulish_SemiBold',
         fontSize: 18,
-        
+        fontFamily: AppStyles.secondaryFontFamilySemiBold,
     },
 })
 
