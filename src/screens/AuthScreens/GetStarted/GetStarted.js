@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, TouchableOpacity, StatusBar } from 'react-native';
-import { Text, Button } from 'react-native-paper';
+import { View, StatusBar } from 'react-native';
+import { Button } from 'react-native-paper';
 
 import { Header, Divider, SocialLoginButton, PrimaryButton } from '../../../components';
 
@@ -10,7 +10,7 @@ import AppStyles from '../../../../AppStyles';
 
 const GetStarted = ({ navigation }) => {
   const onGetStarted = () => {
-
+    navigation.push('signup')
   }
 
   const continueWithFacebook = () => {
@@ -22,7 +22,7 @@ const GetStarted = ({ navigation }) => {
   }
 
   const onLogin = () => {
-    console.log('login')
+    navigation.push('login')
   }
 
   return (

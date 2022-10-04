@@ -11,6 +11,10 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider as PaperProvider } from 'react-native-paper';
 
+/* AWS Amplify configuration */
+import { Amplify } from 'aws-amplify';
+import awsmobile from './src/aws-exports';
+
 import Root from './src/Root';
 
 
@@ -19,6 +23,7 @@ import Root from './src/Root';
  * LTI update could not be added via codemod
 */
 
+Amplify.configure(awsmobile);
 
 const App = ({ }) => {
   return (

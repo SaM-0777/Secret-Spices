@@ -1,11 +1,13 @@
 import GetStarted from "./GetStarted/GetStarted";
-import CreateAccountScreen from "./CreateAccountScreen";
+import SignupScreen from "./SignupScreen";
+import LoginScreen from "./LoginScreen";
 import EmailVerificationScreen from "./EmailVerificationScreen";
 
 
 export {
     GetStarted,
-    CreateAccountScreen,
+    SignupScreen,
+    LoginScreen,
     EmailVerificationScreen,
 };
 

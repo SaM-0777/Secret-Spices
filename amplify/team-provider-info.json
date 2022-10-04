@@ -1,0 +1,20 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-secretspices-staging-64145-authRole",
+      "UnauthRoleArn": "arn:aws:iam::230244118153:role/amplify-secretspices-staging-64145-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::230244118153:role/amplify-secretspices-staging-64145-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-secretspices-staging-64145-deployment",
+      "UnauthRoleName": "amplify-secretspices-staging-64145-unauthRole",
+      "StackName": "amplify-secretspices-staging-64145",
+      "StackId": "arn:aws:cloudformation:us-east-1:230244118153:stack/amplify-secretspices-staging-64145/9da70560-43af-11ed-9051-0eaf9f40ad6f",
+      "AmplifyAppId": "d1kt7wq4x5eo5w"
+    },
+    "categories": {
+      "auth": {
+        "secretspices": {}
+      }
+    }
+  }
+}
