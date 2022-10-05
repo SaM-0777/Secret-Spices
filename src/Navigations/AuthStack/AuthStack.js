@@ -7,7 +7,7 @@ import { GetStarted, SignupScreen, LoginScreen, EmailVerificationScreen } from '
 
 const AuthNavigationStack = createNativeStackNavigator();
 
-const AuthStack = () => {
+const AuthStack = ({  }) => {
   const [screenOptions, setScreenoptions] = useState({
     headerShown: false,
   })

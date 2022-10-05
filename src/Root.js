@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { AuthStack } from './Navigations';
+import RootNavigation from './Navigations/RootNavigation';
 
 import { OnBoardingScreen } from './screens';
 import { PrimaryLoading } from './components';
@@ -34,7 +34,7 @@ const Root = ({ }) => {
 
   return (
     <>
-      {loading ? <PrimaryLoading /> : viewedOnBoarding ? <AuthStack /> : <OnBoardingScreen setViewedOnBoarding={setViewedOnBoarding} />}
+      {loading ? <PrimaryLoading /> : viewedOnBoarding ? <RootNavigation /> : <OnBoardingScreen setViewedOnBoarding={setViewedOnBoarding} />}
     </>
   )
 };

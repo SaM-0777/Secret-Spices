@@ -23,7 +23,7 @@ import Root from './src/Root';
  * LTI update could not be added via codemod
 */
 
-Amplify.configure(awsmobile);
+Amplify.configure(awsmobile); 
 
 const App = ({ }) => {
   return (

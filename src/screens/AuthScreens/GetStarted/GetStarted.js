@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { Button } from 'react-native-paper';
 
+import { continueWithFacebook, continueWithGoogle } from '../../../utils/auth/auth';
 import { Header, Divider, SocialLoginButton, PrimaryButton } from '../../../components';
 
 import Styles from './Styles';
@@ -11,14 +12,6 @@ import AppStyles from '../../../../AppStyles';
 const GetStarted = ({ navigation }) => {
   const onGetStarted = () => {
     navigation.push('signup')
-  }
-
-  const continueWithFacebook = () => {
-    
-  }
-
-  const continueWithGoogle = () => {
-
   }
 
   const onLogin = () => {
