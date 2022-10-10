@@ -55,11 +55,12 @@ export const primaryInputStyles = StyleSheet.create({
         letterSpacing: 0.8,
         // backgroundColor: 'blue'
     },
-    phoneCodeInput: {
-        flex: 0.1,
-        fontSize: 16,
-        fontFamily: AppStyles.secondaryFontFamilyRegular,
-        letterSpacing: 0.8,
+    phoneCountryCodeContainer: {
+        
+    },
+    countryFlag: {
+        width: 25,
+        height: 25,
     },
     phoneInput: {
         flex: 0.9,

@@ -10,12 +10,14 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider as PaperProvider } from 'react-native-paper';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 /* AWS Amplify configuration */
 import { Amplify } from 'aws-amplify';
 import awsmobile from './src/aws-exports';
 
 import Root from './src/Root';
+import { GettingStartedHeader } from './src/components';
 
 
 /*
@@ -23,14 +25,16 @@ import Root from './src/Root';
  * LTI update could not be added via codemod
 */
 
-Amplify.configure(awsmobile); 
+Amplify.configure(awsmobile);
 
 const App = ({ }) => {
   return (
     <PaperProvider>
-      <NavigationContainer>
-        <Root />
-      </NavigationContainer>
+      <GestureHandlerRootView style={{ flex: 1 }} >
+        <NavigationContainer>
+          <Root />
+        </NavigationContainer>
+      </GestureHandlerRootView>
     </PaperProvider>
   )
 };

@@ -28,7 +28,7 @@ const primaryInputType = {
 
 const SignupScreen = ({ navigation }) => {
   const [primaryInput, setPrimaryInput] = useState(primaryInputType.Email)
-  const [primaryButtonDisable, setPrimaryButtonDisable] = useState(true)
+  // const [primaryButtonDisable, setPrimaryButtonDisable] = useState(true)
   const [isFormValid, setIsFormValid] = useState(false)
   const [passwordVisibility, setPasswordVisibility] = useState(false)
   const [signUpEmail, setSignUpEmail] = useState("")
@@ -70,7 +70,7 @@ const SignupScreen = ({ navigation }) => {
           <NormalInput handleSignupFieldsChange={handleSignupFieldsChange} placeholder={'Username'} />
           <PasswordInput handleSignupFieldsChange={handleSignupFieldsChange} passwordVisibility={passwordVisibility} onPress={togglePasswordVisibility} />
           <View style={[Styles.footerWrapper, {  }]} >
-            <PrimaryButton label={'Next'} disabled={primaryButtonDisable} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
+            <PrimaryButton label={'Next'} disabled={!isFormValid} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
           </View>
         </View>
       </KeyboardAwareScrollView>

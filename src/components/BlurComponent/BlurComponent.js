@@ -3,8 +3,8 @@ import {View, StyleSheet} from 'react-native';
 
 const BlurComponent = () => {
   return (
-      <View>
-          
+    <View >
+      
     </View>
   )
 };
