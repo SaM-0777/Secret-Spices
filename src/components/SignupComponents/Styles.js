@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 import AppStyles from "../../../AppStyles";
 
@@ -25,7 +25,7 @@ export const headerStyle = StyleSheet.create({
 
 export const primaryInputStyles = StyleSheet.create({
     container: {
-        width: '90%',
+        width: 0.9 * Dimensions.get('window').width,
         marginTop: 45,
     },
     emailInputContainer: {
@@ -79,7 +79,7 @@ export const primaryInputStyles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 10,
+        marginTop: 5,
     },
     buttonText: {
         fontSize: 15,
@@ -92,7 +92,7 @@ export const primaryInputStyles = StyleSheet.create({
 
 export const normalInputStyles = StyleSheet.create({
     container: {
-        width: '90%',
+        width: 0.9 * Dimensions.get('window').width,
         height: 48,
         paddingHorizontal: 10,
         marginTop: 25,
@@ -104,12 +104,17 @@ export const normalInputStyles = StyleSheet.create({
         fontFamily: AppStyles.secondaryFontFamilyRegular,
         letterSpacing: 0.8,
     },
+    infoText: {
+        fontSize: 12,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        marginTop: 7,
+    },
 });
 
 
 export const passwordInputStyles = StyleSheet.create({
     container: {
-        width: '90%',
+        width: 0.9 * Dimensions.get('window').width,
         height: 48,
         flexDirection: 'row',
         alignItems: 'center',
@@ -123,6 +128,11 @@ export const passwordInputStyles = StyleSheet.create({
         fontSize: 16,
         fontFamily: AppStyles.secondaryFontFamilyRegular,
         letterSpacing: 0.8,
+    },
+    infoText: {
+        fontSize: 12,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        marginTop: 7,
     },
     button: {
         width: '10%',

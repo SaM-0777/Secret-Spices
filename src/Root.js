@@ -36,6 +36,7 @@ const Root = ({ }) => {
   }, []);
 
   useEffect(() => {
+    // setLoading(true)
     Hub.listen('auth', ({ payload: { event, data } }) => {
       switch (event) {
         case 'signIn':
@@ -54,19 +55,21 @@ const Root = ({ }) => {
 
     getUser().then(userData => setUserData(userData));
 
-    console.log(getUserData())
+    // console.log('user: ', JSON.stringify(getUserData().attributes))
+    // setLoading(false)
   }, []);
 
-  function getUser() {
+  const getUser = () => {
     return Auth.currentAuthenticatedUser()
       .then(userData => userData)
       .catch(() => console.log('Not signed in'));
   }
 
+  
 
   return (
     <>
-      {loading ? <PrimaryLoading /> : viewedOnBoarding ? getUserData() ? <AppStack /> : <AuthStack /> : <OnBoardingScreen setViewedOnBoarding={setViewedOnBoarding} />}
+      {loading ? <PrimaryLoading /> : viewedOnBoarding ? getUserData() ? <AppStack /> : <AuthStack /> : <OnBoardingScreen setLoading={setLoading} setViewedOnBoarding={setViewedOnBoarding} />}
     </>
   )
 };

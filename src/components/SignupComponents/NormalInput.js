@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, TextInput } from 'react-native';
+import { HelperText } from 'react-native-paper';
 
 import { normalInputStyles } from './Styles';
 
 
-const NormalInput = ({ placeholder }) => {
+const NormalInput = ({ handleSignupFieldsChange, placeholder }) => {
+  const [isFocused, setIsFocused] = useState(false)
+
   return (
-    <View style={normalInputStyles.container} >
-      <TextInput placeholder={placeholder} style={normalInputStyles.input} />
+    <View>
+      <View style={[normalInputStyles.container, isFocused ? { borderWidth: 2, borderColor: AppStyles.primaryColor } : {  }]} >
+        <TextInput onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} onChangeText={(text) => handleSignupFieldsChange("username", text)} placeholder={placeholder} style={normalInputStyles.input} />
+      </View>
+        {isFocused ?
+          <HelperText type={'info'} style={normalInputStyles.infoText} >
+            This is how others see you.
+          </HelperText>
+          :
+          null
+        }
     </View>
   )
 };

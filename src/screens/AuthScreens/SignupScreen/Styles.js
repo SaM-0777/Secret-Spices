@@ -16,7 +16,7 @@ export default StyleSheet.create({
     },
     footerWrapper: {
         alignItems: 'center',
-        marginBottom: 25,
+        marginTop: 25,
     },
 });
 

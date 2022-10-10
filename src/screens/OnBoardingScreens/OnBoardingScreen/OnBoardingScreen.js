@@ -8,8 +8,9 @@ import Styles from './Styles';
 import AppStyles from '../../../../AppStyles';
 
 
-const OnBoardingScreen = ({ setViewedOnBoarding }) => {
+const OnBoardingScreen = ({ setLoading, setViewedOnBoarding }) => {
   const onPrimaryButtonPress = async () => {
+    setLoading(true)
     try {
       await AsyncStorage.setItem('@viewedOnBoarding', 'true')
       setViewedOnBoarding(await AsyncStorage.getItem('@viewedOnBoarding'))
@@ -17,6 +18,8 @@ const OnBoardingScreen = ({ setViewedOnBoarding }) => {
       console.log('done')
     } catch (error) {
       console.error('error reading async-storage for key @viewedOnBoarding', error)
+    } finally {
+      setLoading(false)
     }
   }
 

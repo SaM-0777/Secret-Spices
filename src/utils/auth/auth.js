@@ -5,8 +5,8 @@ import { Auth } from 'aws-amplify';
 export const userData = () => {
     const [user, setUser] = useState(null)  
     
-    const setUserData = (user) => setUser(user)
-    const getUserData = () => user
+    const setUserData = (user) => setUser(user || null)
+    const getUserData = () => user || null
 
     return [setUserData, getUserData]
 };

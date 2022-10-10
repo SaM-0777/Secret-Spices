@@ -5,10 +5,10 @@ import { Text } from 'react-native-paper';
 import { primaryButtonStyle } from './Styles';
 
 
-const PrimaryButton = ({ label, onPress, textColor, buttonColor }) => {
+const PrimaryButton = ({ disabled, label, onPress, textColor, buttonColor }) => {
   return (
-    <TouchableOpacity activeOpacity={0.8} onPress={onPress} style={[primaryButtonStyle.buttonStyle, { backgroundColor: buttonColor }]} >
-      <Text variant={'titleMedium'} style={[primaryButtonStyle.textStyle, { color: textColor }]} >{label}</Text>
+    <TouchableOpacity disabled={disabled} activeOpacity={0.8} onPress={onPress} style={[primaryButtonStyle.buttonStyle, { backgroundColor: disabled ? '#E5E5E5' : buttonColor }]} >
+      <Text variant={'titleMedium'} style={[primaryButtonStyle.textStyle, { color: disabled ? '#999999' : textColor }]} >{label}</Text>
     </TouchableOpacity>
   )
 };

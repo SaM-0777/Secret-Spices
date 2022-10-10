@@ -13,7 +13,7 @@ const HomeScreen = ({  }) => {
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
       <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
       <Text>Home Screen</Text>
-      <TouchableOpacity onPress={Auth.signOut} >
+      <TouchableOpacity onPress={() => Auth.signOut()} >
         <Text>Logout</Text>
       </TouchableOpacity>
     </View>
