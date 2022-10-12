@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar, View, ToastAndroid } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { GettingStartedHeader, PrimaryInput, NormalInput, PasswordInput, PrimaryButton } from '../../../components';
+import { GettingStartedHeader, PrimaryInput, NormalInput, PasswordInput, PrimaryButton, BottomActionSheet } from '../../../components';
 
 import formValidator from '../../../utils/formValidator/formValidator';
 
@@ -74,6 +74,9 @@ const SignupScreen = ({ navigation }) => {
           </View>
         </View>
       </KeyboardAwareScrollView>
+      <BottomActionSheet>
+        
+      </BottomActionSheet>
     </View>
   )
 };
