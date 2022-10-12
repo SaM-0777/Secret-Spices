@@ -56,14 +56,27 @@ export const primaryInputStyles = StyleSheet.create({
         // backgroundColor: 'blue'
     },
     phoneCountryCodeContainer: {
-        
+        flex: 0.2,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     countryFlag: {
-        width: 25,
-        height: 25,
+        width: 30,
+        height: 20,
+    },
+    phoneInputIcon: {
+        marginLeft: 5,
+        marginRight: 7,
+    },
+    countryCode: {
+        fontSize: 16,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        letterSpacing: 0.8,
+        marginLeft: 5,
     },
     phoneInput: {
-        flex: 0.9,
+        flex: 0.8,
         fontSize: 16,
         fontFamily: AppStyles.secondaryFontFamilyRegular,
         letterSpacing: 0.8,
