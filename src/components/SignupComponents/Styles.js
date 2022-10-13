@@ -152,5 +152,25 @@ export const passwordInputStyles = StyleSheet.create({
         width: '10%',
         alignItems: 'center',
     },
-})
+});
+
+
+export const countryCodeButtonStyles = StyleSheet.create({
+    container: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 10,
+        marginVertical: 5,
+    },
+    image: {
+        width: 40,
+        height: 32,
+    },
+    text: {
+        color: AppStyles.primaryTextColor,
+        fontSize: 16,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        marginLeft: 10,
+    },
+});
 

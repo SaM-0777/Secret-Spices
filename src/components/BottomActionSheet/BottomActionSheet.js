@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import React, { useEffect, useCallback, useMemo } from 'react';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 
 import SheetOverlay from './SheetOverlay';
@@ -26,9 +26,7 @@ const BottomActionSheet = ({ children, sheetRef, isActive, setIsActive, sheetSna
     <>
       <SheetOverlay isActive={isActive} setIsActive={setIsActive} />
       <BottomSheet index={-1} ref={sheetRef} snapPoints={snapPoints} enablePanDownToClose={true} onClose={() => setIsActive(false)} style={bottomActionStyles.bottomSheet} >
-        <BottomSheetView>
-          {children}
-        </BottomSheetView>
+        {children}
       </BottomSheet>
     </>
   )
