@@ -7,7 +7,7 @@ import AppStyles from '../../../AppStyles';
 import { primaryInputStyles } from './Styles';
 
 
-const PrimaryInput = ({ type, infoText, placeholder, icon, iconText, handleSignupFieldsChange, onPress, flag, handleFlagBottomScreen, countryCode, setIsFormValid }) => {
+const PrimaryInput = ({ type, helperText, placeholder, icon, iconText, handleSignupFieldsChange, onPress, flag, handleFlagBottomScreen, countryCode, setIsFormValid }) => {
   const [isFocused, setIsFocused] = useState(true)
   
   return (
@@ -27,7 +27,7 @@ const PrimaryInput = ({ type, infoText, placeholder, icon, iconText, handleSignu
           <TextInput onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} onChangeText={(text) => handleSignupFieldsChange("phone", text)} maxLength={17} keyboardType={'phone-pad'} style={[primaryInputStyles.phoneInput,]} />
         </View>
       }
-      <HelperText type={'info'} style={primaryInputStyles.infoText} >{infoText}</HelperText>
+      <HelperText type={helperText.helperTextType} style={primaryInputStyles.infoText} >{helperText.helperText}</HelperText>
       <TouchableOpacity activeOpacity={0.7} onPress={onPress} style={primaryInputStyles.primaryFieldToggleWrapper} >
         <Ionicons name={icon} size={25} color={AppStyles.secondaryColor} />
         <Text style={primaryInputStyles.buttonText} >{iconText}</Text>

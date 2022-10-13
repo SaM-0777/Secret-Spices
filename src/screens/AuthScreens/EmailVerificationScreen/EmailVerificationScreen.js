@@ -1,14 +1,52 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput, StatusBar, TouchableOpacity } from 'react-native';
+import { Text } from 'react-native-paper';
 
-const EmailVerificationScreen = () => {
+import { EmailVerificationHeader, TextBox, PrimaryButton } from '../../../components';
+
+import Styles from './Styles';
+import AppStyles from '../../../../AppStyles';
+
+
+const EmailVerificationScreen = ({ navigation }) => {
+  const [focus, setFocus] = useState(true)
+  const [code, setCode] = useState('')
+
+  const navigateBack = () => navigation.goBack()
+
+  const handleResendOTP = () => {
+
+  }
+
+  const handleNext = () => {
+    // on success navigate to app stack (home screen)
+    // on failure toast error message
+    console.log(code)
+  }
+
   return (
-    <View>
-      <Text>Hello from Email Verification</Text>
+    <View style={Styles.container} >
+      <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
+      <View style={Styles.wrapper} >
+        <EmailVerificationHeader onPress={navigateBack} />
+        <View style={Styles.contentWrapper} >
+          <View style={Styles.textBoxContainer} >
+            <TextBox />
+          </View>
+          <TextInput onChangeText={(text) => setCode(text)} cursorColor={AppStyles.secondaryColor} style={Styles.textInput} />
+          <View style={Styles.resendCodeContainer} >
+            <Text style={Styles.resendCodeInfo} >Didn't receive a code? </Text>
+            <TouchableOpacity activeOpacity={0.7} onPress={handleResendOTP} ><Text style={Styles.resendCode} >Resend code</Text></TouchableOpacity>
+          </View>
+          <View style={Styles.primaryButtonContainer} >
+            <PrimaryButton disabled={false} label={'Next'} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
+          </View>
+        </View>
+      </View>
     </View>
   )
 };
 
-const styles = StyleSheet.create({});
 
 export default EmailVerificationScreen;
+
