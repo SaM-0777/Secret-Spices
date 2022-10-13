@@ -1,18 +1,12 @@
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 
-
 import { sheetOverlayStyles } from './Styles';
 
-const SheetOverlay = ({ }) => {
-  const handleOverlayPress = () => {
-    
-  }
 
+const SheetOverlay = ({ isActive, setIsActive }) => {
   return (
-    <TouchableOpacity activeOpacity={0.5} onPress={handleOverlayPress} style={sheetOverlayStyles.container} >
-
-    </TouchableOpacity>
+    <TouchableOpacity activeOpacity={0.5} onPress={() => setIsActive(false)} style={[sheetOverlayStyles.container, { display: isActive ? 'flex' : 'none' }]} />
   )
 };
 

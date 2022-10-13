@@ -10,7 +10,7 @@ import AppStyles from '../../../AppStyles';
 import { primaryInputStyles } from './Styles';
 
 
-const PrimaryInput = ({ type, infoText, placeholder, icon, iconText, handleSignupFieldsChange, onPress }) => {
+const PrimaryInput = ({ type, infoText, placeholder, icon, iconText, handleSignupFieldsChange, onPress, handleSetFlag }) => {
   const [isFocused, setIsFocused] = useState(false)
   const [flag, setFlag] = useState(countryCodes[RNLocalize.getCountry()]['flag'])
   
@@ -22,7 +22,7 @@ const PrimaryInput = ({ type, infoText, placeholder, icon, iconText, handleSignu
         </View>
         :
         <View style={primaryInputStyles.phoneInputContainer} > 
-          <TouchableOpacity activeOpacity={0.8} onPress={() => {}} style={primaryInputStyles.phoneCountryCodeContainer} >
+          <TouchableOpacity activeOpacity={0.8} onPress={handleSetFlag} style={primaryInputStyles.phoneCountryCodeContainer} >
             <Image source={{ uri: flag, scale: 1 }} resizeMode={'contain'} style={primaryInputStyles.countryFlag} />
             <Ionicons name={'chevron-down'} size={15} color={AppStyles.secondaryColor} style={primaryInputStyles.phoneInputIcon} />
           </TouchableOpacity>

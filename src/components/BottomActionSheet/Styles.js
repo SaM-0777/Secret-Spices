@@ -2,10 +2,6 @@ import { StyleSheet } from "react-native";
 
 
 export const bottomActionStyles = StyleSheet.create({
-    container: {
-        backgroundColor: '#000',
-        ...StyleSheet.absoluteFillObject,
-    },
     bottomSheet: {
         zIndex: 1,
         opacity: 1,

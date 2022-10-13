@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { StatusBar, View, ToastAndroid } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
@@ -28,7 +28,6 @@ const primaryInputType = {
 
 const SignupScreen = ({ navigation }) => {
   const [primaryInput, setPrimaryInput] = useState(primaryInputType.Email)
-  // const [primaryButtonDisable, setPrimaryButtonDisable] = useState(true)
   const [isFormValid, setIsFormValid] = useState(false)
   const [passwordVisibility, setPasswordVisibility] = useState(false)
   const [signUpEmail, setSignUpEmail] = useState("")
@@ -37,6 +36,9 @@ const SignupScreen = ({ navigation }) => {
     username: "",
     password: "",
   })
+  // bottom action sheet
+  const bottomSheetRef = useRef()
+  const [isBottomSheet, setIsBottomSheet] = useState(false)
 
   const handleSignupFieldsChange = (target, value) => {
     if (target === "username" || target === "password") setSignupAttributes({ ...signUpAttributes, [target]: value })
@@ -66,7 +68,7 @@ const SignupScreen = ({ navigation }) => {
       <KeyboardAwareScrollView contentContainerStyle={{ flex: 1, }} enableOnAndroid={true} extraScrollHeight={-180} >
         <View style={[Styles.wrapper]} >
           <GettingStartedHeader />
-          <PrimaryInput handleSignupFieldsChange={handleSignupFieldsChange}  {...primaryInput} onPress={togglePrimaryInput} />
+          <PrimaryInput handleSignupFieldsChange={handleSignupFieldsChange} handleSetFlag={() => setIsBottomSheet(true)} {...primaryInput} onPress={togglePrimaryInput} />
           <NormalInput handleSignupFieldsChange={handleSignupFieldsChange} placeholder={'Username'} />
           <PasswordInput handleSignupFieldsChange={handleSignupFieldsChange} passwordVisibility={passwordVisibility} onPress={togglePasswordVisibility} />
           <View style={[Styles.footerWrapper, {  }]} >
@@ -74,8 +76,10 @@ const SignupScreen = ({ navigation }) => {
           </View>
         </View>
       </KeyboardAwareScrollView>
-      <BottomActionSheet>
-        
+      <BottomActionSheet sheetRef={bottomSheetRef} isActive={isBottomSheet} setIsActive={setIsBottomSheet} sheetSnapPoints={["60%", "90%"]} >
+        <View style={{ flex: 1, backgroundColor: '#000' }} >
+
+        </View>
       </BottomActionSheet>
     </View>
   )

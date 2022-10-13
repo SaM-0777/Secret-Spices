@@ -1,37 +1,31 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
-import { TouchableOpacity } from 'react-native';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 
 import SheetOverlay from './SheetOverlay';
 import { bottomActionStyles } from './Styles';
 
 
-const BottomActionSheet = ({ children, sheetSnapPoints }) => {
-  const bottomSheetRef = useRef()
-  const [isBottomSheet, setIsBottomSheet] = useState(false)
-
-  const snapPoints = useMemo(() => ["25%", "50%", "90%"], []);
+const BottomActionSheet = ({ children, sheetRef, isActive, setIsActive, sheetSnapPoints }) => {
+  const snapPoints = useMemo(() => sheetSnapPoints, []);
 
   const handleOpenBottomSheet = useCallback((index) => {
-    bottomSheetRef.current?.snapToIndex(index)
+    sheetRef.current?.snapToIndex(index)
   }, [])
   const handleCloseBottomSheet = useCallback(() => {
-    bottomSheetRef.current?.close()
+    sheetRef.current?.close()
   }, [])
   
-  const toggleBottomSheet = () => setIsBottomSheet(prevState => !prevState)
-  
   useEffect(() => {
-    if (isBottomSheet) handleOpenBottomSheet(0)
+    if (isActive) handleOpenBottomSheet(0)
     else handleCloseBottomSheet()
     
     return () => { }
-  }, [isBottomSheet])
+  }, [isActive])
 
   return (
     <>
-      <SheetOverlay />
-      <BottomSheet index={-1} ref={bottomSheetRef} snapPoints={snapPoints} enablePanDownToClose={true} onClose={() => setIsBottomSheet(false)} style={bottomActionStyles.bottomSheet} >
+      <SheetOverlay isActive={isActive} setIsActive={setIsActive} />
+      <BottomSheet index={-1} ref={sheetRef} snapPoints={snapPoints} enablePanDownToClose={true} onClose={() => setIsActive(false)} style={bottomActionStyles.bottomSheet} >
         <BottomSheetView>
           {children}
         </BottomSheetView>
