@@ -3,6 +3,7 @@ export default AppStyles = {
     secondaryColor: '#212134',
     primaryTextColor: '#32324D',
     secondaryTextColor: '#8E8EA9',
+    invalidTextIndicatorColor: '#B82626',
     primaryBackgroundColor: '#F5F5F5',
     secondaryBackgroundColor: '#FFF',
     primaryFontFamilyBold: 'DMSans_Bold',

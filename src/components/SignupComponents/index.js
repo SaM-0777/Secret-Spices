@@ -1,15 +1,13 @@
 import Header from "./Header";
-import NormalInput from "./NormalInput";
-import PrimaryInput from "./PrimaryInput";
+import UsernameInput from "./UsernameInput";
+import EmailInput from "./EmailInput";
 import PasswordInput from "./PasswordInput";
-import CountryCodeButton from "./CountryCodeButton";
 
 
 export {
     Header,
-    NormalInput,
-    PrimaryInput,
+    UsernameInput,
+    EmailInput,
     PasswordInput,
-    CountryCodeButton,
 };
 

@@ -23,7 +23,7 @@ export const headerStyle = StyleSheet.create({
 });
 
 
-export const primaryInputStyles = StyleSheet.create({
+export const emailInputStyles = StyleSheet.create({
     container: {
         width: 0.9 * Dimensions.get('window').width,
         marginTop: 45,
@@ -34,77 +34,20 @@ export const primaryInputStyles = StyleSheet.create({
         borderRadius: 15,
         backgroundColor: '#FFF',
     },
-    phoneInputContainer: {
-        height: 48,
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 10,
-        borderRadius: 15,
-        backgroundColor: '#FFF',
-    },
-    separator: {
-        width: 2,
-        height: '50%',
-        marginHorizontal: 5,
-        backgroundColor: '#DCDCE4',
-    },
     emailInput: {
-        // width: '100%',
         fontSize: 16,
         fontFamily: AppStyles.secondaryFontFamilyRegular,
         letterSpacing: 0.8,
-        // backgroundColor: 'blue'
     },
-    phoneCountryCodeContainer: {
-        flex: 0.2,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    countryFlag: {
-        width: 30,
-        height: 20,
-    },
-    phoneInputIcon: {
-        marginLeft: 5,
-        marginRight: 7,
-    },
-    countryCode: {
-        fontSize: 16,
-        fontFamily: AppStyles.secondaryFontFamilyRegular,
-        letterSpacing: 0.8,
-        marginLeft: 5,
-    },
-    phoneInput: {
-        flex: 0.8,
-        fontSize: 16,
-        fontFamily: AppStyles.secondaryFontFamilyRegular,
-        letterSpacing: 0.8,
-        // backgroundColor: 'blue'
-    },
-    infoText: {
+    helperText: {
         fontSize: 12,
         fontFamily: AppStyles.secondaryFontFamilyRegular,
-        marginTop: 7,
+        marginTop: 1,
     },
-    primaryFieldToggleWrapper: {
-        width: 180,
-        height: 32,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: 5,
-    },
-    buttonText: {
-        fontSize: 15,
-        fontFamily: AppStyles.secondaryFontFamilyBold,
-        letterSpacing: 0.1,
-        marginLeft: 10,
-    },
-})
+});
 
 
-export const normalInputStyles = StyleSheet.create({
+export const usernameInputStyles = StyleSheet.create({
     container: {
         width: 0.9 * Dimensions.get('window').width,
         height: 48,
@@ -118,10 +61,10 @@ export const normalInputStyles = StyleSheet.create({
         fontFamily: AppStyles.secondaryFontFamilyRegular,
         letterSpacing: 0.8,
     },
-    infoText: {
+    helperText: {
         fontSize: 12,
         fontFamily: AppStyles.secondaryFontFamilyRegular,
-        marginTop: 7,
+        marginTop: 1,
     },
 });
 
@@ -143,34 +86,14 @@ export const passwordInputStyles = StyleSheet.create({
         fontFamily: AppStyles.secondaryFontFamilyRegular,
         letterSpacing: 0.8,
     },
-    infoText: {
+    helperText: {
         fontSize: 12,
         fontFamily: AppStyles.secondaryFontFamilyRegular,
-        marginTop: 7,
+        marginTop: 1,
     },
     button: {
         width: '10%',
         alignItems: 'center',
-    },
-});
-
-
-export const countryCodeButtonStyles = StyleSheet.create({
-    container: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingHorizontal: 10,
-        marginVertical: 5,
-    },
-    image: {
-        width: 40,
-        height: 32,
-    },
-    text: {
-        color: AppStyles.primaryTextColor,
-        fontSize: 16,
-        fontFamily: AppStyles.secondaryFontFamilyRegular,
-        marginLeft: 10,
     },
 });
 

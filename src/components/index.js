@@ -3,7 +3,7 @@ import { OnBoarding } from "./OnBoardingScreenComponent";
 import { PrimaryButton } from "./PrimaryButton";
 import { BottomActionSheet } from "./BottomActionSheet";
 import { Header as GetStartedHeader, Divider, SocialLoginButton } from "./GetStartedScreenComponents";
-import { Header as GettingStartedHeader, NormalInput, PrimaryInput, PasswordInput, CountryCodeButton } from "./SignupComponents";
+import { Header as GettingStartedHeader, UsernameInput, EmailInput, PasswordInput } from "./SignupComponents";
 import { Header as EmailVerificationHeader, TextBox } from "./EmailVerificationScreenComponents";
 
 
@@ -20,10 +20,9 @@ export {
     SocialLoginButton,
     
     GettingStartedHeader,
-    NormalInput,
-    PrimaryInput,
+    EmailInput,
+    UsernameInput,
     PasswordInput,
-    CountryCodeButton,
     
     BottomActionSheet,
     // Email verification screen components
