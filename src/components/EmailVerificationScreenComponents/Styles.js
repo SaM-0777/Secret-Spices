@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import AppStyles from "../../../AppStyles";
+import AppStyles from "../../AppStyles";
 
 
 export const headerStyle = StyleSheet.create({

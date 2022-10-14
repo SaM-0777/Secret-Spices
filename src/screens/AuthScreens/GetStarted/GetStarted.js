@@ -6,7 +6,7 @@ import { continueWithFacebook, continueWithGoogle } from '../../../utils/auth/au
 import { GetStartedHeader, Divider, SocialLoginButton, PrimaryButton } from '../../../components';
 
 import Styles from './Styles';
-import AppStyles from '../../../../AppStyles';
+import AppStyles from '../../../AppStyles';
 
 
 const GetStarted = ({ navigation }) => {

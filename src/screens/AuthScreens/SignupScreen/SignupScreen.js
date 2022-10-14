@@ -10,7 +10,7 @@ import { GettingStartedHeader, PrimaryInput, NormalInput, PasswordInput, Primary
 import internationalPhoneCodes from '../../../utils/data/international-phone-codes.json';
 import countryCodes from '../../../utils/data/country-codes.json';
 
-import AppStyles from '../../../../AppStyles';
+import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
 
 

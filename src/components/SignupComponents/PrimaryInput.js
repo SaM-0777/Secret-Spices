@@ -3,7 +3,7 @@ import { TextInput, View, TouchableOpacity, Image } from 'react-native';
 import { HelperText, Text } from 'react-native-paper';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import AppStyles from '../../../AppStyles';
+import AppStyles from '../../AppStyles';
 import { primaryInputStyles } from './Styles';
 
 

@@ -5,21 +5,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { OnBoarding, PrimaryButton } from '../../../components';
 
 import Styles from './Styles';
-import AppStyles from '../../../../AppStyles';
+import AppStyles from '../../../AppStyles';
 
 
-const OnBoardingScreen = ({ setLoading, setViewedOnBoarding }) => {
+const OnBoardingScreen = ({ navigation }) => {
   const onPrimaryButtonPress = async () => {
-    setLoading(true)
     try {
       await AsyncStorage.setItem('@viewedOnBoarding', 'true')
-      setViewedOnBoarding(await AsyncStorage.getItem('@viewedOnBoarding'))
-      console.log(await AsyncStorage.getItem('@viewedOnBoarding'))
-      console.log('done')
     } catch (error) {
       console.error('error reading async-storage for key @viewedOnBoarding', error)
     } finally {
-      setLoading(false)
+      navigation.reset({index: 0, routes: [{ name: 'auth-navigator' }]})
     }
   }
 

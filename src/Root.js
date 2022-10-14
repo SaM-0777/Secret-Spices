@@ -1,76 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import { Amplify, Auth, Hub } from 'aws-amplify';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import { userData } from './utils/auth/auth';
+import React, { useState } from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { AuthStack, AppStack } from './Navigations';
-import { OnBoardingScreen } from './screens';
-import { PrimaryLoading } from './components';
+import { OnBoardingScreen, BootLoadingScreen } from './screens';
 
+
+const RootNavigationStack = createNativeStackNavigator();
 
 const Root = ({ }) => {
-  const [loading, setLoading] = useState(true)
-  const [viewedOnBoarding, setViewedOnBoarding] = useState(false)
-  const [setUserData, getUserData] = userData()
-
-  const checkOnboardingViewed = async () => {
-    try {
-      const value = await AsyncStorage.getItem('@viewedOnBoarding')
-      // console.log('value: ', value)
-      if (value !== null) setViewedOnBoarding(true)
-    } catch (error) {
-      console.error('error checking async-storage for key @viewedOnBoarding', error)
-    } finally {
-      //console.log('loading set to false')
-      setLoading(false)
-    }
-  }
-
-  useEffect(() => {
-    // console.log('first execution')
-    checkOnboardingViewed()
-    return () => {
-
-    };
-  }, []);
-
-  useEffect(() => {
-    // setLoading(true)
-    Hub.listen('auth', ({ payload: { event, data } }) => {
-      switch (event) {
-        case 'signIn':
-        case 'cognitoHostedUI':
-          getUser().then(userData => setUserData(userData));
-          break;
-        case 'signOut':
-          setUserData(null);
-          break;
-        case 'signIn_failure':
-        case 'cognitoHostedUI_failure':
-          console.log('Sign in failure', data);
-          break;
-      }
-    });
-
-    getUser().then(userData => setUserData(userData));
-
-    // console.log('user: ', JSON.stringify(getUserData().attributes))
-    // setLoading(false)
-  }, []);
-
-  const getUser = () => {
-    return Auth.currentAuthenticatedUser()
-      .then(userData => userData)
-      .catch(() => console.log('Not signed in'));
-  }
-
+  const [screenOptions, setScreenoptions] = useState({
+    headerShown: false,
+  })
   
-
   return (
-    <>
-      {loading ? <PrimaryLoading /> : viewedOnBoarding ? getUserData() ? <AppStack /> : <AuthStack /> : <OnBoardingScreen setLoading={setLoading} setViewedOnBoarding={setViewedOnBoarding} />}
-    </>
+    <RootNavigationStack.Navigator screenOptions={screenOptions} id={'root-navigator'} initialRouteName={'boot-loading'}  >
+      <RootNavigationStack.Screen name={'boot-loading'} component={BootLoadingScreen} />
+      <RootNavigationStack.Screen name={'onboarding-screen'} component={OnBoardingScreen} />
+      <RootNavigationStack.Screen name={'auth-navigator'} component={AuthStack} />
+      <RootNavigationStack.Screen name={'app-navigator'} component={AppStack} />
+    </RootNavigationStack.Navigator>
   )
 };
 

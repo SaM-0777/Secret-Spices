@@ -3,7 +3,7 @@ import { TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { headerStyle } from './Styles';
-import AppStyles from '../../../AppStyles';
+import AppStyles from '../../AppStyles';
 
 
 const Header = ({ onPress }) => {

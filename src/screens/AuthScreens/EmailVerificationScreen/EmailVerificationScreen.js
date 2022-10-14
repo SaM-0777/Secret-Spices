@@ -5,11 +5,11 @@ import { Text } from 'react-native-paper';
 import { EmailVerificationHeader, TextBox, PrimaryButton } from '../../../components';
 
 import Styles from './Styles';
-import AppStyles from '../../../../AppStyles';
+import AppStyles from '../../../AppStyles';
 
 
 const EmailVerificationScreen = ({ navigation }) => {
-  const [focus, setFocus] = useState(true)
+  const [isFocused, setIsFocused] = useState(true)
   const [code, setCode] = useState('')
 
   const navigateBack = () => navigation.goBack()
@@ -33,7 +33,7 @@ const EmailVerificationScreen = ({ navigation }) => {
           <View style={Styles.textBoxContainer} >
             <TextBox />
           </View>
-          <TextInput onChangeText={(text) => setCode(text)} cursorColor={AppStyles.secondaryColor} style={Styles.textInput} />
+          <TextInput onChangeText={(text) => setCode(text)} secureTextEntry onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)} cursorColor={AppStyles.secondaryColor} style={[Styles.textInput, isFocused ? { borderWidth: 2, borderColor: AppStyles.primaryColor } : {}]} />
           <View style={Styles.resendCodeContainer} >
             <Text style={Styles.resendCodeInfo} >Didn't receive a code? </Text>
             <TouchableOpacity activeOpacity={0.7} onPress={handleResendOTP} ><Text style={Styles.resendCode} >Resend code</Text></TouchableOpacity>
