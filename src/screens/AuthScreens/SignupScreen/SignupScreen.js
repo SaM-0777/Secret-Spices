@@ -11,6 +11,7 @@ import Styles from './Styles';
 
 
 const SignupScreen = ({ navigation }) => {
+  const[loading, setLoading] = useState(false)
   const [isFormValid, setIsFormValid] = useState({ isEmailValid: false, isUsernameValid: false, isPasswordValid: false })
   const [signUpAttributes, setSignupAttributes] = useState({
     email: "",
@@ -23,29 +24,41 @@ const SignupScreen = ({ navigation }) => {
   
   // sign up successful function
   const successfulCallBack = () => {
-    navigation.navigate('email-verification', { params: {username: signUpAttributes.username} })
+    setLoading(false)
+    navigation.navigate('email-verification', { email: signUpAttributes.email })
   }
-
+  
   const failureCallBack = (message) => {
+    setLoading(false)
     ToastAndroid.show(message, ToastAndroid.LONG, ToastAndroid.CENTER)
-    console.log(message)
+    // console.log(message)
   }
-
+  
   // handle when next button is clicked
-  const handleNext = () => {
-    signUp(signUpAttributes, successfulCallBack, failureCallBack)
+  const handleNext = async () => {
+    setLoading(true)
+    await signUp(signUpAttributes, successfulCallBack, failureCallBack)
+    setLoading(false)
     // navigation.push('email-verification')
   }
 
   return (
     <View style={Styles.container} >
       <StatusBar translucent barStyle={'dark-content'} backgroundColor={'transparent'} />
+      {loading ?
+        <>
+          <View style={Styles.loadingOverlay} />
+          <ActivityIndicator size={"large"} color={AppStyles.primaryColor} style={Styles.loadingIndicator} />
+        </>
+        :
+        null
+      }
       <KeyboardAwareScrollView contentContainerStyle={{ flex: 1, }} enableOnAndroid={true} extraScrollHeight={-180} >
         <View style={[Styles.wrapper]} >
           <GettingStartedHeader />
-          <EmailInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} />
+          <EmailInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} editable={!loading} />
           {/*<UsernameInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} />*/}
-          <PasswordInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} />
+          <PasswordInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} editable={!loading} />
           <View style={[Styles.footerWrapper, {  }]} >
             <PrimaryButton label={'Next'} disabled={!(isFormValid.isEmailValid && isFormValid.isPasswordValid)} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
           </View>

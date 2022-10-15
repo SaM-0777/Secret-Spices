@@ -8,7 +8,7 @@ import { validatePassword } from '../../utils/formValidator/formValidator';
 import { passwordInputStyles } from './Styles';
 
 
-const PasswordInput = ({ handleSignupAttributesChange, setIsFormValid }) => {
+const PasswordInput = ({ editable, handleSignupAttributesChange, setIsFormValid }) => {
   const [isFocused, setIsFocused] = useState(false)
   const [isValid, setIsValid] = useState(false)
   const [isTextChanged, setIsTextChanged] = useState(false)
@@ -41,7 +41,7 @@ const PasswordInput = ({ handleSignupAttributesChange, setIsFormValid }) => {
   return (
     <View>
       <View style={[passwordInputStyles.container, isFocused ? { borderWidth: 2, borderColor: AppStyles.primaryColor } : {}, isTextChanged ? !isValid ? { borderWidth: 2, borderColor: AppStyles.invalidTextIndicatorColor } : {} : {}]} >
-        <TextInput onFocus={onFocus} onBlur={onBlur} onChangeText={(text) => onChangeText(text)} placeholder={'Password'} cursorColor={AppStyles.secondaryColor} secureTextEntry={!passwordVisible} style={passwordInputStyles.input} />
+        <TextInput editable={editable} onFocus={onFocus} onBlur={onBlur} onChangeText={(text) => onChangeText(text)} placeholder={'Password'} cursorColor={AppStyles.secondaryColor} secureTextEntry={!passwordVisible} style={passwordInputStyles.input} />
         <TouchableOpacity activeOpacity={0.7} onPress={handlePasswordVisibility} style={passwordInputStyles.button} >
           <Ionicons name={passwordVisible ? 'eye-off-outline' : 'eye-outline'} size={25} />
         </TouchableOpacity>

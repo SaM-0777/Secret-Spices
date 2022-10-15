@@ -1,14 +1,14 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
 
-const BlurComponent = () => {
+const LoginScreenComponent = () => {
   return (
-    <View >
-      
+      <View>
+          
     </View>
   )
 };
 
 const styles = StyleSheet.create({});
 
-export default BlurComponent;
+export default LoginScreenComponent;

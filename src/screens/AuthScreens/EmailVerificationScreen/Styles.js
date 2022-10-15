@@ -51,5 +51,18 @@ export default StyleSheet.create({
     primaryButtonContainer: {
         marginTop: 40,
     },
+    loadingOverlay: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        opacity: 0.7,
+        backgroundColor: '#000',
+        ...StyleSheet.absoluteFillObject,
+        zIndex: 1,
+    },
+    loadingIndicator: {
+        ...StyleSheet.absoluteFillObject,
+        zIndex: 2,
+    },
 })
 

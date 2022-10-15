@@ -32,7 +32,7 @@ const GetStarted = ({ navigation }) => {
           <SocialLoginButton onPress={continueWithFacebook} label={'Continue with Facebook'} icon={'logo-facebook'} iconColor={'#FFF'} textColor={'#FFF'} backgroundColor={'#1877F2'} />
         </View>
       </View>
-      <Button mode={'text'} onPress={onLogin} textColor={AppStyles.primaryTextColor} labelStyle={Styles.loginButtonText} style={Styles.loginButton} >Login</Button>
+      <Button mode={'text'} onPress={onLogin} textColor={AppStyles.primaryTextColor} labelStyle={Styles.loginButtonText} style={Styles.loginButton} >Already have an account? Login</Button>
     </View>
   )
 };

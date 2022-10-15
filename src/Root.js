@@ -15,9 +15,9 @@ const Root = ({ }) => {
   return (
     <RootNavigationStack.Navigator screenOptions={screenOptions} id={'root-navigator'} initialRouteName={'boot-loading'}  >
       <RootNavigationStack.Screen name={'boot-loading'} component={BootLoadingScreen} />
-      <RootNavigationStack.Screen name={'onboarding-screen'} component={OnBoardingScreen} />
       <RootNavigationStack.Screen name={'auth-navigator'} component={AuthStack} />
       <RootNavigationStack.Screen name={'app-navigator'} component={AppStack} />
+      <RootNavigationStack.Screen name={'onboarding-screen'} component={OnBoardingScreen} />
     </RootNavigationStack.Navigator>
   )
 };
