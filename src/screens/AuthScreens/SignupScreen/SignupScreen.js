@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar, View, ToastAndroid, ActivityIndicator } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { GettingStartedHeader, EmailInput, UsernameInput, PasswordInput, PrimaryButton } from '../../../components';
+import { GettingStartedHeader, EmailInput, SignUpBackButton, PasswordInput, PrimaryButton } from '../../../components';
 
 import { signUp } from '../../../utils/auth/auth';
 
@@ -18,6 +18,8 @@ const SignupScreen = ({ navigation }) => {
     username: "",
     password: "",
   })
+
+  const navigateBack = () => navigation.goBack()
 
   // handle when sign up attributes are changed
   const handleSignupAttributesChange = (target, value) => setSignupAttributes({ ...signUpAttributes, [target]: value })
@@ -54,6 +56,9 @@ const SignupScreen = ({ navigation }) => {
         null
       }
       <KeyboardAwareScrollView contentContainerStyle={{ flex: 1, }} enableOnAndroid={true} extraScrollHeight={-180} >
+        <View style={[Styles.backButtonContainer, { paddingTop: StatusBar.currentHeight }]} >
+          <SignUpBackButton onPress={navigateBack} />
+        </View>
         <View style={[Styles.wrapper]} >
           <GettingStartedHeader />
           <EmailInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} editable={!loading} />

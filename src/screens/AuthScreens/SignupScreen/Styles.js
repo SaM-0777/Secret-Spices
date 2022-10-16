@@ -8,10 +8,14 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: AppStyles.primaryBackgroundColor,
     },
+    backButtonContainer: {
+        paddingHorizontal: 15,
+    },
     wrapper: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        //justifyContent: 'center',
+        marginTop: 50,
         paddingHorizontal: 15,
     },
     footerWrapper: {

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { View, StatusBar, ActivityIndicator, ToastAndroid } from 'react-native';
+import { View, StatusBar, TouchableOpacity, ActivityIndicator, ToastAndroid } from 'react-native';
+import { Text } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { LoginEmailInput, LoginPasswordInput, BackButton, PrimaryButton } from '../../../components';
+import { LoginScreenHeader, LoginEmailInput, LoginPasswordInput, BackButton, PrimaryButton } from '../../../components';
 
 import { signIn } from '../../../utils/auth/auth';
 
@@ -37,6 +38,8 @@ const LoginScreen = ({ navigation }) => {
     setLoading(false)
   }
 
+  const handleTroubleSigningIn = () => navigation.navigate('forgot-password-username')
+
   const handleNext = async () => {
     setLoading(true)
     await signIn(signInAttributes, signinSuccessCallback, signinFailureCallback)
@@ -59,8 +62,12 @@ const LoginScreen = ({ navigation }) => {
           <BackButton onPress={navigateBack} />
         </View>
         <View style={Styles.wrapper} >
+          <LoginScreenHeader />
           <LoginEmailInput editable={!loading} handleSignInAttributes={handleSignInAttributes} />
           <LoginPasswordInput editable={!loading} handleSignInAttributes={handleSignInAttributes} />
+          <TouchableOpacity activeOpacity={0.8} onPress={handleTroubleSigningIn} style={Styles.forgotPasswordContainer} >
+            <Text variant={'bodyMedium'} style={Styles.forgotPasswordText} >Trouble signing in?</Text>
+          </TouchableOpacity>
           <View style={[Styles.footerWrapper, {}]} >
             <PrimaryButton label={'Next'} disabled={!(signInAttributes.email && signInAttributes.password)} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
           </View>

@@ -1,7 +1,8 @@
 import GetStarted from "./GetStarted/GetStarted";
 import SignupScreen from "./SignupScreen";
-import LoginScreen from "./LoginScreen";
 import EmailVerificationScreen from "./EmailVerificationScreen";
+import LoginScreen from "./LoginScreen";
+import { EnterUsernameScreen, EnterNewPasswordScreen } from "./ForgotPasswordScreen";
 
 
 export {
@@ -9,5 +10,8 @@ export {
     SignupScreen,
     LoginScreen,
     EmailVerificationScreen,
+
+    EnterUsernameScreen,
+    EnterNewPasswordScreen,
 };
 

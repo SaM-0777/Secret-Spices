@@ -3,9 +3,11 @@ import { OnBoarding } from "./OnBoardingScreenComponent";
 import { PrimaryButton } from "./PrimaryButton";
 import { BottomActionSheet } from "./BottomActionSheet";
 import { Header as GetStartedHeader, Divider, SocialLoginButton } from "./GetStartedScreenComponents";
-import { Header as GettingStartedHeader, UsernameInput, EmailInput, PasswordInput } from "./SignupComponents";
+import { Header as GettingStartedHeader, BackButton as SignUpBackButton, UsernameInput, EmailInput, PasswordInput } from "./SignupComponents";
 import { Header as EmailVerificationHeader, TextBox } from "./EmailVerificationScreenComponents";
-import { EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput, BackButton } from "./LoginScreenComponents";
+import { Header as LoginScreenHeader, EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput, BackButton } from "./LoginScreenComponents";
+import { Header as EnterUserNameHeader, EnterUsername, EnterCode, EnterNewPassword, BackButton as ForgotPasswordBackButton } from "./ForgotPasswordScreenComponents";
+
 
 
 export {
@@ -24,6 +26,7 @@ export {
     EmailInput,
     UsernameInput,
     PasswordInput,
+    SignUpBackButton,
     
     BottomActionSheet,
     // Email verification screen components
@@ -31,8 +34,16 @@ export {
     TextBox,
 
     // Login screen component
+    LoginScreenHeader,
     LoginEmailInput,
     LoginPasswordInput,
     BackButton,
+
+    //
+    EnterUsername,
+    EnterUserNameHeader,
+    EnterCode,
+    EnterNewPassword,
+    ForgotPasswordBackButton,
 };
 

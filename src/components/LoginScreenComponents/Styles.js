@@ -3,6 +3,26 @@ import { StyleSheet, Dimensions } from "react-native";
 import AppStyles from "../../AppStyles";
 
 
+export const headerStyle = StyleSheet.create({
+    container: {
+        marginHorizontal: 35,
+    },
+    headerText: {
+        color: AppStyles.primaryTextColor,
+        textAlign: 'center',
+        fontSize: 32,
+        fontFamily: AppStyles.primaryFontFamilyBold,
+    },
+    headerSubText: {
+        color: AppStyles.secondaryTextColor,
+        fontSize: 16,
+        textAlign: 'center',
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        marginTop: 15,
+    },
+});
+
+
 export const emailInputStyles = StyleSheet.create({
     container: {
         width: 0.9 * Dimensions.get('window').width,

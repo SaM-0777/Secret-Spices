@@ -18,7 +18,18 @@ export default StyleSheet.create({
         alignItems: 'center',
         // justifyContent: 'center',
         paddingHorizontal: 15,
-        paddingTop: 80,
+        paddingTop: 50,
+    },
+    forgotPasswordContainer: {
+        alignSelf: 'flex-start',
+        paddingHorizontal: 20,
+        marginVertical: 15,
+    },
+    forgotPasswordText: {
+        color: AppStyles.secondaryTextColor,
+        fontSize: 14,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        letterSpacing: -0.5,
     },
     loadingOverlay: {
         flex: 1,
