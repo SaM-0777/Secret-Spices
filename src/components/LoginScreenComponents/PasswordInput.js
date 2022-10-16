@@ -5,13 +5,13 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { passwordInputStyles } from './Styles';
 
 
-const PasswordInput = ({ editable, handleSignupAttributesChange }) => {
+const PasswordInput = ({ editable, handleSignInAttributes }) => {
   const [isFocused, setIsFocused] = useState(false)
   const [passwordVisible, setPasswordVisible] = useState(false)
 
   const onFocus = () => setIsFocused(true)
   const onBlur = () => setIsFocused(false)
-  const onChangeText = (text) => handleSignupAttributesChange("password", text)
+  const onChangeText = (text) => handleSignInAttributes("password", text)
   const handlePasswordVisibility = () => setPasswordVisible(prevState => !prevState)
 
   return (

@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import { TextInput, View } from 'react-native';
-import { HelperText } from 'react-native-paper';
-
-import { validateEmail } from '../../utils/formValidator/formValidator';
 
 import AppStyles from '../../AppStyles';
 import { emailInputStyles } from './Styles';
 
 
-const EmailInput = ({ editable, handleSignupAttributesChange }) => {
-  const [isFocused, setIsFocused] = useState(false)
+const EmailInput = ({ editable, handleSignInAttributes }) => {
+  const [isFocused, setIsFocused] = useState(true)
 
   const onFocus = () => setIsFocused(true)
   const onBlur = () => setIsFocused(false)
-  const onChangeText = (text) => handleSignupAttributesChange("email", text)
+  const onChangeText = (text) => handleSignInAttributes("email", text)
   
   return (
     <View style={emailInputStyles.container} >

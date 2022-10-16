@@ -9,12 +9,16 @@ export default StyleSheet.create({
         // alignItems: 'center',
         backgroundColor: AppStyles.primaryBackgroundColor,
     },
+    backButtonContainer: {
+        paddingTop: 60,
+        paddingHorizontal: 20,
+    },
     wrapper: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        // justifyContent: 'center',
         paddingHorizontal: 15,
-        // paddingTop: 150,
+        paddingTop: 80,
     },
     loadingOverlay: {
         flex: 1,

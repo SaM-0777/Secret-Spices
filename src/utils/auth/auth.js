@@ -71,3 +71,16 @@ export const resendConfirmationCode = async (username, callBack) => {
     }
 };
 
+
+export const signIn = async (data, successCallback, failureCallback) => {
+    const {email: username, password} = data
+    //console.log(username, password)
+    try {
+        const user = await Auth.signIn(username, password)
+        await successCallback(user)
+    } catch (error) {
+        console.log('error signing in', error);
+        failureCallback(error.message)
+    }
+}
+

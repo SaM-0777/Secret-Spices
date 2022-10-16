@@ -31,7 +31,7 @@ const EmailVerificationScreen = ({ route, navigation }) => {
   const listenToHubSuccessCallback = async (user) => {
     // restrict user to go back
     try {
-      console.log(user)
+      // console.log(user)
       await AsyncStorage.setItem('@user', JSON.stringify(user))
       navigation.reset({ index: 0, routes: [{ name: 'app-navigator', params: {screen: 'home'} }] })
     } catch (error) {

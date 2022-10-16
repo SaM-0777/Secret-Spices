@@ -55,3 +55,15 @@ export const passwordInputStyles = StyleSheet.create({
     },
 });
 
+
+export const backButtonStyles = StyleSheet.create({
+    container: {
+        width: 56,
+        height: 56,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 10,
+        backgroundColor: AppStyles.secondaryBackgroundColor,
+    },
+});
+

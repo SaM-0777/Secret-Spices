@@ -5,7 +5,7 @@ import { BottomActionSheet } from "./BottomActionSheet";
 import { Header as GetStartedHeader, Divider, SocialLoginButton } from "./GetStartedScreenComponents";
 import { Header as GettingStartedHeader, UsernameInput, EmailInput, PasswordInput } from "./SignupComponents";
 import { Header as EmailVerificationHeader, TextBox } from "./EmailVerificationScreenComponents";
-import { EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput } from "./LoginScreenComponents";
+import { EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput, BackButton } from "./LoginScreenComponents";
 
 
 export {
@@ -33,5 +33,6 @@ export {
     // Login screen component
     LoginEmailInput,
     LoginPasswordInput,
+    BackButton,
 };
 
