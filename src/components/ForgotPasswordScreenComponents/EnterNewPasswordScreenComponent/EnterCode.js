@@ -5,12 +5,12 @@ import AppStyles from '../../../AppStyles';
 import { enterCodeStyles } from '../Styles';
 
 
-const EnterCode = ({ editable }) => {
+const EnterCode = ({ editable, handleOnAttributesChange }) => {
   const [isFocused, setIsFocused] = useState(true)
   
   const onFocus = () => setIsFocused(true)
   const onBlur = () => setIsFocused(false)
-  const onChangeText = () => {}
+  const onChangeText = (text) => handleOnAttributesChange("code", text)
 
   return (
     <View style={enterCodeStyles.container} >

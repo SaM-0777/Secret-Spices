@@ -5,12 +5,12 @@ import { HelperText } from 'react-native-paper';
 import { enterNewPasswordStyles } from '../Styles';
 
 
-const EnterNewPassword = ({ editable }) => {
+const EnterNewPassword = ({ editable, handleOnAttributesChange }) => {
   const [isFocused, setIsFocused] = useState(false)
 
   const onFocus = () => setIsFocused(true)
   const onBlur = () => setIsFocused(false)
-  const onChangeText = () => { }
+  const onChangeText = (text) => handleOnAttributesChange("newPassword", text)
 
   return (
     <View style={enterNewPasswordStyles.container} >

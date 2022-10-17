@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, StatusBar, ActivityIndicator } from 'react-native';
+import { View, StatusBar, ActivityIndicator, ToastAndroid } from 'react-native';
+
+import { forgotPassword } from '../../../utils/auth/auth';
 
 import { EnterUsername, Header, BackButton, PrimaryButton } from '../../../components';
 
@@ -12,7 +14,21 @@ const EnterUsernameScreen = ({ navigation }) => {
   const [username, setUsername] = useState("")
 
   const navigateBack = () => navigation.goBack()
-  const handleNext = () => navigation.navigate('forgot-password-newPassword')
+
+  const failureCallBack = (message) => {
+    setLoading(false)
+    ToastAndroid.show(message, ToastAndroid.LONG, ToastAndroid.CENTER)
+  }
+
+  const successCallBack = (data) => {
+    navigation.navigate('forgot-password-newPassword', { username })
+    setLoading(false)
+  }
+
+  const handleNext = async () => {
+    setLoading(true)
+    await forgotPassword(username, successCallBack, failureCallBack)
+  }
   
   const handleOnChangeUsername = (text) => setUsername(text)
 
@@ -31,7 +47,7 @@ const EnterUsernameScreen = ({ navigation }) => {
         <BackButton onPress={navigateBack} />
         <View style={enterUsernameScreenStyles.enterUsernameContainer} >
           <View style={enterUsernameScreenStyles.headerContainer} >
-            <Header header={"Welcome"} subHeader={"Sign in to explore the world of food."} />
+            <Header header={"Forgot Password"} subHeader={"Tell use more about your account."} />
           </View>
           <EnterUsername editable={true} handleOnChangeUsername={handleOnChangeUsername} />
           <View style={enterUsernameScreenStyles.primaryButtonContainer} >

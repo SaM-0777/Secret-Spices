@@ -29,8 +29,8 @@ const LoginScreen = ({ navigation }) => {
   const signinSuccessCallback = async (user) => {
     try {
       await AsyncStorage.setItem('@user', JSON.stringify(user))
-      setLoading(false)
       navigation.reset({ index: 0, routes: [{ name: 'app-navigator', params: { screen: 'home' } }] })
+      setLoading(false)
     } catch (error) {
       setLoading(false)
       ToastAndroid.show('An error occured', ToastAndroid.CENTER)

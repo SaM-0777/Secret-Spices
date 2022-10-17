@@ -7,10 +7,14 @@ import AppStyles from '../../../AppStyles';
 import { enterNewPasswordScreenStyles } from './Styles';
 
 
-const EnterNewPasswordScreen = ({ navigation }) => {
+const EnterNewPasswordScreen = ({ route, navigation }) => {
   const [loading, setLoading] = useState(false)
+  const [username, setUsername] = useState(route?.params?.username)
+  const [newAttributes, setNewAttributes] = useState({code: "", newPassword: ""})
   
   const navigateBack = () => navigation.goBack()
+
+  const handleOnAttributesChange = (target, value) => setNewAttributes({...newAttributes, [target]: value})
 
   const handleNext = () => {}
 
@@ -30,9 +34,9 @@ const EnterNewPasswordScreen = ({ navigation }) => {
         <View style={enterNewPasswordScreenStyles.headerContainer} >
           <Header header={"Welcome"} subHeader={"Sign in to explore the world of food."} />
         </View>
-        <Username email={"sam.2.3.4.5.ranjan@gmail.com"} />
-        <EnterCode editable={!loading} />
-        <EnterNewPassword editable={!loading} />
+        <Username email={username} />
+        <EnterCode editable={!loading} handleOnAttributesChange={handleOnAttributesChange} />
+        <EnterNewPassword editable={!loading} handleOnAttributesChange={handleOnAttributesChange} />
         <View style={enterNewPasswordScreenStyles.primaryButtonContainer} >
           <PrimaryButton label={'Next'} disabled={false} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
         </View>
