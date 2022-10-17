@@ -46,3 +46,46 @@ export const enterUsernameStyles = StyleSheet.create({
     },
 });
 
+
+export const enterCodeStyles = StyleSheet.create({
+    container: {
+        width: 0.9 * Dimensions.get('window').width,
+        marginTop: 20,
+    },
+    inputContainer: {
+        height: 48,
+        paddingHorizontal: 10,
+        borderRadius: 15,
+        backgroundColor: '#FFF',
+    },
+    input: {
+        fontSize: 16,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        letterSpacing: 0.8,
+    },
+});
+
+
+export const enterNewPasswordStyles = StyleSheet.create({
+    container: {
+        width: 0.9 * Dimensions.get('window').width,
+        marginTop: 20,
+    },
+    inputContainer: {
+        height: 48,
+        paddingHorizontal: 10,
+        borderRadius: 15,
+        backgroundColor: '#FFF',
+    },
+    input: {
+        fontSize: 16,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        letterSpacing: 0.8,
+    },
+    helperText: {
+        fontSize: 12,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        marginTop: 1,
+    },
+})
+

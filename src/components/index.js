@@ -8,7 +8,7 @@ import { Divider, SocialLoginButton } from "./GetStartedScreenComponents";
 import { UsernameInput, EmailInput, PasswordInput } from "./SignupComponents";
 import { TextBox } from "./EmailVerificationScreenComponents";
 import { EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput } from "./LoginScreenComponents";
-import { Header as EnterUserNameHeader, EnterUsername, EnterCode, EnterNewPassword } from "./ForgotPasswordScreenComponents";
+import { EnterUsername, EnterCode, EnterNewPassword, Username } from "./ForgotPasswordScreenComponents";
 
 
 
@@ -42,8 +42,8 @@ export {
 
     //
     EnterUsername,
-    EnterUserNameHeader,
     EnterCode,
     EnterNewPassword,
+    Username,
 };
 

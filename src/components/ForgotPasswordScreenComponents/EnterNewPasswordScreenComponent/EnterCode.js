@@ -1,14 +1,26 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import React, { useState } from 'react';
+import { View, TextInput } from 'react-native';
 
-const EnterCode = () => {
+import AppStyles from '../../../AppStyles';
+import { enterCodeStyles } from '../Styles';
+
+
+const EnterCode = ({ editable }) => {
+  const [isFocused, setIsFocused] = useState(true)
+  
+  const onFocus = () => setIsFocused(true)
+  const onBlur = () => setIsFocused(false)
+  const onChangeText = () => {}
+
   return (
-    <View>
-      
+    <View style={enterCodeStyles.container} >
+      <View style={[enterCodeStyles.inputContainer, isFocused ? { borderWidth: 2, borderColor: AppStyles.primaryColor } : {}]} >
+        <TextInput editable={editable} onFocus={onFocus} onBlur={onBlur} onChangeText={(text) => onChangeText(text)} placeholder={"Enter OTP"} cursorColor={AppStyles.secondaryColor} maxLength={6} keyboardType={'number-pad'} style={enterCodeStyles.input} />
+      </View>
     </View>
   )
 };
 
-const styles = StyleSheet.create({});
 
 export default EnterCode;
+

@@ -80,7 +80,7 @@ const EmailVerificationScreen = ({ route, navigation }) => {
             <TouchableOpacity activeOpacity={0.7} onPress={handleResendOTP} ><Text style={Styles.resendCode} >Resend code</Text></TouchableOpacity>
           </View>
           <View style={Styles.primaryButtonContainer} >
-            <PrimaryButton disabled={!(code.length >= 6)} label={'Next'} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
+            <PrimaryButton disabled={!(code)} label={'Next'} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
           </View>
         </View>
       </View>

@@ -6,7 +6,7 @@ import AppStyles from '../../AppStyles';
 import { enterUsernameStyles } from './Styles';
 
 
-const EnterUsername = ({ handleOnChangeUsername }) => {
+const EnterUsername = ({ editable, handleOnChangeUsername }) => {
   const [isFocused, setIsFocused] = useState(true)
 
   const onFocus = () => setIsFocused(true)
@@ -16,9 +16,9 @@ const EnterUsername = ({ handleOnChangeUsername }) => {
   return (
     <View style={enterUsernameStyles.container} >
       <View style={[enterUsernameStyles.inputContainer, isFocused ? { borderWidth: 2, borderColor: AppStyles.primaryColor } : {}]} >
-        <TextInput editable={true} onFocus={onFocus} onBlur={onBlur} onChangeText={(text) => onChangeText(text)} placeholder={'Email'} maxLength={50} cursorColor={AppStyles.secondaryColor} keyboardType={'email-address'} style={enterUsernameStyles.input} />
+        <TextInput editable={editable} onFocus={onFocus} onBlur={onBlur} onChangeText={(text) => onChangeText(text)} placeholder={'Email'} maxLength={50} cursorColor={AppStyles.secondaryColor} keyboardType={'email-address'} style={enterUsernameStyles.input} />
       </View>
-      <HelperText>We'll send you a verification code to know its really you.</HelperText>
+      <HelperText style={enterUsernameStyles.helperText} >We'll send you a verification code to know its really you.</HelperText>
     </View>
   )
 };
