@@ -3,8 +3,8 @@ import {View, StyleSheet} from 'react-native';
 
 const CodeInput = () => {
   return (
-      <View>
-          
+    <View>
+      
     </View>
   )
 };

@@ -4,7 +4,7 @@ import { Text } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { LoginScreenHeader, LoginEmailInput, LoginPasswordInput, BackButton, PrimaryButton } from '../../../components';
+import { Header, LoginEmailInput, LoginPasswordInput, BackButton, PrimaryButton } from '../../../components';
 
 import { signIn } from '../../../utils/auth/auth';
 
@@ -62,7 +62,7 @@ const LoginScreen = ({ navigation }) => {
           <BackButton onPress={navigateBack} />
         </View>
         <View style={Styles.wrapper} >
-          <LoginScreenHeader />
+          <Header header={"Welcome"} subHeader={"Sign in to explore the world of food."} />
           <LoginEmailInput editable={!loading} handleSignInAttributes={handleSignInAttributes} />
           <LoginPasswordInput editable={!loading} handleSignInAttributes={handleSignInAttributes} />
           <TouchableOpacity activeOpacity={0.8} onPress={handleTroubleSigningIn} style={Styles.forgotPasswordContainer} >

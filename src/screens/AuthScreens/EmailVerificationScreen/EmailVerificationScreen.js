@@ -3,7 +3,7 @@ import { View, TextInput, StatusBar, TouchableOpacity, ToastAndroid, ActivityInd
 import { Text } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { EmailVerificationHeader, TextBox, PrimaryButton } from '../../../components';
+import { BackButton, TextBox, PrimaryButton } from '../../../components';
 
 import { confirmSignUp, resendConfirmationCode, listenToAutoSignInEvent } from '../../../utils/auth/auth';
 
@@ -69,7 +69,7 @@ const EmailVerificationScreen = ({ route, navigation }) => {
         null
       }
       <View style={Styles.wrapper} >
-        <EmailVerificationHeader onPress={navigateBack} />
+        <BackButton onPress={navigateBack} />
         <View style={Styles.contentWrapper} >
           <View style={Styles.textBoxContainer} >
             <TextBox email={email} />
@@ -80,7 +80,7 @@ const EmailVerificationScreen = ({ route, navigation }) => {
             <TouchableOpacity activeOpacity={0.7} onPress={handleResendOTP} ><Text style={Styles.resendCode} >Resend code</Text></TouchableOpacity>
           </View>
           <View style={Styles.primaryButtonContainer} >
-            <PrimaryButton disabled={false} label={'Next'} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
+            <PrimaryButton disabled={!(code.length >= 6)} label={'Next'} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
           </View>
         </View>
       </View>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, StatusBar } from 'react-native';
 
-import { EnterUsername, EnterUserNameHeader, BackButton, PrimaryButton } from '../../../components';
+import { EnterUsername, Header, BackButton, PrimaryButton } from '../../../components';
 
 import AppStyles from '../../../AppStyles';
 import { enterUsernameScreenStyles } from './Styles';
@@ -22,7 +22,7 @@ const EnterUsernameScreen = ({ navigation }) => {
         <BackButton onPress={navigateBack} />
         <View style={enterUsernameScreenStyles.enterUsernameContainer} >
           <View style={enterUsernameScreenStyles.headerContainer} >
-            <EnterUserNameHeader />
+            <Header header={"Welcome"} subHeader={"Sign in to explore the world of food."} />
           </View>
           <EnterUsername handleOnChangeUsername={handleOnChangeUsername} />
           <View style={enterUsernameScreenStyles.primaryButtonContainer} >

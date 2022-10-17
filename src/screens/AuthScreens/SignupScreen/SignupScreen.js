@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StatusBar, View, ToastAndroid, ActivityIndicator } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { GettingStartedHeader, EmailInput, SignUpBackButton, PasswordInput, PrimaryButton } from '../../../components';
+import { Header, EmailInput, BackButton, PasswordInput, PrimaryButton } from '../../../components';
 
 import { signUp } from '../../../utils/auth/auth';
 
@@ -57,10 +57,10 @@ const SignupScreen = ({ navigation }) => {
       }
       <KeyboardAwareScrollView contentContainerStyle={{ flex: 1, }} enableOnAndroid={true} extraScrollHeight={-180} >
         <View style={[Styles.backButtonContainer, { paddingTop: StatusBar.currentHeight }]} >
-          <SignUpBackButton onPress={navigateBack} />
+          <BackButton onPress={navigateBack} />
         </View>
         <View style={[Styles.wrapper]} >
-          <GettingStartedHeader />
+          <Header header={"Getting Started!"} subHeader={"Look like you are new to us! Create an account for an complete experience."} />
           <EmailInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} editable={!loading} />
           {/*<UsernameInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} />*/}
           <PasswordInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} editable={!loading} />

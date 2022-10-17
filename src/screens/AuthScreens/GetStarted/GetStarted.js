@@ -3,7 +3,7 @@ import { View, StatusBar } from 'react-native';
 import { Button } from 'react-native-paper';
 
 import { continueWithFacebook, continueWithGoogle } from '../../../utils/auth/auth';
-import { GetStartedHeader, Divider, SocialLoginButton, PrimaryButton } from '../../../components';
+import { Header, Divider, SocialLoginButton, PrimaryButton } from '../../../components';
 
 import Styles from './Styles';
 import AppStyles from '../../../AppStyles';
@@ -22,7 +22,7 @@ const GetStarted = ({ navigation }) => {
     <View style={Styles.container} >
       <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
       <View style={Styles.wrapper} >
-        <GetStartedHeader />
+        <Header header={"Let's Get Started"} subHeader={"Sign up or login into to have a full digital experience in our restaurant."} />
         <View style={Styles.getStartedButtonWrapper} >
           <PrimaryButton label={'Get Started'} onPress={onGetStarted} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
         </View>

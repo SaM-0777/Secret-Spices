@@ -2,11 +2,13 @@ import { PrimaryLoading } from "./LoadingComponents";
 import { OnBoarding } from "./OnBoardingScreenComponent";
 import { PrimaryButton } from "./PrimaryButton";
 import { BottomActionSheet } from "./BottomActionSheet";
-import { Header as GetStartedHeader, Divider, SocialLoginButton } from "./GetStartedScreenComponents";
-import { Header as GettingStartedHeader, BackButton as SignUpBackButton, UsernameInput, EmailInput, PasswordInput } from "./SignupComponents";
-import { Header as EmailVerificationHeader, TextBox } from "./EmailVerificationScreenComponents";
-import { Header as LoginScreenHeader, EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput, BackButton } from "./LoginScreenComponents";
-import { Header as EnterUserNameHeader, EnterUsername, EnterCode, EnterNewPassword, BackButton as ForgotPasswordBackButton } from "./ForgotPasswordScreenComponents";
+import { Header } from "./Header";
+import { BackButton } from "./BackButton";
+import { Divider, SocialLoginButton } from "./GetStartedScreenComponents";
+import { UsernameInput, EmailInput, PasswordInput } from "./SignupComponents";
+import { TextBox } from "./EmailVerificationScreenComponents";
+import { EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput } from "./LoginScreenComponents";
+import { Header as EnterUserNameHeader, EnterUsername, EnterCode, EnterNewPassword } from "./ForgotPasswordScreenComponents";
 
 
 
@@ -18,32 +20,30 @@ export {
     
     PrimaryButton,
     
-    GetStartedHeader,
     Divider,
     SocialLoginButton,
-    
-    GettingStartedHeader,
+
     EmailInput,
     UsernameInput,
     PasswordInput,
-    SignUpBackButton,
     
     BottomActionSheet,
+
+    Header,
+
+    BackButton,
+
     // Email verification screen components
-    EmailVerificationHeader,
     TextBox,
 
     // Login screen component
-    LoginScreenHeader,
     LoginEmailInput,
     LoginPasswordInput,
-    BackButton,
 
     //
     EnterUsername,
     EnterUserNameHeader,
     EnterCode,
     EnterNewPassword,
-    ForgotPasswordBackButton,
 };
 

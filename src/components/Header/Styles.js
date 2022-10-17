@@ -1,28 +1,24 @@
 import { StyleSheet } from "react-native";
 
-import AppStyles from "../../AppStyles";
+import AppStyles from '../../AppStyles';
 
 
-export const textBoxStyles = StyleSheet.create({
+export const headerStyles = StyleSheet.create({
     container: {
-        paddingHorizontal: 20,
+        marginHorizontal: 35,
     },
-    header: {
+    headerText: {
         color: AppStyles.primaryTextColor,
-        fontSize: 24,
         textAlign: 'center',
+        fontSize: 32,
         fontFamily: AppStyles.primaryFontFamilyBold,
     },
-    body: {
+    headerSubText: {
         color: AppStyles.secondaryTextColor,
         fontSize: 16,
         textAlign: 'center',
         fontFamily: AppStyles.secondaryFontFamilyRegular,
-        marginTop: 10,
+        marginTop: 20,
     },
-    bold: {
-        color: AppStyles.secondaryColor,
-        fontWeight: '700',
-    },
-});
+})
 
