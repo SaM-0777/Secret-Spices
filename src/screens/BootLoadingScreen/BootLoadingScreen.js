@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { View, StatusBar } from 'react-native';
-import { Text } from 'react-native-paper';
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, StatusBar, ActivityIndicator } from 'react-native';
 import { Auth, Hub } from 'aws-amplify';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import AppStyles from '../../AppStyles';
 import Styles from './Styles';
 
 
@@ -11,29 +11,30 @@ import Styles from './Styles';
 const BootLoadingScreen = ({ navigation }) => {
   const [viewedOnBoarding, setViewedOnBoarding] = useState(false)
   const [user, setUser] = useState(null)
+  // const [loading, setLoading] = useState(true)
 
   // check whether user has already viewed on-boarding screen 
   const checkOnboardingViewed = async () => {
     try {
       const value = await AsyncStorage.getItem('@viewedOnBoarding')
-      
+
       if (value !== null) setViewedOnBoarding(true)
       else setViewedOnBoarding(false)
-    
+
     } catch (error) {
       console.error('error checking async-storage for key @viewedOnBoarding', error)
     } finally {
       console.log('fresh value Here: ', viewedOnBoarding)
     }
   }
-  
+
   // get user
   async function getUser() {
     return Auth.currentAuthenticatedUser()
-    .then(userData => userData)
-    .catch((error) => console.log('Not signed in: ', error))
+      .then(userData => userData)
+      .catch((error) => console.log('Not signed in: ', error))
   }
-  
+
   // get latest user from auth
   async function getAuthState() {
     Hub.listen('auth', ({ payload: { event, data } }) => {
@@ -65,25 +66,27 @@ const BootLoadingScreen = ({ navigation }) => {
   const buffer = async () => {
     await checkOnboardingViewed()
     await getAuthState()
-    
+
     if (viewedOnBoarding === true) {
       // user has been subscribed
       if (user !== null) navigation.reset({ index: 0, routes: [{ name: 'app-navigator' }] })   // reset navigation to appstack-home
-      else navigation.reset({ index: 0, routes: [{ name: 'auth-navigator' }]})                 // reset navigation to authstack-getStarted
+      else navigation.reset({ index: 0, routes: [{ name: 'auth-navigator' }] })                 // reset navigation to authstack-getStarted
     }
     else navigation.reset({ index: 0, routes: [{ name: 'onboarding-screen' }] })
   }
-  
+
   useEffect(() => {
     buffer()
 
     return () => { }
   }, [user, viewedOnBoarding])
 
+
   return (
     <View style={Styles.container} >
       <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
-      <Text variant={'bodyLarge'} >Boot Loading wait...</Text>
+      <View style={Styles.loadingOverlay} />
+      <ActivityIndicator size={"large"} color={AppStyles.primaryColor} style={Styles.loadingIndicator} />
     </View>
   )
 };

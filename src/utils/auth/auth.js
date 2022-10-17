@@ -95,8 +95,17 @@ export const forgotPassword = async (username, successCallback, failureCallBack)
         console.log(error)
         failureCallBack(error.message)
     }
-    /*Auth.forgotPassword(username)
-        .then(data => console.log(data))
-        .catch(err => console.log(err));*/
-}
+};
+
+
+export const forgotPasswordSubmit = async (data, successCallBack, failureCallBack) => {
+    const { username, code, newPassword } = data
+    try {
+        const data = await Auth.forgotPasswordSubmit(username, code, newPassword)
+        successCallBack(data)
+    } catch (error) {
+        console.log(error)
+        failureCallBack(error.message)
+    }
+};  
 

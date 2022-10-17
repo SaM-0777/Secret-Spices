@@ -9,8 +9,9 @@ export default StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    wrapper: {
-
+    loadingOverlay: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: AppStyles.secondaryBackgroundColor,
     },
 })
 

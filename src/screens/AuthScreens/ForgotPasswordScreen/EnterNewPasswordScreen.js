@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { View, StatusBar, ActivityIndicator } from 'react-native';
+import { View, StatusBar, ActivityIndicator, ToastAndroid } from 'react-native';
 
 import { Header, BackButton, PrimaryButton, Username, EnterCode, EnterNewPassword } from '../../../components';
+
+import { forgotPasswordSubmit } from '../../../utils/auth/auth';
 
 import AppStyles from '../../../AppStyles';
 import { enterNewPasswordScreenStyles } from './Styles';
@@ -14,9 +16,22 @@ const EnterNewPasswordScreen = ({ route, navigation }) => {
   
   const navigateBack = () => navigation.goBack()
 
-  const handleOnAttributesChange = (target, value) => setNewAttributes({...newAttributes, [target]: value})
+  const handleOnAttributesChange = (target, value) => setNewAttributes({ ...newAttributes, [target]: value })
+  
+  const failureCallBack = (message) => {
+    setLoading(false)
+    ToastAndroid.show(message, ToastAndroid.LONG, ToastAndroid.CENTER)
+  }
+  const successCallBack = (data) => {
+    navigation.navigate('login')
+    setLoading(false)
+  }
 
-  const handleNext = () => {}
+  const handleNext = async () => {
+    setLoading(true)
+    await forgotPasswordSubmit({ username, code: newAttributes.code, newPassword: newAttributes.newPassword }, successCallBack, failureCallBack)
+    setLoading(false)
+  }
 
   return (
     <View style={enterNewPasswordScreenStyles.container} >
