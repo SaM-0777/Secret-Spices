@@ -41,7 +41,6 @@ const SignupScreen = ({ navigation }) => {
     setLoading(true)
     await signUp(signUpAttributes, successfulCallBack, failureCallBack)
     setLoading(false)
-    // navigation.push('email-verification')
   }
 
   return (
@@ -62,7 +61,6 @@ const SignupScreen = ({ navigation }) => {
         <View style={[Styles.wrapper]} >
           <Header header={"Getting Started!"} subHeader={"Look like you are new to us! Create an account for an complete experience."} />
           <EmailInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} editable={!loading} />
-          {/*<UsernameInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} />*/}
           <PasswordInput handleSignupAttributesChange={handleSignupAttributesChange} setIsFormValid={setIsFormValid} editable={!loading} />
           <View style={[Styles.footerWrapper, {  }]} >
             <PrimaryButton label={'Next'} disabled={!(isFormValid.isEmailValid && isFormValid.isPasswordValid)} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />

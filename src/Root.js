@@ -1,26 +1,70 @@
-import React, { useState } from 'react';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import React, { useState, useEffect, useCallback } from 'react';
+import { View, StatusBar, ActivityIndicator, StyleSheet, Text, ToastAndroid } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { AuthStack, AppStack } from './Navigations';
-import { OnBoardingScreen, BootLoadingScreen } from './screens';
+import RootNavigation from './Navigations/RootNavigation';
+import { OnBoardingScreen, } from './screens';
 
+import AppStyles from './AppStyles';
 
-const RootNavigationStack = createNativeStackNavigator();
 
 const Root = ({ }) => {
-  const [screenOptions, setScreenoptions] = useState({
-    headerShown: false,
-  })
+  const [viewedOnBoarding, setViewedOnBoarding] = useState(false)
+  const [loading, setLoading] = useState(true)
+
+  // check whether user has already viewed on-boarding screen 
+  const checkOnboardingViewed = async () => {
+    setLoading(true)
+    try {
+      const value = await AsyncStorage.getItem('@viewedOnBoarding')
+      
+      if (value !== null) setViewedOnBoarding(true)
+      else setViewedOnBoarding(false)
+      
+      setLoading(false)
+      
+    } catch (error) {
+      console.error('error checking async-storage for key @viewedOnBoarding', error)
+      setLoading(false)
+      ToastAndroid.show(error.message, ToastAndroid.LONG, ToastAndroid.CENTER)
+    } finally {
+      setLoading(false)
+    }
+  }
+  
+  useEffect(() => {
+    checkOnboardingViewed()
+    return () => {}
+  }, [])
   
   return (
-    <RootNavigationStack.Navigator screenOptions={screenOptions} id={'root-navigator'} initialRouteName={'boot-loading'}  >
-      <RootNavigationStack.Screen name={'boot-loading'} component={BootLoadingScreen} />
-      <RootNavigationStack.Screen name={'auth-navigator'} component={AuthStack} />
-      <RootNavigationStack.Screen name={'app-navigator'} component={AppStack} />
-      <RootNavigationStack.Screen name={'onboarding-screen'} component={OnBoardingScreen} />
-    </RootNavigationStack.Navigator>
+    <>
+      <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
+      {loading ?
+        <View style={Styles.container} >
+          <View style={Styles.loadingOverlay} />
+          <Text>from Root</Text>
+          <ActivityIndicator size={"large"} color={AppStyles.primaryColor} style={Styles.loadingIndicator} />
+        </View>
+        :
+        viewedOnBoarding ? <RootNavigation /> : <OnBoardingScreen />
+      }
+    </>
   )
 };
+
+
+const Styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  loadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: AppStyles.secondaryBackgroundColor,
+  },
+});
 
 
 export default Root;

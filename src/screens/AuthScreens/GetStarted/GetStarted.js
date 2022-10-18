@@ -11,11 +11,11 @@ import AppStyles from '../../../AppStyles';
 
 const GetStarted = ({ navigation }) => {
   const onGetStarted = () => {
-    navigation.push('signup')
+    navigation.navigate('signup')
   }
 
   const onLogin = () => {
-    navigation.push('login')
+    navigation.navigate('login')
   }
 
   return (

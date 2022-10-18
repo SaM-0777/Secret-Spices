@@ -4,9 +4,9 @@ import { Text } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-import { Header, LoginEmailInput, LoginPasswordInput, BackButton, PrimaryButton } from '../../../components';
-
 import { signIn } from '../../../utils/auth/auth';
+
+import { Header, LoginEmailInput, LoginPasswordInput, BackButton, PrimaryButton } from '../../../components';
 
 import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
@@ -27,14 +27,14 @@ const LoginScreen = ({ navigation }) => {
     ToastAndroid.show(message, ToastAndroid.LONG, ToastAndroid.CENTER)
   }
   const signinSuccessCallback = async (user) => {
-    try {
+    /*try {
       await AsyncStorage.setItem('@user', JSON.stringify(user))
-      navigation.reset({ index: 0, routes: [{ name: 'app-navigator', params: { screen: 'home' } }] })
+      // navigation.reset({ index: 0, routes: [{ name: 'app-navigator', params: { screen: 'home' } }] })
       setLoading(false)
     } catch (error) {
       setLoading(false)
       ToastAndroid.show('An error occured', ToastAndroid.CENTER)
-    }
+    }*/
     setLoading(false)
   }
 
