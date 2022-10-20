@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { PrimaryLoading } from "./LoadingComponents";
 import { OnBoarding } from "./OnBoardingScreenComponent";
 import { PrimaryButton } from "./PrimaryButton";
@@ -9,7 +11,7 @@ import { UsernameInput, EmailInput, PasswordInput } from "./SignupComponents";
 import { TextBox } from "./EmailVerificationScreenComponents";
 import { EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput } from "./LoginScreenComponents";
 import { EnterUsername, EnterCode, EnterNewPassword, Username } from "./ForgotPasswordScreenComponents";
-
+import { BottomTabNavigator } from "./BottomTabNavigator";
 
 
 export {
@@ -45,5 +47,8 @@ export {
     EnterCode,
     EnterNewPassword,
     Username,
+
+    //
+    BottomTabNavigator,
 };
 

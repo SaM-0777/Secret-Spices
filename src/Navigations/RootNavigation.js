@@ -1,5 +1,6 @@
+/* eslint-disable */
+
 import React, { useState, useEffect } from 'react';
-import { View, StyleSheet, Text, ToastAndroid, ActivityIndicator } from 'react-native';
 import { Auth, Hub } from 'aws-amplify';
 
 import AuthStack from './AuthStack';
@@ -14,22 +15,22 @@ const RootNavigation = ({  }) => {
       switch (event) {
         case 'signIn':
         case 'cognitoHostedUI':
-          getUser().then(userData => setUser(userData));
-          break;
+          getUser().then(userData => setUser(userData))
+          break
         case 'signOut':
-          setUser(null);
-          break;
+          setUser(null)
+          break
         case 'signIn_failure':
         case 'cognitoHostedUI_failure':
-          console.log('Sign in failure', data);
-          break;
+          console.log('Sign in failure', data)
+          break
       }
     })
     
     getUser().then(userData => setUser(userData));
     
     return () => {}
-  }, []);
+  }, [])
   
   async function getUser() {
     return Auth.currentAuthenticatedUser({ bypassCache: true })

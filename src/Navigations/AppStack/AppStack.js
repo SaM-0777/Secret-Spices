@@ -1,7 +1,10 @@
+/* eslint-disable */
+
 import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { BottomTabNavigator } from '../../components';
 import { HomeScreen } from '../../screens';
 
 
