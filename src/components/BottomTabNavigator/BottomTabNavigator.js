@@ -7,11 +7,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tabs = createBottomTabNavigator()
 
-const BottomTabNavigator = ({}) => {
+const BottomTabNavigator = ({ screens }) => {
   return (
-    <View>
+    <Tabs.Navigator>
       
-    </View>
+    </Tabs.Navigator>
   )
 };
 
