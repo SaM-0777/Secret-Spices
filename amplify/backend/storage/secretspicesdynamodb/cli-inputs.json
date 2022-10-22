@@ -1,0 +1,16 @@
+{
+  "resourceName": "secretspicesdynamodb",
+  "tableName": "testtable",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "sortKey": {
+    "fieldName": "objects",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": [
+    "secretspicesdynamodbTrigger9df0f26f"
+  ]
+}

@@ -9,11 +9,28 @@
       "UnauthRoleName": "amplify-secretspices-staging-64145-unauthRole",
       "StackName": "amplify-secretspices-staging-64145",
       "StackId": "arn:aws:cloudformation:us-east-1:230244118153:stack/amplify-secretspices-staging-64145/9da70560-43af-11ed-9051-0eaf9f40ad6f",
-      "AmplifyAppId": "d1kt7wq4x5eo5w"
+      "AmplifyAppId": "d1kt7wq4x5eo5w",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-secretspices-staging-64145-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
       "auth": {
         "secretspices": {}
+      },
+      "function": {
+        "secretspicesfunction": {
+          "deploymentBucketName": "amplify-secretspices-staging-64145-deployment",
+          "s3Key": "amplify-builds/secretspicesfunction-6e6e7956694945477364-build.zip"
+        },
+        "secretspicesdynamodbTrigger9df0f26f": {
+          "deploymentBucketName": "amplify-secretspices-staging-64145-deployment",
+          "s3Key": "amplify-builds/secretspicesdynamodbTrigger9df0f26f-52723567447761633766-build.zip"
+        }
+      },
+      "storage": {
+        "secretspicesdynamodb": {}
+      },
+      "api": {
+        "secretspicesrestapi": {}
       }
     }
   }
