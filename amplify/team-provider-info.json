@@ -17,20 +17,10 @@
         "secretspices": {}
       },
       "function": {
-        "secretspicesfunction": {
-          "deploymentBucketName": "amplify-secretspices-staging-64145-deployment",
-          "s3Key": "amplify-builds/secretspicesfunction-6e6e7956694945477364-build.zip"
-        },
-        "secretspicesdynamodbTrigger9df0f26f": {
-          "deploymentBucketName": "amplify-secretspices-staging-64145-deployment",
-          "s3Key": "amplify-builds/secretspicesdynamodbTrigger9df0f26f-52723567447761633766-build.zip"
-        }
+        "secretspicescookbook": {}
       },
       "storage": {
-        "secretspicesdynamodb": {}
-      },
-      "api": {
-        "secretspicesrestapi": {}
+        "s3secretspicesmediastorage": {}
       }
     }
   }
