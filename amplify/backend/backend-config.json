@@ -34,5 +34,14 @@
         ]
       }
     }
-  }
+  },
+  "function": {},
+  "storage": {
+    "s3secretspicesmediastorage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  },
+  "api": {}
 }
