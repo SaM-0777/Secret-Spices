@@ -32,19 +32,19 @@ function BottomTab() {
       <Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
-          <Ionicons name={focused ? 'home-sharp' : 'home-outline'} size={25} color={AppStyles.primaryColor} />
+          <Ionicons name={'home-sharp'} size={25} color={focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor} />
         )
       }} name={'home'} component={HomeScreen} />
       <Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
-          <Ionicons name={focused ? 'grid-sharp' : 'grid-outline'} size={25} color={AppStyles.primaryColor} />
+          <Ionicons name={'grid-sharp'} size={25} color={focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor} />
         )
       }} name={'category'} component={CategoryScreen} />
       <Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
-          <View style={{ width: 55, height: 35, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: AppStyles.primaryColor }} >
+          <View style={{ width: 55, height: 35, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor }} >
             <Ionicons name={focused ? 'fast-food-sharp' : 'fast-food-outline'} size={25} color={AppStyles.secondaryColor} />
           </View>
         )
@@ -52,13 +52,13 @@ function BottomTab() {
       <Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
-          <Ionicons name={focused ? 'notifications-sharp' : 'notifications-outline'} size={25} color={AppStyles.primaryColor} />
+          <Ionicons name={'notifications-sharp'} size={25} color={focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor} />
         )
       }} name={'activity'} component={ActivityScreen} />
       <Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
-          <Ionicons name={focused ? 'settings-sharp' : 'settings-outline'} size={25} color={AppStyles.primaryColor} />
+          <Ionicons name={'settings-sharp'} size={25} color={focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor} />
         )
       }} name={'settings'} component={SettingsScreen} />
     </Tab.Navigator>

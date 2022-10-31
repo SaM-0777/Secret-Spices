@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3secretspicesmediastorage",
+  "bucketName": "secret-spices-media-storage",
+  "policyUUID": "bada026b",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
