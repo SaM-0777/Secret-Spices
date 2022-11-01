@@ -64,3 +64,23 @@ export const searchBarStyles = StyleSheet.create({
     },
 });
 
+
+export const menuTypeScrollBarStyles = StyleSheet.create({
+    container: {
+        marginVertical: 20,
+    },
+    button: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    dot: {
+        width: 5,
+        height: 5,
+        marginRight: 7,
+    },
+    text: {
+        fontFamily: AppStyles.secondaryFontFamilySemiBold,
+    },
+
+});
+
