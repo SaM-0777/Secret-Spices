@@ -81,6 +81,90 @@ export const menuTypeScrollBarStyles = StyleSheet.create({
     text: {
         fontFamily: AppStyles.secondaryFontFamilySemiBold,
     },
+});
+
+
+export const recipeCardStyles = StyleSheet.create({
+    container: {
+        // padding: 10,
+        borderRadius: 10,
+        marginVertical: 12,
+        backgroundColor: AppStyles.secondaryBackgroundColor,
+    },
+    profileContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    profileImage: {
+        width: 35,
+        height: 35,
+        borderRadius: 100,
+    },
+    profileText: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilySemiBold,
+        fontSize: 15,
+        marginLeft: 10,
+    },
+    thumbnail: {
+        width: '100%',
+        height: 230,
+        marginVertical: 15,
+        borderRadius: 7,
+    },
+    durationContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        position: 'absolute',
+        bottom: '10%',
+        right: '3.5%',
+        padding: 2,
+        borderRadius: 5,
+        backgroundColor: AppStyles.secondaryColor,
+    },
+    durationText: {
+        color: AppStyles.primaryColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 14,
+        marginLeft: 5,
+    },
+    activityContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    activityLeft: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    ratingCount: {
+        color: AppStyles.secondaryTextColor,
+        fontSize: 14,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        marginLeft: 10,
+    },
+    activityRight: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    sharebtn: {
+        marginRight: 10,
+    },
+    likeCount: {
+        color: AppStyles.secondaryTextColor,
+        fontSize: 14,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        marginVertical: 2,
+    },
+    footerContainer: {
+        // marginTop: 10,
+    },
+    title: {
+        color: AppStyles.primaryTextColor,
+        fontSize: 18,
+        fontFamily: AppStyles.poppinsFontRegular,
+        fontWeight: '700',
+    },
 
 });
 

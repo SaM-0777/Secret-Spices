@@ -3,6 +3,7 @@ import CategoryScreen from "./CategoryScreen";
 import MealPlannerScreen from "./MealPlannerScreen";
 import ActivityScreen from "./ActivityScreen";
 import SettingsScreen from "./SettingsScreen";
+import SearchScreen from "./SearchScreen";
 
 
 export {
@@ -11,5 +12,6 @@ export {
     MealPlannerScreen,
     ActivityScreen,
     SettingsScreen,
+    SearchScreen,
 };
 

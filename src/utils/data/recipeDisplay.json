@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "author": "Emma Geller",
+        "authorProfile": "../../../assets/images/person-1.jpg",
+        "thumbnail": "../../../assets/images/recipe-thumbnail-1.jpg",
+        "title": "Sesame Garlic Tofu",
+        "Ratings": {
+            "rating": 4.5,
+            "ratingCount": "1,177"
+        },
+        "saved": false,
+        "likeCount": "10,558",
+        "duration": "15 min"
+    },
+    {
+        "id": 2,
+        "author": "Todrick Mitchelle",
+        "authorProfile": "../../../assets/images/profile-1.jpg",
+        "thumbnail": "../../../assets/images/recipe-thumbnail-2.jpg",
+        "title": "Avocado Toast",
+        "Ratings": {
+            "rating": 4.2,
+            "ratingCount": "5,488"
+        },
+        "saved": false,
+        "likeCount": "30,452",
+        "duration": "25 min"
+    }
+]

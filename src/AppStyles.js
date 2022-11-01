@@ -16,4 +16,12 @@ export default AppStyles = {
     secondaryFontFamilyRegular: 'Mulish_Regular',
     secondaryFontFamilyLight: 'Mulish_Light',
     secondaryFontFamilyExtraLight: 'Mulish_ExtraLight',
+    /*extraFontBold: 'Poppins-Bold',
+    extraFontExtraBold: 'Poppins-ExtraBold',
+    extraFontExtraLight: 'Poppins-ExtraLight',
+    extraFontLight: 'Poppins-Light',
+    extraFontMedium: 'Poppins-Medium',*/
+    poppinsFontRegular: 'Poppins_Regular',
+    /*extraFontSemiBold: 'Poppins-SemiBold',
+    extraFontThin: 'Poppins-Thin',*/
 }

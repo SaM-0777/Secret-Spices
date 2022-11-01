@@ -12,7 +12,7 @@ import { TextBox } from "./EmailVerificationScreenComponents";
 import { EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput } from "./LoginScreenComponents";
 import { EnterUsername, EnterCode, EnterNewPassword, Username } from "./ForgotPasswordScreenComponents";
 import { BottomTabNavigator } from "./BottomTabNavigator";
-import { HomeScreenHeader, SearchBar, MenuTypeScrollBar } from "./HomeScreenComponents";
+import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard } from "./HomeScreenComponents";
 
 
 export {
@@ -56,5 +56,6 @@ export {
     HomeScreenHeader,
     SearchBar,
     MenuTypeScrollBar,
+    RecipeCard,
 };
 

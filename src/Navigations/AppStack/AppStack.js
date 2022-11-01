@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { HomeScreen, CategoryScreen, MealPlannerScreen, ActivityScreen, SettingsScreen } from '../../screens';
+import { HomeScreen, CategoryScreen, MealPlannerScreen, ActivityScreen, SettingsScreen, SearchScreen } from '../../screens';
 import AppStyles from '../../AppStyles';
 
 
@@ -18,11 +18,12 @@ function BottomTab() {
     headerShown: false,
     tabBarStyle: {
       height: 56,
-      position: 'absolute',
+      /*position: 'absolute',
       bottom: 15,
       right: 15,
-      left: 15,
-      borderRadius: 10,
+      left: 15, */
+      /*borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,*/
       backgroundColor: AppStyles.secondaryColor,
     }
   })
@@ -73,6 +74,7 @@ const AppStack = ({ }) => {
   return (
     <AppNavigationStack.Navigator screenOptions={screenOptions} >
       <AppNavigationStack.Screen name={'bottom-tab'} component={BottomTab} />
+      <AppNavigationStack.Screen name={'search-screen'} component={SearchScreen} />
     </AppNavigationStack.Navigator>
   )
 };
