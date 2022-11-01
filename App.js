@@ -11,6 +11,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { PortalProvider } from '@gorhom/portal';
 
 /* AWS Amplify configuration */
 import { Amplify } from 'aws-amplify';
@@ -31,9 +32,11 @@ const App = ({ }) => {
   return (
     <PaperProvider>
       <GestureHandlerRootView style={{ flex: 1 }} >
-        <NavigationContainer>
-          <Root />
-        </NavigationContainer>
+        <PortalProvider>
+          <NavigationContainer>
+            <Root />
+          </NavigationContainer>
+        </PortalProvider>
       </GestureHandlerRootView>
     </PaperProvider>
   )

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { View, StatusBar, TouchableOpacity, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Portal } from '@gorhom/portal';
 import { Text } from 'react-native-paper';
 
 import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, BottomActionSheet } from '../../../components';
@@ -30,9 +31,11 @@ const HomeScreen = ({ navigation }) => {
           <RecipeCard key={item.id} item={item} navigation={navigation} onShare={onShareRecipe} />
         ))}
       </ScrollView>
-      <BottomActionSheet sheetRef={shareSheetRef} sheetSnapPoints={shareSheetSnapPoints} isActive={isShareSheetActive} setIsActive={setIsShareSheetActive} >
-        {}
-      </BottomActionSheet>
+      <Portal>
+        <BottomActionSheet sheetRef={shareSheetRef} sheetSnapPoints={shareSheetSnapPoints} isActive={isShareSheetActive} setIsActive={setIsShareSheetActive} >
+          {}
+        </BottomActionSheet>
+      </Portal>
     </SafeAreaView>
   )
 };
