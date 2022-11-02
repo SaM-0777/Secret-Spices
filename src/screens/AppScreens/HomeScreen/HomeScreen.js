@@ -8,6 +8,7 @@ import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, BottomActio
 
 import Styles from './Styles';
 
+import { getData } from "../../../utils/api";
 import recipeDisplay from '../../../utils/data/recipeDisplay.json';
 
 
@@ -15,10 +16,17 @@ const HomeScreen = ({ navigation }) => {
   const shareSheetRef = useRef()
   const [isShareSheetActive, setIsShareSheetActive] = useState(false)
   const shareSheetSnapPoints = ['50%',]
+  const [data, setData] = useState(null)
 
   function onShareRecipe() {
     setIsShareSheetActive(true)
   }
+
+  useEffect(() => {
+    setData(getData())
+
+    return () => {}
+  }, [])
 
   return (
     <SafeAreaView style={Styles.container} >

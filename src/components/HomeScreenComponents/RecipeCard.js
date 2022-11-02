@@ -32,7 +32,7 @@ const RecipeCard = ({ item, navigation, onShare }) => {
     <View style={recipeCardStyles.container} >
       <View style={recipeCardStyles.profileContainer} >
         <TouchableOpacity activeOpacity={0.85} onPress={navigateToAuthor} >
-          <Image source={require('../../../assets/images/person-1.jpg')} resizeMode={'cover'} style={recipeCardStyles.profileImage} />
+          <Image source={{ uri: "https://secret-spices-media-storage64145-staging.s3.amazonaws.com/author/author-1/author-profile-pic-1.jpg", scale: 1.0 }} resizeMode={'cover'} style={recipeCardStyles.profileImage} />
         </TouchableOpacity>
         <Text style={recipeCardStyles.profileText} >{item.author}</Text>
       </View>
