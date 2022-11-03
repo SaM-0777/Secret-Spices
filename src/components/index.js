@@ -13,6 +13,7 @@ import { EmailInput as LoginEmailInput, PasswordInput as LoginPasswordInput } fr
 import { EnterUsername, EnterCode, EnterNewPassword, Username } from "./ForgotPasswordScreenComponents";
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard } from "./HomeScreenComponents";
+import { RecipeHomeCardSkeleton } from "./Skeletons";
 
 
 export {
@@ -57,5 +58,8 @@ export {
     SearchBar,
     MenuTypeScrollBar,
     RecipeCard,
+
+    //
+    RecipeHomeCardSkeleton,
 };
 

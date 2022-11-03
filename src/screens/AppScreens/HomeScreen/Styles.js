@@ -10,14 +10,16 @@ export default StyleSheet.create({
         backgroundColor: AppStyles.secondaryBackgroundColor,
     },
     wrapper: {
+        flex: 1,
         paddingHorizontal: 12,
     },
     header: {
-        position: 'absolute',
-        left: 12,
-        right: 12,
+        /*position: 'absolute',
+        left: 0,
+        right: 0,
         top: 0,
-        zIndex: 10,
+        zIndex: 1000,
+        paddingHorizontal: 12,*/
     },
 });
 

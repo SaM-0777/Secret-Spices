@@ -90,6 +90,7 @@ export const recipeCardStyles = StyleSheet.create({
         borderRadius: 10,
         marginVertical: 12,
         backgroundColor: AppStyles.secondaryBackgroundColor,
+        // backgroundColor: 'red',
     },
     profileContainer: {
         flexDirection: 'row',
@@ -99,6 +100,7 @@ export const recipeCardStyles = StyleSheet.create({
         width: 35,
         height: 35,
         borderRadius: 100,
+        backgroundColor: '#E5E5E5',
     },
     profileText: {
         color: AppStyles.primaryTextColor,
@@ -108,9 +110,11 @@ export const recipeCardStyles = StyleSheet.create({
     },
     thumbnail: {
         width: '100%',
-        height: 230,
+        // height: 230,
+        aspectRatio: 16/9,
         marginVertical: 15,
         borderRadius: 7,
+        backgroundColor: '#E5E5E5',
     },
     durationContainer: {
         flexDirection: 'row',
