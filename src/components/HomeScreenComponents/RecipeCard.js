@@ -32,15 +32,15 @@ const RecipeCard = ({ item, navigation, onShare }) => {
     <View style={recipeCardStyles.container} >
       <View style={recipeCardStyles.profileContainer} >
         <TouchableOpacity activeOpacity={0.85} onPress={navigateToAuthor} >
-          <Image source={{ uri: "https://secret-spices-media-storage64145-staging.s3.amazonaws.com/author/author-1/author-profile-pic-1.jpg", scale: 1.0 }} resizeMode={'cover'} style={recipeCardStyles.profileImage} />
+          <Image source={{ uri: recipeItem.Author[0].thumbnail , scale: 1.0 }} resizeMode={'contain'} style={recipeCardStyles.profileImage} />
         </TouchableOpacity>
-        <Text style={recipeCardStyles.profileText} >{item.author}</Text>
+        <Text style={recipeCardStyles.profileText} >{recipeItem.Author[0].name}</Text>
       </View>
       <TouchableOpacity activeOpacity={0.95} onPress={navigateToRecipe} >
-        <Image source={require('../../../assets/images/recipe-thumbnail-1.jpg')} resizeMode={'cover'} style={recipeCardStyles.thumbnail} />
+        <Image source={{ uri: recipeItem.thumbnail, scale: 1 }} resizeMode={'cover'} style={recipeCardStyles.thumbnail} />
         <View style={recipeCardStyles.durationContainer} >
           <Ionicons name={'time-outline'} size={20} color={AppStyles.primaryColor} />
-          <Text style={recipeCardStyles.durationText} >{recipeItem.duration}</Text>
+          <Text style={recipeCardStyles.durationText} >{new Date(recipeItem.duration * 1000).toISOString().substr(14, 5)}</Text>
         </View>
       </TouchableOpacity>
       <View style={recipeCardStyles.activityContainer} >
@@ -50,12 +50,14 @@ const RecipeCard = ({ item, navigation, onShare }) => {
           ))}
           <Text style={recipeCardStyles.ratingCount} >{item.Ratings.ratingCount}</Text>
         </View>
-        <TouchableOpacity activeOpacity={0.9} onPress={onBookmark} style={recipeCardStyles.activityRight} >
+        <View style={recipeCardStyles.activityRight} >
           <TouchableOpacity activeOpacity={0.9} onPress={onShare} style={recipeCardStyles.sharebtn} >
             <Ionicons name={'paper-plane-outline'} size={22} color={AppStyles.primaryTextColor} />
           </TouchableOpacity>
-          <Ionicons name={recipeItem.saved ? 'bookmark' : 'bookmark-outline'} size={22} color={AppStyles.primaryTextColor} />
-        </TouchableOpacity>
+          <TouchableOpacity activeOpacity={0.9} onPress={onBookmark} >
+            <Ionicons name={recipeItem.saved ? 'bookmark' : 'bookmark-outline'} size={22} color={AppStyles.primaryTextColor} />
+          </TouchableOpacity>
+        </View>
       </View>
       <Text style={recipeCardStyles} >{recipeItem.likeCount} likes</Text>
       <View style={recipeCardStyles.footerContainer} >

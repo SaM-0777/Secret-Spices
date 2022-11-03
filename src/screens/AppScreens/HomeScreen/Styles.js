@@ -12,5 +12,12 @@ export default StyleSheet.create({
     wrapper: {
         paddingHorizontal: 12,
     },
+    header: {
+        position: 'absolute',
+        left: 12,
+        right: 12,
+        top: 0,
+        zIndex: 10,
+    },
 });
 

@@ -118,7 +118,7 @@ export const recipeCardStyles = StyleSheet.create({
         position: 'absolute',
         bottom: '10%',
         right: '3.5%',
-        padding: 2,
+        padding: 3,
         borderRadius: 5,
         backgroundColor: AppStyles.secondaryColor,
     },
