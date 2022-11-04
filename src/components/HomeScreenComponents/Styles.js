@@ -162,12 +162,24 @@ export const recipeCardStyles = StyleSheet.create({
     },
     footerContainer: {
         // marginTop: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    dot: {
+        width: 2,
+        height: 2,
+        backgroundColor: AppStyles.secondaryTextColor,
+    },
+    footerText: {
+        color: AppStyles.secondaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 14,
     },
     title: {
         color: AppStyles.primaryTextColor,
         fontSize: 18,
         fontFamily: AppStyles.poppinsFontRegular,
-        fontWeight: '700',
+        // fontWeight: '700',
     },
 
 });

@@ -45,10 +45,7 @@ const RecipeCard = ({ item, navigation, onShare }) => {
       </TouchableOpacity>
       <View style={recipeCardStyles.activityContainer} >
         <View style={recipeCardStyles.activityLeft} >
-          {[...Array(5).keys()].map(index => (
-            <Ionicons key={index} name={'star'} color={'#F58549'} size={18} />
-          ))}
-          <Text style={recipeCardStyles.ratingCount} >{item.Ratings.ratingCount}</Text>
+          <Text style={recipeCardStyles.title} >{recipeItem.title}</Text>
         </View>
         <View style={recipeCardStyles.activityRight} >
           <TouchableOpacity activeOpacity={0.9} onPress={onShare} style={recipeCardStyles.sharebtn} >
@@ -59,12 +56,16 @@ const RecipeCard = ({ item, navigation, onShare }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <Text style={recipeCardStyles} >{recipeItem.likeCount} likes</Text>
       <View style={recipeCardStyles.footerContainer} >
-        <Text style={recipeCardStyles.title} >{recipeItem.title}</Text>
         {/**
          * Some Extra info or action to defined here.
-         */}
+        */}
+        <View style={[recipeCardStyles.dot, { marginRight: 5, }]} />
+        <Text style={recipeCardStyles.footerText} >{recipeItem.viewCount} views</Text>
+        <View style={[recipeCardStyles.dot, { marginHorizontal: 5, }]} />
+        <Text style={recipeCardStyles.footerText} >{recipeItem.viewCount} likes</Text>
+        <View style={[recipeCardStyles.dot, { marginHorizontal: 5, }]} />
+        <Text style={recipeCardStyles.footerText} >5 hours ago</Text>
       </View>
     </View>
   )
