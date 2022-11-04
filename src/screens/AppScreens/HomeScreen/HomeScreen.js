@@ -12,11 +12,11 @@ import { getData } from "../../../utils/api";
 
 
 const HomeScreen = ({ navigation }) => {
+  const HEADER_HEIGHT = 180
   const shareSheetRef = useRef()
   const [isShareSheetActive, setIsShareSheetActive] = useState(false)
   const shareSheetSnapPoints = ['50%',]
-  // const HEADER_HEIGHT = 180
-
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
 
   function onShareRecipe() {
@@ -24,13 +24,15 @@ const HomeScreen = ({ navigation }) => {
   }
 
   async function getResponse() {
+    setLoading(true)
     const response = await getData()
     setData(response)
+    setLoading(false)
   }
 
   useEffect(() => {
-    if (!data) getResponse()
-    
+    // if (!data) getResponse()
+    getResponse()
     return () => {}
   }, [])
 
@@ -43,12 +45,18 @@ const HomeScreen = ({ navigation }) => {
           <SearchBar navigation={navigation} />
           <MenuTypeScrollBar />
         </View>
-        {/*<RecipeCard key={item.id} item={item} navigation={navigation} onShare={onShareRecipe} />*/}
-        <RecipeHomeCardSkeleton />
-        <ScrollView showsVerticalScrollIndicator={false} >
-          {data?.map(item => (
-            <RecipeCard key={item._id} item={item} navigation={navigation} onShare={onShareRecipe} />
-          ))}
+        <ScrollView vertical showsVerticalScrollIndicator={false} >
+          {loading ? [...Array(5).keys()].map(index => (
+            <RecipeHomeCardSkeleton key={index} />
+          ))
+            :
+            <>
+              { data?.map(item => (
+                <RecipeCard key={item._id} item={item} navigation={navigation} onShare={onShareRecipe} />
+              ))}
+            </>
+          }
+          
         </ScrollView>
       </View>
       <Portal>
