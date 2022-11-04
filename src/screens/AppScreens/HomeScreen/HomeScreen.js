@@ -45,17 +45,11 @@ const HomeScreen = ({ navigation }) => {
         </View>
         {/*<RecipeCard key={item.id} item={item} navigation={navigation} onShare={onShareRecipe} />*/}
         <RecipeHomeCardSkeleton />
-        <FlatList
-          data={data}
-          renderItem={({ item }) => <RecipeCard key={item._id} item={item} navigation={navigation} onShare={onShareRecipe} />}
-          showsVerticalScrollIndicator={false}
-          keyExtractor={(item) => item._id}
-          /*onScroll={Animated.event([
-            { nativeEvent: { contentOffset: { y: scrollY } } }
-          ], { useNativeDriver: false })}
-          scrollEventThrottle={16}*/
-          style={{ flexGrow: 1 }}
-        />
+        <ScrollView showsVerticalScrollIndicator={false} >
+          {data?.map(item => (
+            <RecipeCard key={item._id} item={item} navigation={navigation} onShare={onShareRecipe} />
+          ))}
+        </ScrollView>
       </View>
       <Portal>
         <BottomActionSheet sheetRef={shareSheetRef} sheetSnapPoints={shareSheetSnapPoints} isActive={isShareSheetActive} setIsActive={setIsShareSheetActive} >
@@ -68,4 +62,19 @@ const HomeScreen = ({ navigation }) => {
 
 
 export default HomeScreen;
+
+
+/**
+ * <FlatList
+          data={data}
+          renderItem={({ item }) => <RecipeCard key={item._id} item={item} navigation={navigation} onShare={onShareRecipe} />}
+          showsVerticalScrollIndicator={false}
+          keyExtractor={(item) => item._id}
+          onScroll={Animated.event([
+            { nativeEvent: { contentOffset: { y: scrollY } } }
+          ], { useNativeDriver: false })}
+          scrollEventThrottle={16}
+          style={{ flexGrow: 1 }}
+        />
+ */
 
