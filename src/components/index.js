@@ -14,6 +14,7 @@ import { EnterUsername, EnterCode, EnterNewPassword, Username } from "./ForgotPa
 import { BottomTabNavigator } from "./BottomTabNavigator";
 import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard } from "./HomeScreenComponents";
 import { RecipeHomeCardSkeleton } from "./Skeletons";
+import { SearchBox, SearchSuggestion } from "./SearchScreenComponents";
 
 
 export {
@@ -58,6 +59,10 @@ export {
     SearchBar,
     MenuTypeScrollBar,
     RecipeCard,
+
+    //
+    SearchBox,
+    SearchSuggestion,
 
     //
     RecipeHomeCardSkeleton,

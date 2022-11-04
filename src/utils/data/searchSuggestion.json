@@ -1,0 +1,20 @@
+[
+    {
+        "_id": 1,
+        "item_id": "sdasdnkad645a8wad46",
+        "thumbnail": "../../../assets/images/person-1.jpg",
+        "searchString": "Emma Fox"
+    },
+    {
+        "_id": 2,
+        "item_id": "ljtgfslekfna31f5e3fa",
+        "thumbnail": "../../../assets/images/recipe-thumbnail-1.jpg",
+        "searchString": "Chicken Cookbook"
+    },
+    {
+        "_id": 3,
+        "item_id": "2eqwwd4q3Wdw4ff3a48D",
+        "thumbnail": "../../../assets/images/recipe-thumbnail-2.jpg",
+        "searchString": "Non-veg Recipes"
+    }
+]

@@ -31,8 +31,8 @@ const HomeScreen = ({ navigation }) => {
   }
 
   useEffect(() => {
-    // if (!data) getResponse()
-    getResponse()
+    if (!data) getResponse()
+    // getResponse()
     return () => {}
   }, [])
 
@@ -56,7 +56,6 @@ const HomeScreen = ({ navigation }) => {
               ))}
             </>
           }
-          
         </ScrollView>
       </View>
       <Portal>
