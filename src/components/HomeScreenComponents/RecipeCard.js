@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Image, Text, TouchableOpacity, ToastAndroid } from 'react-native';
+import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 import AppStyles from '../../AppStyles';
 
 import { recipeCardStyles } from './Styles';
@@ -8,13 +10,17 @@ import { recipeCardStyles } from './Styles';
 
 const RecipeCard = ({ item, navigation, onShare }) => {
   const [recipeItem, setRecipeItem] = useState(item)
+  const [relativeTime, setRelativeTime] = useState(() => {
+    const dateTime = new Date(recipeItem?.createdAt)
+    return moment(dateTime.toISOString()).fromNow()
+  })
   
   function navigateToAuthor() {
-    // navigation.navigate()
+    navigation.navigate('author')
   }
   
   function navigateToRecipe () {
-    // navigation.navigate()
+    navigation.navigate('recipe-details')
   }
 
   function onBookmark() {
@@ -61,11 +67,11 @@ const RecipeCard = ({ item, navigation, onShare }) => {
          * Some Extra info or action to defined here.
         */}
         <View style={[recipeCardStyles.dot, { marginRight: 5, }]} />
-        <Text style={recipeCardStyles.footerText} >{recipeItem.viewCount} views</Text>
+        <Text style={recipeCardStyles.footerText} >{recipeItem.viewCount || 'No'} views</Text>
         <View style={[recipeCardStyles.dot, { marginHorizontal: 5, }]} />
-        <Text style={recipeCardStyles.footerText} >{recipeItem.viewCount} likes</Text>
+        <Text style={recipeCardStyles.footerText} >{recipeItem.viewCount || 'No'} likes</Text>
         <View style={[recipeCardStyles.dot, { marginHorizontal: 5, }]} />
-        <Text style={recipeCardStyles.footerText} >5 hours ago</Text>
+        <Text style={recipeCardStyles.footerText} >{relativeTime}</Text>
       </View>
     </View>
   )

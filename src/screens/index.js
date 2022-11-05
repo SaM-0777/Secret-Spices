@@ -1,6 +1,16 @@
 import { OnBoardingScreen } from "./OnBoardingScreens";
 import { SignupScreen, LoginScreen } from './AuthScreens';
-import { HomeScreen, CategoryScreen, MealPlannerScreen, ActivityScreen, SettingsScreen, SearchScreen } from './AppScreens';
+import {
+    HomeScreen,
+    CategoryScreen,
+    MealPlannerScreen,
+    ActivityScreen,
+    SettingsScreen,
+    SearchScreen,
+    AuthorScreen,
+    RecipeDetailsScreen,
+    OwnerScreen,
+} from './AppScreens';
 
 
 export {
@@ -14,5 +24,8 @@ export {
     ActivityScreen,
     SettingsScreen,
     SearchScreen,
+    AuthorScreen,
+    RecipeDetailsScreen,
+    OwnerScreen,
 };
 

@@ -41,7 +41,7 @@ const HomeScreen = ({ navigation }) => {
       <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
       <View style={Styles.wrapper} >
         <View style={[Styles.header ]} >
-          <HomeScreenHeader />
+          <HomeScreenHeader navigation={navigation} />
           <SearchBar navigation={navigation} />
           <MenuTypeScrollBar />
         </View>

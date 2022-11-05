@@ -6,8 +6,12 @@ import { headerStyles } from './Styles';
 import AppStyles from '../../AppStyles';
 
 
-const Header = ({ onPress }) => {
+const Header = ({ navigation }) => {
   const [username, setUsername] = useState('Angela')
+
+  function onPress() { 
+    navigation.navigate('owner')
+  }
 
   return (
     <View style={headerStyles.container} >

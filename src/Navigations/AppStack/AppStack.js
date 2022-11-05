@@ -6,7 +6,17 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { HomeScreen, CategoryScreen, MealPlannerScreen, ActivityScreen, SettingsScreen, SearchScreen } from '../../screens';
+import {
+  HomeScreen,
+  CategoryScreen,
+  MealPlannerScreen,
+  ActivityScreen,
+  SettingsScreen,
+  SearchScreen,
+  AuthorScreen,
+  RecipeDetailsScreen,
+  OwnerScreen,
+} from '../../screens';
 import AppStyles from '../../AppStyles';
 
 
@@ -75,6 +85,9 @@ const AppStack = ({ }) => {
     <AppNavigationStack.Navigator screenOptions={screenOptions} >
       <AppNavigationStack.Screen name={'bottom-tab'} component={BottomTab} />
       <AppNavigationStack.Screen name={'search-screen'} component={SearchScreen} />
+      <AppNavigationStack.Screen name={'author'} component={AuthorScreen} />
+      <AppNavigationStack.Screen name={'recipe-details'} component={RecipeDetailsScreen} />
+      <AppNavigationStack.Screen name={'owner'} component={OwnerScreen} />
     </AppNavigationStack.Navigator>
   )
 };
