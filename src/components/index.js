@@ -15,6 +15,7 @@ import { BottomTabNavigator } from "./BottomTabNavigator";
 import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard } from "./HomeScreenComponents";
 import { RecipeHomeCardSkeleton } from "./Skeletons";
 import { SearchBox, SearchSuggestion } from "./SearchScreenComponents";
+import { HeaderCarousel } from "./RecipeDetailsScreenComponents";
 
 
 export {
@@ -66,5 +67,8 @@ export {
 
     //
     RecipeHomeCardSkeleton,
+
+    //
+    HeaderCarousel,
 };
 

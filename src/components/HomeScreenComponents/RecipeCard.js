@@ -20,7 +20,9 @@ const RecipeCard = ({ item, navigation, onShare }) => {
   }
   
   function navigateToRecipe () {
-    navigation.navigate('recipe-details')
+    navigation.navigate('recipe-details', {
+      recipeId: item._id
+    })
   }
 
   function onBookmark() {
