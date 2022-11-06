@@ -47,7 +47,7 @@ const Root = ({ }) => {
           <ActivityIndicator size={"large"} color={AppStyles.primaryColor} style={Styles.loadingIndicator} />
         </View>
         :
-        viewedOnBoarding ? <RootNavigation /> : <OnBoardingScreen />
+        viewedOnBoarding ? <RootNavigation /> : <OnBoardingScreen setViewedOnBoarding={setViewedOnBoarding} />
       }
     </>
   )

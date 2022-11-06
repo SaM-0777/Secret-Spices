@@ -8,14 +8,14 @@ import Styles from './Styles';
 import AppStyles from '../../../AppStyles';
 
 
-const OnBoardingScreen = ({ navigation }) => {
+const OnBoardingScreen = ({ setViewedOnBoarding }) => {
   const onPrimaryButtonPress = async () => {
     try {
       await AsyncStorage.setItem('@viewedOnBoarding', 'true')
+      setViewedOnBoarding(true)
     } catch (error) {
       console.error('error reading async-storage for key @viewedOnBoarding', error)
-    } finally {
-      navigation.reset({index: 0, routes: [{ name: 'auth-navigator' }]})
+      setViewedOnBoarding(false)
     }
   }
 
