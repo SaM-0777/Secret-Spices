@@ -15,7 +15,7 @@ import { BottomTabNavigator } from "./BottomTabNavigator";
 import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard } from "./HomeScreenComponents";
 import { RecipeHomeCardSkeleton } from "./Skeletons";
 import { SearchBox, SearchSuggestion } from "./SearchScreenComponents";
-import { HeaderCarousel } from "./RecipeDetailsScreenComponents";
+import { HeaderCarousel, RecipeInfoBox, RecipeAuthorBox, RecipeDescription, IngridientBox, StepContainer, NutrientsCard } from "./RecipeDetailsScreenComponents";
 
 
 export {
@@ -70,5 +70,11 @@ export {
 
     //
     HeaderCarousel,
+    RecipeInfoBox,
+    RecipeAuthorBox,
+    RecipeDescription,
+    IngridientBox,
+    StepContainer,
+    NutrientsCard,
 };
 

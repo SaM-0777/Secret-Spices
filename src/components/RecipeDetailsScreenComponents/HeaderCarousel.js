@@ -42,7 +42,7 @@ function HeaderCarousel({ heroBanner }) {
         viewabilityConfig={viewConfig}
         ref={slideRef}
       />
-      <View style={headerCarouselStyles.indicatorContainer} >
+      {/*<View style={headerCarouselStyles.indicatorContainer} >
         <Ionicons onPress={onPressLeft} name={'chevron-back'} size={22} color={AppStyles.secondaryColor} style={{ marginRight: 20 }} />
         {heroBanner?.map((_, i) => {
           const width = Dimensions.get('window').width
@@ -71,7 +71,7 @@ function HeaderCarousel({ heroBanner }) {
             )
         })}
         <Ionicons onPress={onPressRight} name={'chevron-forward'} size={22} color={AppStyles.secondaryColor} style={{ marginLeft: 20 }} />
-      </View>
+      </View>*/}
     </View>
   )
 };
