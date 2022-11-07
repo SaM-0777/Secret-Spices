@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, Text, TouchableOpacity } from 'react-native';
+import { View, Image, Text, ToastAndroid } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
@@ -7,28 +7,37 @@ import AppStyles from '../../AppStyles';
 import { recipeInfoBoxStyles } from './Styles';
 
 
-const RecipeInfoBox = ({ recipeDetails }) => {
+const RecipeInfoBox = ({ recipeDetails, onShare }) => {
   const [like, setLike] = useState(false)
+  const [saved, setIssaved] = useState(false)
 
   function navigateToAuthor() {
     navigation.navigate('author')
   }
 
   function onPressLike() {
-    if (like) setLike(false)
-    else setLike(true)
+    if (like === false) setLike(true)
+    else setLike(false)
   }
-  function onPressShare () {}
-  function onPressSave () {}
+  function onPressSave() {
+    if (saved === false) {
+      setIssaved(true)
+      ToastAndroid.show('saved', 1000, ToastAndroid.CENTER)
+    }
+    else {
+      setIssaved(false)
+      ToastAndroid.show('unsaved', ToastAndroid.SHORT, ToastAndroid.CENTER)
+    }
+  }
 
   return (
     <View style={recipeInfoBoxStyles.container} >
       <View style={recipeInfoBoxStyles.headerContainer} >
         <Text style={recipeInfoBoxStyles.title} >{recipeDetails?.title}</Text>
         <View style={recipeInfoBoxStyles.activityContainer} >
-          <Ionicons onPress={onPressLike} name={like ? 'heart-outline' : 'heart'} size={22} color={like ? AppStyles.secondaryColor : 'red'} />
-          <Ionicons onPress={onPressShare} name={'paper-plane-outline'} size={22} color={AppStyles.secondaryColor} style={{ marginHorizontal: 15, }} />
-          <Ionicons onPress={onPressSave} name={'bookmark-outline'} size={22} color={AppStyles.secondaryColor} />
+          <Ionicons onPress={onPressLike} name={like ? 'heart' : 'heart-outline'} size={22} color={like ? 'red' : AppStyles.secondaryColor} />
+          <Ionicons onPress={onShare} name={'paper-plane-outline'} size={22} color={AppStyles.secondaryColor} style={{ marginHorizontal: 15, }} />
+          <Ionicons onPress={onPressSave} name={saved ? 'bookmark' : 'bookmark-outline'} size={22} color={AppStyles.secondaryColor} />
         </View>
       </View>
       <View style={recipeInfoBoxStyles.infoContainer} >
