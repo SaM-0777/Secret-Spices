@@ -1,14 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { View, StatusBar, TouchableOpacity, ScrollView, FlatList, Animated } from 'react-native';
+import { View, StatusBar, Text, TouchableOpacity, ScrollView, FlatList, Animated } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Portal } from '@gorhom/portal';
-import { Text } from 'react-native-paper';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, BottomActionSheet, RecipeHomeCardSkeleton } from '../../../components';
 
 import Styles from './Styles';
 
 import { getData } from "../../../utils/api";
+import AppStyles from '../../../AppStyles';
 
 
 const HomeScreen = ({ navigation }) => {
@@ -30,6 +31,10 @@ const HomeScreen = ({ navigation }) => {
     setLoading(false)
   }
 
+  function onRetry() {
+    getResponse()
+  }
+
   useEffect(() => {
     if (!data) getResponse()
     // getResponse()
@@ -45,15 +50,22 @@ const HomeScreen = ({ navigation }) => {
           <SearchBar navigation={navigation} />
           <MenuTypeScrollBar />
         </View>
-        <ScrollView vertical showsVerticalScrollIndicator={false} >
+        <ScrollView vertical contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false} >
           {loading ? [...Array(5).keys()].map(index => (
             <RecipeHomeCardSkeleton key={index} />
           ))
             :
             <>
-              { data?.map(item => (
+              { data !== null ? data.map(item => (
                 <RecipeCard key={item._id} item={item} navigation={navigation} onShare={onShareRecipe} />
-              ))}
+              )) : 
+                <View style={Styles.retryContainer} >
+                  <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
+                    <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
+                    <Text style={Styles.retryText} >Retry</Text>
+                  </TouchableOpacity>
+                </View>
+              }
             </>
           }
         </ScrollView>

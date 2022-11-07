@@ -16,12 +16,12 @@ const RecipeCard = ({ item, navigation, onShare }) => {
   })
   
   function navigateToAuthor() {
-    navigation.navigate('author')
+    navigation.navigate('author', { authorId: recipeItem?.Author[0]._id })
   }
   
   function navigateToRecipe () {
     navigation.navigate('recipe-details', {
-      recipeId: item._id
+      recipeId: recipeItem._id
     })
   }
 

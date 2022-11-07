@@ -1,11 +1,13 @@
 /* eslint-disable */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { Auth, Hub } from 'aws-amplify';
 
 import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 
+
+// const UserContext = createContext()
 
 const RootNavigation = ({  }) => {
   const [user, setUser] = useState(null)

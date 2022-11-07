@@ -12,7 +12,7 @@ function RecipeAuthorBox({ navigation, recipeDetails }) {
   
   function navigateToAuthor() {
     navigation.navigate('author', {
-      authorId: recipeDetails?.Author[0].authorId || "asd"
+      authorId: recipeDetails?.Author[0]._id
     })
   }
 
