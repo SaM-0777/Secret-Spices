@@ -10,6 +10,7 @@ import {
     AuthorScreen,
     RecipeDetailsScreen,
     OwnerScreen,
+    AddRecipeScreen,
 } from './AppScreens';
 
 
@@ -27,5 +28,6 @@ export {
     AuthorScreen,
     RecipeDetailsScreen,
     OwnerScreen,
+    AddRecipeScreen,
 };
 

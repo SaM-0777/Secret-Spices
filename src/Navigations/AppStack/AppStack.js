@@ -16,6 +16,7 @@ import {
   AuthorScreen,
   RecipeDetailsScreen,
   OwnerScreen,
+  AddRecipeScreen,
 } from '../../screens';
 import AppStyles from '../../AppStyles';
 
@@ -87,7 +88,7 @@ const AppStack = ({ }) => {
       <AppNavigationStack.Screen name={'search-screen'} component={SearchScreen} />
       <AppNavigationStack.Screen name={'author'} component={AuthorScreen} />
       <AppNavigationStack.Screen name={'recipe-details'} component={RecipeDetailsScreen} />
-      <AppNavigationStack.Screen name={'owner'} component={OwnerScreen} />
+      <AppNavigationStack.Screen name={'add-recipe'} component={AddRecipeScreen} />
     </AppNavigationStack.Navigator>
   )
 };

@@ -1,16 +1,34 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, { useState, useRef } from 'react';
+import { View, StatusBar } from 'react-native';
+import { Portal } from '@gorhom/portal';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { AuthorScreenHeader } from '../../../components';
+import { AuthorScreenHeader, BottomActionSheet } from '../../../components';
 
 import Styles from './Styles';
 
 
-const AuthorScreen = ({  }) => {
-  return (
-    <View>
+function AuthorScreen ({ navigation }) {
+  const moreSheetRef = useRef()
+  const [isMoreSheetActive, setIsMoreSheetActive] = useState(false)
+  const moreSheetSnapPoints = ['50%',]
 
-    </View>
+  function onPressMore() {
+    setIsMoreSheetActive(true)
+  }
+
+  return (
+    <SafeAreaView style={Styles.container} >
+      <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
+      <View style={Styles.wrapper} >
+        <AuthorScreenHeader navigation={navigation} onPressMore={onPressMore} />
+      </View>
+      <Portal>
+        <BottomActionSheet sheetRef={moreSheetRef} sheetSnapPoints={moreSheetSnapPoints} isActive={isMoreSheetActive} setIsActive={setIsMoreSheetActive} >
+          {}
+        </BottomActionSheet>
+      </Portal>
+    </SafeAreaView>
   )
 };
 
