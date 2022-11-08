@@ -40,5 +40,8 @@ export default StyleSheet.create({
         fontSize: 14,
         marginLeft: 7,
     },
+    authorPostsContainer: {
+        
+    },
 });
 

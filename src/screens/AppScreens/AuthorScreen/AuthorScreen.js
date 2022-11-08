@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, StatusBar, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Text, StatusBar, TouchableOpacity, FlatList, ActivityIndicator } from 'react-native';
 import { Portal } from '@gorhom/portal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -16,6 +16,7 @@ function AuthorScreen({ route, navigation }) {
   const { authorId } = route?.params
   const [loading, setLoading] = useState(false)
   const [authorDetails, setAuthorDetails] = useState(null)
+  const [flatListData, setFlatListData] = useState([])
   const moreSheetRef = useRef()
   const [isMoreSheetActive, setIsMoreSheetActive] = useState(false)
   const moreSheetSnapPoints = ['50%',]
@@ -29,6 +30,16 @@ function AuthorScreen({ route, navigation }) {
     const response = await getAuthorDetailsData(authorId)
     // console.log(response)
     setAuthorDetails(response[0])
+    setFlatListData([
+      { Recipes: authorDetails?.Recipes },
+      { Cookbooks: authorDetails?.Cookbooks },
+      {
+        description: authorDetails?.description,
+        socials: authorDetails?.authorSocials,
+        location: authorDetails?.location,
+        createdAt: authorDetails?.createdAt,
+      }
+    ])
     // console.log(authorDetails)
     setLoading(false)
   }
@@ -56,6 +67,9 @@ function AuthorScreen({ route, navigation }) {
             <View style={Styles.wrapper} >
               <AuthorScreenHeader author={authorDetails?.name} isVerified={authorDetails?.isVerified} navigation={navigation} onPressMore={onPressMore} />
               <AuthorBox authorDetails={authorDetails} />
+              <View style={Styles.authorPostsContainer} >
+                <FlatList />
+              </View>
               {/**
                * features to be added here.
               */}

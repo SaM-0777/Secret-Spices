@@ -35,8 +35,8 @@ function AuthorBox({ authorDetails }) {
           <Text style={authorBoxStyles.boxText} >Recipes</Text>
         </View>
       </View>
-      <TouchableOpacity activeOpacity={0.9} onPress={onSubscribe} style={[authorBoxStyles.actionContainer, isSubscribed ? { backgroundColor:AppStyles.primaryColor, borderRadius: 10, } : { borderWidth: 0.5, borderColor: AppStyles.primaryColor, borderRadius: 10, }]} >
-        <Text style={authorBoxStyles.btnText} >{isSubscribed ? "Subscribed" : "Subscribed"}</Text>
+      <TouchableOpacity activeOpacity={0.9} onPress={onSubscribe} style={[authorBoxStyles.actionContainer, isSubscribed ? { borderRadius: 10, backgroundColor: AppStyles.primaryBackgroundColor } : { backgroundColor:AppStyles.primaryColor, borderRadius: 10, }]} >
+        <Text style={authorBoxStyles.btnText} >{isSubscribed ? "Subscribed" : "Subscribe"}</Text>
       </TouchableOpacity>
       {/*<View style={authorBoxStyles.actionContainer} >
       </View>*/}

@@ -98,3 +98,13 @@ export const authorBoxStyles = StyleSheet.create({
     },
 });
 
+
+export const authorRecipeCard = StyleSheet.create({
+
+});
+
+
+export const authorCookbookCard = StyleSheet.create({
+    
+});
+
