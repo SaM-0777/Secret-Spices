@@ -26,6 +26,7 @@ export const headerStyles = StyleSheet.create({
 
 export const authorBoxStyles = StyleSheet.create({
     container: {
+        width: '100%',
         alignSelf: 'center',
         alignItems: 'center',
         // justifyContent: 'center',
@@ -81,6 +82,19 @@ export const authorBoxStyles = StyleSheet.create({
         fontSize: 12,
         fontWeight: '700',
         marginBottom: 5,
+    },
+    actionContainer: {
+        width: '80%',
+        height: 36,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginVertical: 20,
+    },
+    btnText: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyRegular,
+        fontSize: 20,
+        fontWeight: '700', 
     },
 });
 

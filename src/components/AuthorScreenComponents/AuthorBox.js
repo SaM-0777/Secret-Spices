@@ -1,11 +1,15 @@
-import React from 'react';
-import { View, Image, Text } from 'react-native';
+import React, { useState } from 'react';
+import { View, Image, TouchableOpacity, Text } from 'react-native';
 
 import AppStyles from '../../AppStyles';
 import { authorBoxStyles } from './Styles';
 
 
-function AuthorBox ({ authorDetails }) {
+function AuthorBox({ authorDetails }) {
+  const [isSubscribed, setIsSubscribed] = useState(false)
+
+  function onSubscribe () { setIsSubscribed(prevState => !prevState) }
+
   return (
     <View style={authorBoxStyles.container} >
       <Image source={{ uri: authorDetails?.thumbnail, scale: 1.0 }} resizeMode={'contain'} style={authorBoxStyles.authorImage} />
@@ -31,6 +35,11 @@ function AuthorBox ({ authorDetails }) {
           <Text style={authorBoxStyles.boxText} >Recipes</Text>
         </View>
       </View>
+      <TouchableOpacity activeOpacity={0.9} onPress={onSubscribe} style={[authorBoxStyles.actionContainer, isSubscribed ? { backgroundColor:AppStyles.primaryColor, borderRadius: 10, } : { borderWidth: 0.5, borderColor: AppStyles.primaryColor, borderRadius: 10, }]} >
+        <Text style={authorBoxStyles.btnText} >{isSubscribed ? "Subscribed" : "Subscribed"}</Text>
+      </TouchableOpacity>
+      {/*<View style={authorBoxStyles.actionContainer} >
+      </View>*/}
     </View>
   )
 };
