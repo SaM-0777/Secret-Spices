@@ -74,4 +74,23 @@ export default StyleSheet.create({
         justifyContent: 'center',
         // backgroundColor: 'red',
     },
+    retryContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    retryBtn: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 10,
+        borderRadius: 7,
+        backgroundColor: AppStyles.primaryBackgroundColor
+    },
+    retryText: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyRegular,
+        fontSize: 14,
+        marginLeft: 7,
+    },
 });

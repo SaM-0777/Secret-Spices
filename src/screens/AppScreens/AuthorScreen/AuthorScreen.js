@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, StatusBar, ActivityIndicator } from 'react-native';
+import { View, Text, StatusBar, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Portal } from '@gorhom/portal';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { AuthorScreenHeader, BottomActionSheet } from '../../../components';
+import { AuthorScreenHeader, AuthorBox, BottomActionSheet } from '../../../components';
 
 import { getAuthorDetailsData } from '../../../utils/api';
 
@@ -26,10 +27,14 @@ function AuthorScreen({ route, navigation }) {
   async function getResponse() {
     setLoading(true)
     const response = await getAuthorDetailsData(authorId)
-    console.log(response)
+    // console.log(response)
     setAuthorDetails(response[0])
-    console.log(authorDetails)
+    // console.log(authorDetails)
     setLoading(false)
+  }
+
+  function onRetry() {
+    getResponse()
   }
 
   useEffect(() => {
@@ -47,19 +52,29 @@ function AuthorScreen({ route, navigation }) {
         </View>
       :
         <>
-          <View style={Styles.wrapper} >
-            <AuthorScreenHeader author={authorDetails?.name} navigation={navigation} onPressMore={onPressMore} />
-            {/**
-             * features to be added here.
-             */}
-          </View>
-          <Portal>
-            <BottomActionSheet sheetRef={moreSheetRef} sheetSnapPoints={moreSheetSnapPoints} isActive={isMoreSheetActive} setIsActive={setIsMoreSheetActive} >
-              {}
-            </BottomActionSheet>
-          </Portal>
+          { authorDetails !== null ?
+            <View style={Styles.wrapper} >
+              <AuthorScreenHeader author={authorDetails?.name} isVerified={authorDetails?.isVerified} navigation={navigation} onPressMore={onPressMore} />
+              <AuthorBox authorDetails={authorDetails} />
+              {/**
+               * features to be added here.
+              */}
+            </View>
+            :
+            <View style={Styles.retryContainer} >
+              <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
+                <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
+                <Text style={Styles.retryText} >Retry</Text>
+              </TouchableOpacity>
+            </View>
+          }
         </>
       }
+      <Portal>
+        <BottomActionSheet sheetRef={moreSheetRef} sheetSnapPoints={moreSheetSnapPoints} isActive={isMoreSheetActive} setIsActive={setIsMoreSheetActive} >
+          { }
+        </BottomActionSheet>
+      </Portal>
     </SafeAreaView>
   )
 };

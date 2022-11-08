@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Text, ScrollView, StatusBar, ActivityIndicator } from 'react-native';
+import { View, Text, ScrollView, StatusBar, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Portal } from '@gorhom/portal';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -30,6 +30,10 @@ function RecipeDetailsScreen({ route, navigation }) {
     setRecipeDetails(response[0])
     setLoading(false)
   }
+
+  function onRetry() {
+    getResponse()
+  }
   
   useEffect(() => {
     if (!recipeDetails) getResponse()
@@ -50,44 +54,57 @@ function RecipeDetailsScreen({ route, navigation }) {
           </>
           : 
           <>
-            <HeaderCarousel heroBanner={recipeDetails?.heroBanner} />
-            <View style={Styles.wrapper} >
-              <RecipeInfoBox recipeDetails={recipeDetails} onShare={onShareRecipe} />
-              <RecipeAuthorBox navigation={navigation} recipeDetails={recipeDetails} />
-              <RecipeDescription recipeDetails={recipeDetails} />
-              <View style={Styles.ingredientContainer} >
-                <Text style={Styles.ingredientText} >Ingredients ({recipeDetails?.ingridients.length})</Text>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false} >
-                  {recipeDetails?.ingridients.map((item, i) => (
-                    <IngridientBox key={i.toString()} item={item} index={i.toString()} />
-                  ))}
-                </ScrollView>
-              </View>
-              <View style={Styles.stepContainer} >
-                <View style={Styles.stepContainerHeader} >
-                  <Text style={Styles.stepText} >Steps</Text>
-                  <View style={Styles.durationContainer} >
-                    <Ionicons name={'alarm-outline'} size={22} color={AppStyles.primaryTextColor} />
-                    <Text style={Styles.durationText} >{recipeDetails?.duration} secs</Text>
+            { recipeDetails !== null ?
+              <>
+                <HeaderCarousel heroBanner={recipeDetails?.heroBanner} />
+                <View style={Styles.wrapper} >
+                  <RecipeInfoBox recipeDetails={recipeDetails} onShare={onShareRecipe} />
+                  <RecipeAuthorBox navigation={navigation} recipeDetails={recipeDetails} />
+                  <RecipeDescription recipeDetails={recipeDetails} />
+                  <View style={Styles.ingredientContainer} >
+                    <Text style={Styles.ingredientText} >Ingredients ({recipeDetails?.ingridients.length})</Text>
+                    <ScrollView horizontal showsHorizontalScrollIndicator={false} >
+                      {recipeDetails?.ingridients.map((item, i) => (
+                        <IngridientBox key={i.toString()} item={item} index={i.toString()} />
+                      ))}
+                    </ScrollView>
                   </View>
+                  <View style={Styles.stepContainer} >
+                    <View style={Styles.stepContainerHeader} >
+                      <Text style={Styles.stepText} >Steps</Text>
+                      <View style={Styles.durationContainer} >
+                        <Ionicons name={'alarm-outline'} size={22} color={AppStyles.primaryTextColor} />
+                        <Text style={Styles.durationText} >{recipeDetails?.duration} secs</Text>
+                      </View>
+                    </View>
+                    {recipeDetails?.steps.map((item, index) => (
+                      <StepContainer key={index} item={item} index={index} />
+                    ))}
+                  </View>
+                  <View style={Styles.nutrientSContainer} >
+                    <View style={Styles.nutrientsHeader} >
+                      <Text style={Styles.nutrientText} >Nutrients</Text>
+                    </View>
+                    {recipeDetails?.nutrients.map((item, index) => (
+                      <NutrientsCard key={index} item={item} />
+                    ))}
+                  </View>
+                  {/**
+                * Comment Section
+                * Ratings etc.
+                */}
                 </View>
-                {recipeDetails?.steps.map((item, index) => (
-                  <StepContainer key={index} item={item} index={index} />
-                ))}
-              </View>
-              <View style={Styles.nutrientSContainer} >
-                <View style={Styles.nutrientsHeader} >
-                  <Text style={Styles.nutrientText} >Nutrients</Text>
+              </>
+              :
+              <>
+                <View style={Styles.retryContainer} >
+                  <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
+                    <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
+                    <Text style={Styles.retryText} >Retry</Text>
+                  </TouchableOpacity>
                 </View>
-                {recipeDetails?.nutrients.map((item, index) => (
-                  <NutrientsCard key={index} item={item} />
-                ))}
-              </View>
-              {/**
-             * Comment Section
-             * Ratings etc.
-             */}
-            </View>
+              </>
+            }  
           </>
         }
       </ScrollView>

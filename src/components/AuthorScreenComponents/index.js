@@ -1,9 +1,9 @@
 import Header from "./Header";
-
-import AppStyle from '../../AppStyles';
+import AuthorBox from "./AuthorBox";
 
 
 export {
     Header as AuthorScreenHeader,
+    AuthorBox,
 };
 

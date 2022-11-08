@@ -6,7 +6,7 @@ import AppStyle from '../../AppStyles';
 import { headerStyles } from './Styles';
 
 
-function Header({ author, navigation, onPressMore }) {
+function Header({ author, navigation, onPressMore, isVerified }) {
   
   function onPressBack() { navigation.goBack() }
 
@@ -15,11 +15,13 @@ function Header({ author, navigation, onPressMore }) {
       <View style={headerStyles.leftContainer} >
         <Ionicons onPress={onPressBack} name={'chevron-back'} size={25} color={AppStyle.secondaryColor} />
         <Text style={headerStyles.authorText} >{author}</Text>
+        {isVerified ? 
+          <Ionicons onPress={onPressMore} name={'checkmark-done-circle-outline'} size={25} color={AppStyle.primaryColor} style={{ marginLeft: 10, }} />
+        :
+          null
+        }
       </View>
-      <Ionicons onPress={onPressMore} name={'ellipsis-vertical-outline'} size={25} color={AppStyle.secondaryColor} style={{ marginRight: 7, }} />
-      {/*<View style={headerStyles.more} >
-        <Ionicons onPress={onPressMore} name={'menu'} size={32} color={AppStyle.secondaryColor} style={{ marginLeft: 7, }} />
-      </View>*/}
+      <Ionicons onPress={onPressMore} name={'ellipsis-vertical-outline'} size={25} color={AppStyle.secondaryColor} />
     </View>
   )
 };
