@@ -1,16 +1,17 @@
 import Header from "./Header";
 import AuthorBox from "./AuthorBox";
-import FlatListItem from "./FlatListItem";
+import Tabs from "./Tabs";
 import AuthorRecipeCard from "./AuthorRecipeCard";
 import AuthorCookbookCard from "./AuthorCookbookCard";
-
+import AuthorAbout from "./AuthorAbout";
 
 
 export {
     Header as AuthorScreenHeader,
     AuthorBox,
-    FlatListItem,
+    Tabs,
     AuthorRecipeCard,
     AuthorCookbookCard,
+    AuthorAbout,
 };
 

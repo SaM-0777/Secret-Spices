@@ -4,14 +4,14 @@ import { View, Text } from 'react-native';
 import AppStyles from '../../AppStyles';
 
 
-function AuthorCookbookCard () {
+const AuthorAbout = () => {
   return (
     <View>
-      <Text>Recipe Cookbook</Text>
+      
     </View>
   )
 };
 
 
-export default AuthorCookbookCard;
+export default AuthorAbout;
 

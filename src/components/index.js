@@ -16,7 +16,7 @@ import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard } from "./Ho
 import { RecipeHomeCardSkeleton } from "./Skeletons";
 import { SearchBox, SearchSuggestion } from "./SearchScreenComponents";
 import { HeaderCarousel, RecipeInfoBox, RecipeAuthorBox, RecipeDescription, IngridientBox, StepContainer, NutrientsCard } from "./RecipeDetailsScreenComponents";
-import { AuthorScreenHeader, AuthorBox, FlatListItem, AuthorRecipeCard, AuthorCookbookCard, } from "./AuthorScreenComponents";
+import { AuthorScreenHeader, AuthorBox, Tabs, AuthorRecipeCard, AuthorCookbookCard, AuthorAbout } from "./AuthorScreenComponents";
 
 
 export {
@@ -81,8 +81,9 @@ export {
     //
     AuthorScreenHeader,
     AuthorBox,
+    Tabs,
     AuthorRecipeCard,
     AuthorCookbookCard,
-    FlatListItem,
+    AuthorAbout,
 };
 

@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 import AppStyles from "../../AppStyles";
 
@@ -99,13 +99,122 @@ export const authorBoxStyles = StyleSheet.create({
 });
 
 
-export const flatListItemStyle = StyleSheet.create({
-    
+export const tabStyle = StyleSheet.create({
+    tabContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginBottom: 7,
+        // backgroundColor: 'red'
+    },
+    tabs: {
+
+    },
+    tab: {
+
+    },
+    tabText: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyRegular,
+        fontSize: 16,
+    },
+    tabIndicator: {
+        position: 'absolute',
+        bottom: 0,
+        // width: 50,
+        height: 2,
+        borderRadius: 7,
+        backgroundColor: AppStyles.primaryTextColor,
+    },
 });
 
 
-export const authorRecipeCard = StyleSheet.create({
-
+export const authorRecipeCardStyles = StyleSheet.create({
+    container: {
+        height: 110,
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        marginTop: 20,
+        borderRadius: 10,
+        backgroundColor: AppStyles.primaryBackgroundColor,
+    },
+    thumbnail: {
+        height: '100%',
+        aspectRatio: 1 / 1,
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
+    },
+    infoWrapper: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        padding: 5,
+        marginLeft: 10,
+    },
+    categoryContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    categoryTextContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    bar: {
+        width: 2,
+        height: 16,
+        backgroundColor: AppStyles.primaryColor,
+    },
+    categoryText: {
+        color: AppStyles.primaryColor,
+        fontFamily: AppStyles.primaryFontFamilyRegular,
+        fontSize: 15,
+        marginLeft: 5,
+    },
+    title: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyBold,
+        fontSize: 15,
+    },
+    ratingsWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    viewText: {
+        color: AppStyles.secondaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 14,
+        marginLeft: 5,
+    },
+    footerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    authorContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    authorImg: {
+        width: 25,
+        height: 25,
+        borderRadius: 100,
+    },
+    authorName: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyBold,
+        fontSize: 13,
+        marginHorizontal: 5,
+    },
+    durationContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    durationText: {
+        color: AppStyles.secondaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 14,
+        marginLeft: 4,
+    },
 });
 
 
