@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from 'react-native';
+import { cyan50 } from 'react-native-paper/lib/typescript/styles/themes/v2/colors';
 import AppStyles from '../../../AppStyles';
 
 
@@ -42,6 +43,36 @@ export default StyleSheet.create({
     },
     authorPostsContainer: {
         
+    },
+    tabContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-evenly',
+        marginBottom: 7,
+        // backgroundColor: 'red'
+    },
+    tabs: {
+        
+    },
+    tab: {
+
+    },
+    tabText: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyRegular,
+        fontSize: 16,
+    },
+    tabIndicator: {
+        position: 'absolute',
+        bottom: 0,
+        // width: 50,
+        height: 2,
+        borderRadius: 7,
+        backgroundColor: AppStyles.primaryTextColor,
+    },
+    flatListItemContainer: {
+        width: '100%',
+        height: '100%',
     },
 });
 

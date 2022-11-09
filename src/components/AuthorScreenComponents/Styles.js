@@ -99,6 +99,11 @@ export const authorBoxStyles = StyleSheet.create({
 });
 
 
+export const flatListItemStyle = StyleSheet.create({
+    
+});
+
+
 export const authorRecipeCard = StyleSheet.create({
 
 });
