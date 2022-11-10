@@ -4,7 +4,7 @@ import { Portal } from '@gorhom/portal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { AuthorScreenHeader, AuthorBox, Tabs, AuthorRecipeCard, AuthorCookbookCard, AuthorAbout, BottomActionSheet } from '../../../components';
+import { AuthorScreenHeader, AuthorBox, AuthorRecipeCard, AuthorCookbookCard, AuthorAbout, BottomActionSheet } from '../../../components';
 
 import { getAuthorDetailsData } from '../../../utils/api';
 
@@ -16,8 +16,6 @@ function AuthorScreen({ route, navigation }) {
   const { authorId } = route?.params
   const [loading, setLoading] = useState(false)
   const [authorDetails, setAuthorDetails] = useState(null)
-  const [flatListData, setFlatListData] = useState([])
-  const slideRef = useRef(null)
   const moreSheetRef = useRef()
   const [isMoreSheetActive, setIsMoreSheetActive] = useState(false)
   const moreSheetSnapPoints = ['50%',]
@@ -45,22 +43,6 @@ function AuthorScreen({ route, navigation }) {
     return () => {}
   }, [])
 
-  useEffect(() => {
-    setFlatListData([
-      { id: 1, Recipes: authorDetails?.Recipes },
-      { id: 2, Cookbooks: authorDetails?.Cookbooks },
-      {
-        id: 3,
-        About: "About",
-        description: authorDetails?.description,
-        socials: authorDetails?.authorSocials,
-        location: authorDetails?.location,
-        createdAt: authorDetails?.createdAt,
-      },
-    ])
-    return () => {}
-  }, [authorDetails])
-
   return (
     <SafeAreaView style={Styles.container} >
       <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
@@ -69,35 +51,36 @@ function AuthorScreen({ route, navigation }) {
           <ActivityIndicator color={AppStyles.primaryColor} size={'large'} />
         </View>
       :
-        <ScrollView contentContainerStyle={{  }} showsVerticalScrollIndicator={false} >
+        <ScrollView nestedScrollEnabled >
           { authorDetails !== null ?
             <View style={Styles.wrapper} >
-              <AuthorScreenHeader author={authorDetails?.name} isVerified={authorDetails?.isVerified} navigation={navigation} onPressMore={onPressMore} />
-              <AuthorBox authorDetails={authorDetails} />
-              <View style={[Styles.authorPostsContainer, {  }]} >
-                <Tabs scrollX={scrollX} />
-                <Animated.FlatList
-                  nestedScrollEnabled={true}
-                  ref={slideRef}
-                  data={flatListData}
-                  renderItem={({ item }) => {
-                    if (Object.keys(item)[1] === 'Recipes') return <AuthorRecipeCard navigation={navigation} item={item} />
-                    else if (Object.keys(item)[1] === 'Cookbooks') return <AuthorCookbookCard item={item} />
-                    else return <AuthorAbout item={item} />
-                  }}
-                  keyExtractor={item => item.id}
-                  onScroll={Animated.event(
-                    [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-                    {useNativeDriver: false}
-                  )}
-                  pagingEnabled
-                  bounces={false}
-                  contentContainerStyle={{ width: Dimensions.get('window').width }}
-                  scrollEventThrottle={32}
-                  horizontal
-                  showsHorizontalScrollIndicator={false}
-                />
+              <View style={Styles.headerContainer} >
+                <AuthorScreenHeader author={authorDetails?.name} isVerified={authorDetails?.isVerified} navigation={navigation} onPressMore={onPressMore} />
+                <AuthorBox authorDetails={authorDetails} />
               </View>
+              <ScrollView nestedScrollEnabled horizontal pagingEnabled showsHorizontalScrollIndicator={false}  >
+                <FlatList
+                  nestedScrollEnabled
+                  data={authorDetails?.Recipes}
+                  keyExtractor={item => item._id}
+                  renderItem={({item}) => <AuthorRecipeCard navigation={navigation} item={item} />}
+                  contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
+                />
+                <FlatList
+                  nestedScrollEnabled
+                  data={authorDetails?.Recipes}
+                  keyExtractor={item => item._id}
+                  renderItem={({ item }) => <AuthorRecipeCard item={item} />}
+                  contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
+                />
+                <FlatList
+                  nestedScrollEnabled
+                  data={authorDetails?.Recipes}
+                  keyExtractor={item => item._id}
+                  renderItem={({ item }) => <AuthorRecipeCard item={item} />}
+                  contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
+                />
+              </ScrollView>
               {/**
                * features to be added here.
               */}

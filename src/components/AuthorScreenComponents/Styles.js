@@ -131,6 +131,7 @@ export const tabStyle = StyleSheet.create({
 
 export const authorRecipeCardStyles = StyleSheet.create({
     container: {
+        // width: '100%',
         height: 110,
         flexDirection: 'row',
         alignItems: 'flex-start',
@@ -145,10 +146,12 @@ export const authorRecipeCardStyles = StyleSheet.create({
         borderBottomLeftRadius: 10,
     },
     infoWrapper: {
+        flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-between',
         padding: 5,
         marginLeft: 10,
+        // backgroundColor: 'red'
     },
     categoryContainer: {
         flexDirection: 'row',
@@ -174,10 +177,12 @@ export const authorRecipeCardStyles = StyleSheet.create({
         color: AppStyles.primaryTextColor,
         fontFamily: AppStyles.primaryFontFamilyBold,
         fontSize: 15,
+        marginTop: 5,
     },
     ratingsWrapper: {
         flexDirection: 'row',
         alignItems: 'center',
+        marginVertical: 5,
     },
     viewText: {
         color: AppStyles.secondaryTextColor,

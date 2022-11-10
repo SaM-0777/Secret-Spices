@@ -8,8 +8,17 @@ export default StyleSheet.create({
         backgroundColor: AppStyles.secondaryBackgroundColor,
     },
     wrapper: {
-        flex: 1,
+        // flex: 1,
+        // alignItems: 'center',
+    },
+    headerContainer: {
         paddingHorizontal: 12,
+        /*top: 0,
+        left: 0,
+        right: 0,*/
+        // position: 'relative',
+        // position: 'absolute',
+        // justifyContent: 'center',
     },
     carouselLoading: {
         width: Dimensions.get('window').width,
