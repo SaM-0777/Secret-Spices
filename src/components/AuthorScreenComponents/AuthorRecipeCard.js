@@ -18,7 +18,7 @@ function AuthorRecipeCard({ navigation, item }) {
           </View>
           <Ionicons name='bookmark' size={20} color={AppStyles.primaryTextColor} />
         </View>
-        <Text style={authorRecipeCardStyles.title} >{item.title}</Text>
+        <Text style={authorRecipeCardStyles.title} ellipsizeMode="tail" numberOfLines={1} >{item.title}</Text>
         <View style={authorRecipeCardStyles.ratingsWrapper} >
           {[...Array(5).keys()].map(i => (
             <Ionicons key={i.toString()} name='star' size={14} color='#F58549' />

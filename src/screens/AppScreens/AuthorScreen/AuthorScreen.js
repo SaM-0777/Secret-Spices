@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, createRef } from 'react';
-import { View, Text, StatusBar, TouchableOpacity, ScrollView, findNodeHandle, FlatList, Animated, ActivityIndicator, Dimensions } from 'react-native';
+import { View, Text, StatusBar, TouchableOpacity, ScrollView, FlatList, Animated, ActivityIndicator, Dimensions } from 'react-native';
 import { Portal } from '@gorhom/portal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { AuthorScreenHeader, AuthorBox, AuthorRecipeCard, AuthorCookbookCard, AuthorAbout, BottomActionSheet } from '../../../components';
+import { AuthorScreenHeader, AuthorBox, AuthorRecipeCard, Tabs, AuthorCookbookCard, AuthorAbout, BottomActionSheet } from '../../../components';
 
 import { getAuthorDetailsData } from '../../../utils/api';
 
@@ -50,27 +50,36 @@ function AuthorScreen({ route, navigation }) {
         <View style={Styles.loadingIndicatorContainer} >
           <ActivityIndicator color={AppStyles.primaryColor} size={'large'} />
         </View>
-      :
-        <ScrollView nestedScrollEnabled >
+        :
+        <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false} >
           { authorDetails !== null ?
             <View style={Styles.wrapper} >
               <View style={Styles.headerContainer} >
                 <AuthorScreenHeader author={authorDetails?.name} isVerified={authorDetails?.isVerified} navigation={navigation} onPressMore={onPressMore} />
                 <AuthorBox authorDetails={authorDetails} />
               </View>
-              <ScrollView nestedScrollEnabled horizontal pagingEnabled showsHorizontalScrollIndicator={false}  >
+              <Tabs  />
+              <ScrollView nestedScrollEnabled horizontal pagingEnabled showsHorizontalScrollIndicator={false} contentContainerStyle={{ height: Dimensions.get('window').height }} >
+                <>
+                  {authorDetails?.Recipes.length === 0 ? 
+                    <View style={Styles.emptyDataContainer} >
+                      <Text style={Styles.noDataText} >No Recipes yet</Text>
+                    </View>
+                  : 
+                    <FlatList
+                      nestedScrollEnabled
+                      data={authorDetails?.Recipes}
+                      keyExtractor={item => item._id}
+                      renderItem={({item}) => <AuthorRecipeCard navigation={navigation} item={item} />}
+                      contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
+                    />
+                  }
+                </>
                 <FlatList
                   nestedScrollEnabled
                   data={authorDetails?.Recipes}
                   keyExtractor={item => item._id}
-                  renderItem={({item}) => <AuthorRecipeCard navigation={navigation} item={item} />}
-                  contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
-                />
-                <FlatList
-                  nestedScrollEnabled
-                  data={authorDetails?.Recipes}
-                  keyExtractor={item => item._id}
-                  renderItem={({ item }) => <AuthorRecipeCard item={item} />}
+                  renderItem={({ item }) => <AuthorCookbookCard item={item} />}
                   contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
                 />
                 <FlatList

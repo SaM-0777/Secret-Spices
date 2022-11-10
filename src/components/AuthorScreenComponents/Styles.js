@@ -56,8 +56,8 @@ export const authorBoxStyles = StyleSheet.create({
         marginTop: 20,
     },
     box: {
-        width: 80,
-        height: 80,
+        width: 70,
+        height: 70,
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
@@ -104,7 +104,7 @@ export const tabStyle = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        marginBottom: 7,
+        marginVertical: 7,
         // backgroundColor: 'red'
     },
     tabs: {
@@ -178,6 +178,7 @@ export const authorRecipeCardStyles = StyleSheet.create({
         fontFamily: AppStyles.primaryFontFamilyBold,
         fontSize: 15,
         marginTop: 5,
+        textTransform: 'capitalize',
     },
     ratingsWrapper: {
         flexDirection: 'row',
@@ -223,7 +224,16 @@ export const authorRecipeCardStyles = StyleSheet.create({
 });
 
 
-export const authorCookbookCard = StyleSheet.create({
-    
+export const authorCookbookCardStyles = StyleSheet.create({
+    container: {
+
+    },
+    headerContainer: {
+        flexDirection: 'row',
+    },
+    headerImage: {
+        width: 80,
+        height: 80,
+    },
 });
 

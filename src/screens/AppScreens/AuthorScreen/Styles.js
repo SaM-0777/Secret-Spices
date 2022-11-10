@@ -53,5 +53,15 @@ export default StyleSheet.create({
     authorPostsContainer: {
         flexGrow: 1,
     },
+    emptyDataContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    noDataText: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyRegular,
+        fontSize: 16,
+    },
 });
 
