@@ -71,24 +71,30 @@ function AuthorScreen({ route, navigation }) {
                       data={authorDetails?.Recipes}
                       keyExtractor={item => item._id}
                       renderItem={({item}) => <AuthorRecipeCard navigation={navigation} item={item} />}
+                      contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12 }}
+                    />
+                  }
+                </>
+                <>
+                  {authorDetails?.Cookbooks.length === 0 ?
+                    <View style={Styles.emptyDataContainer} >
+                      <Text style={Styles.noDataText} >No Recipes yet</Text>
+                    </View>
+                  :
+                    <FlatList
+                      numColumns={2}
+                      columnWrapperStyle={{ justifyContent: 'space-between', }}
+                      nestedScrollEnabled
+                      data={authorDetails?.Cookbooks}
+                      keyExtractor={item => item._id}
+                      renderItem={({ item, index }) => <AuthorCookbookCard item={item} index={index} />}
                       contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
                     />
                   }
                 </>
-                <FlatList
-                  nestedScrollEnabled
-                  data={authorDetails?.Recipes}
-                  keyExtractor={item => item._id}
-                  renderItem={({ item }) => <AuthorCookbookCard item={item} />}
-                  contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
-                />
-                <FlatList
-                  nestedScrollEnabled
-                  data={authorDetails?.Recipes}
-                  keyExtractor={item => item._id}
-                  renderItem={({ item }) => <AuthorRecipeCard item={item} />}
-                  contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
-                />
+                <View style={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }} >
+                  <AuthorAbout description={authorDetails?.description} authSocials={authorDetails?.authSocials} />
+                </View>
               </ScrollView>
               {/**
                * features to be added here.

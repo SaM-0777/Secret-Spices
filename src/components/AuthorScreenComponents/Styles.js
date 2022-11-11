@@ -226,14 +226,87 @@ export const authorRecipeCardStyles = StyleSheet.create({
 
 export const authorCookbookCardStyles = StyleSheet.create({
     container: {
-
+        width: '48%',
+        height: 200,
+        // paddingHorizontal: 5,
+        borderRadius: 7,
+        marginTop: 20,
+        backgroundColor: AppStyles.primaryBackgroundColor
+    },
+    headerImage: {
+        width: '100%',
+        height: 115,
+        borderTopLeftRadius: 7,
+        borderTopRightRadius: 7,
     },
     headerContainer: {
         flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 5,
     },
-    headerImage: {
-        width: 80,
-        height: 80,
+    title: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyBold,
+        fontSize: 14,
+        paddingRight: 4,
+    },
+    ratingContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginVertical: 5,
+    },
+    authorContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 5,
+    },
+    authorImg: {
+        width: 25,
+        height: 25,
+        borderRadius: 100,
+        marginRight: 5,
+    },
+    authorName: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyRegular,
+        fontSize: 14,
+        marginRight: 5,
+    },
+    footerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    durationContainer: {
+        flexDirection: 'row',
+    },
+});
+
+
+export const authorAboutStyles = StyleSheet.create({
+    container: {
+        marginTop: 20,
+    },
+    descHeader: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyBold,
+        fontSize: 16,
+        marginBottom: 7,
+    },
+    desc: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 14,
+        textAlign: 'justify',
+    },
+    linkContainer: {
+        marginVertical: 25,
+    },
+    linkHeader: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyBold,
+        fontSize: 16,
+        marginBottom: 7,
     },
 });
 
