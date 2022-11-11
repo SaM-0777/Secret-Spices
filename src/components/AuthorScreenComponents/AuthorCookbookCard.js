@@ -9,11 +9,13 @@ import { authorCookbookCardStyles } from './Styles';
 function AuthorCookbookCard({ navigation, item, index }) {
   
   function navigateToCookbookDetails(){
-    navigation.navigate('')
+    navigation.navigate('cookbook-details', {
+      cookbookId: item._id
+    })
   }
 
   return (
-    <TouchableOpacity activeOpacity={0.9} onPress={() => {}} style={[authorCookbookCardStyles.container, ]} >
+    <TouchableOpacity activeOpacity={0.9} onPress={navigateToCookbookDetails} style={[authorCookbookCardStyles.container, ]} >
       <Image source={require('../../../assets/images/recipe-thumbnail-1.jpg')} resizeMode={'cover'} style={authorCookbookCardStyles.headerImage} />
       <View style={{ paddingHorizontal: 4 }} >
         <View style={authorCookbookCardStyles.headerContainer} >

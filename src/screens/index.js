@@ -11,6 +11,7 @@ import {
     RecipeDetailsScreen,
     OwnerScreen,
     AddRecipeScreen,
+    CookbookScreen,
 } from './AppScreens';
 
 
@@ -29,5 +30,6 @@ export {
     RecipeDetailsScreen,
     OwnerScreen,
     AddRecipeScreen,
+    CookbookScreen,
 };
 

@@ -8,6 +8,7 @@ import AuthorScreen from "./AuthorScreen";
 import RecipeDetailsScreen from "./RecipeDetailsScreen";
 import OwnerScreen from "./OwnerScreen";
 import AddRecipeScreen from "./AddRecipeScreen";
+import CookbookScreen from "./CookbookScreen";
 
 
 export {
@@ -21,5 +22,6 @@ export {
     RecipeDetailsScreen,
     OwnerScreen,
     AddRecipeScreen,
+    CookbookScreen,
 };
 

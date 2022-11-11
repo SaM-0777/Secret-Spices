@@ -12,7 +12,7 @@ const AuthorAbout = ({ description, authSocials }) => {
       <Text style={authorAboutStyles.desc} >{description}</Text>
       <View style={authorAboutStyles.linkContainer} >
         <Text style={authorAboutStyles.linkHeader} >Links</Text>
-
+        
       </View>
     </View>
   )
