@@ -241,8 +241,9 @@ export const authorCookbookCardStyles = StyleSheet.create({
     },
     headerContainer: {
         flexDirection: 'row',
+        alignItems: 'center',
         justifyContent: 'space-between',
-        marginTop: 5,
+        marginTop: 2,
     },
     title: {
         color: AppStyles.primaryTextColor,

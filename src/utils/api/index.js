@@ -1,9 +1,10 @@
-import { getHomeData, getAuthorDetailsData, getRecipeDetailsData } from "./get";
+import { getHomeData, getAuthorDetailsData, getRecipeDetailsData, getCookbookDetailsData } from "./get";
 
 
 export {
     getHomeData,
     getAuthorDetailsData,
     getRecipeDetailsData,
+    getCookbookDetailsData,
 };
 

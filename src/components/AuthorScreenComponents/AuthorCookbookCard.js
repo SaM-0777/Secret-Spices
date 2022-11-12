@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -11,6 +11,10 @@ function AuthorCookbookCard({ navigation, item, authorImg, authorName, isVerifie
   const ratingWhole = parseInt(Math.floor(rating))
   const ratingFraction = rating - ratingWhole
   const ratingCeil = parseInt(Math.ceil(rating))
+
+  const [isSaved, setIsSaved] = useState(false)
+
+  function onPressSave() {setIsSaved(prevState => !prevState)}
   
   function navigateToCookbookDetails(){
     navigation.navigate('cookbook-details', {
@@ -22,7 +26,10 @@ function AuthorCookbookCard({ navigation, item, authorImg, authorName, isVerifie
     <TouchableOpacity activeOpacity={0.9} onPress={navigateToCookbookDetails} style={[authorCookbookCardStyles.container, ]} >
       <Image source={{ uri: item.thumbnail, scale: 1.0 }} resizeMode={'cover'} style={authorCookbookCardStyles.headerImage} />
       <View style={{ paddingHorizontal: 4 }} >
-        <Text ellipsizeMode='tail' numberOfLines={1} style={authorCookbookCardStyles.title} >{item.name}</Text>
+        <View style={authorCookbookCardStyles.headerContainer} >
+          <Text ellipsizeMode='tail' numberOfLines={1} style={authorCookbookCardStyles.title} >{item.name}</Text>
+          <Ionicons onPress={onPressSave} name={isSaved ? 'bookmark' : 'bookmark-outline'} size={15} color={AppStyles.primaryTextColor} />
+        </View>
         <View style={authorCookbookCardStyles.ratingContainer} >
           {[...Array(ratingWhole).keys()].map(i => (
             <Ionicons key={i.toString()} name='star' color={'#F58549'} size={12} />

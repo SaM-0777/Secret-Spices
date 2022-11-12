@@ -15,7 +15,7 @@ export async function getHomeData() {
         const data = await response.json()
         return data
     } catch (error) {
-        return -1
+        return null
     }
 };
 
@@ -33,7 +33,7 @@ export async function getAuthorDetailsData(authorId) {
         const data = await response.json()
         return data
     } catch (error) {
-        return -1
+        return [null]
     }
 };
 
@@ -51,6 +51,26 @@ export async function getRecipeDetailsData(recipeId) {
         const data = await response.json()
         return data
     } catch (error) {
-        return -1
+        return [null]
     }
 };
+
+
+export async function getCookbookDetailsData(cookbookId) {
+    const url = `${backendUrl}/api/user/cookbook/details/${cookbookId}`
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-type': 'application/json'
+            }
+        })
+        const data = await response.json()
+        return data
+    } catch (error) {
+        return [null]
+    }
+};
+

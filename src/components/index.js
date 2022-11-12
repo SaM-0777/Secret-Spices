@@ -17,7 +17,7 @@ import { RecipeHomeCardSkeleton } from "./Skeletons";
 import { SearchBox, SearchSuggestion } from "./SearchScreenComponents";
 import { HeaderCarousel, RecipeInfoBox, RecipeAuthorBox, RecipeDescription, IngridientBox, StepContainer, NutrientsCard } from "./RecipeDetailsScreenComponents";
 import { AuthorScreenHeader, AuthorBox, Tabs, AuthorRecipeCard, AuthorCookbookCard, AuthorAbout } from "./AuthorScreenComponents";
-import { CookbookScreenHeader, Banner } from "./CookbookScreenComponents";
+import { CookbookScreenHeader, Banner, CookbookRecipeCard } from "./CookbookScreenComponents";
 
 
 export {
@@ -90,5 +90,6 @@ export {
     //
     CookbookScreenHeader,
     Banner,
+    CookbookRecipeCard,
 };
 
