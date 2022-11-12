@@ -8,7 +8,7 @@ import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, BottomActio
 
 import Styles from './Styles';
 
-import { getData } from "../../../utils/api";
+import { getHomeData } from "../../../utils/api";
 import AppStyles from '../../../AppStyles';
 
 
@@ -26,7 +26,7 @@ const HomeScreen = ({ navigation }) => {
 
   async function getResponse() {
     setLoading(true)
-    const response = await getData()
+    const response = await getHomeData()
     setData(response)
     setLoading(false)
   }

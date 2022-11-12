@@ -51,56 +51,58 @@ function AuthorScreen({ route, navigation }) {
           <ActivityIndicator color={AppStyles.primaryColor} size={'large'} />
         </View>
         :
-        <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false} >
-          { authorDetails !== null ?
-            <View style={Styles.wrapper} >
-              <View style={Styles.headerContainer} >
-                <AuthorScreenHeader author={authorDetails?.name} isVerified={authorDetails?.isVerified} navigation={navigation} onPressMore={onPressMore} />
-                <AuthorBox authorDetails={authorDetails} />
-              </View>
-              <Tabs  />
-              <ScrollView nestedScrollEnabled horizontal pagingEnabled showsHorizontalScrollIndicator={false} contentContainerStyle={{ height: Dimensions.get('window').height }} >
-                <>
-                  {authorDetails?.Recipes.length === 0 ? 
-                    <View style={Styles.emptyDataContainer} >
-                      <Text style={Styles.noDataText} >No Recipes yet</Text>
-                    </View>
-                  : 
-                    <FlatList
-                      nestedScrollEnabled
-                      data={authorDetails?.Recipes}
-                      keyExtractor={item => item._id}
-                      renderItem={({item}) => <AuthorRecipeCard navigation={navigation} item={item} />}
-                      contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12 }}
-                    />
-                  }
-                </>
-                <>
-                  {authorDetails?.Cookbooks.length === 0 ?
-                    <View style={Styles.emptyDataContainer} >
-                      <Text style={Styles.noDataText} >No Recipes yet</Text>
-                    </View>
-                  :
-                    <FlatList
-                      numColumns={2}
-                      columnWrapperStyle={{ justifyContent: 'space-between', }}
-                      nestedScrollEnabled
-                      data={authorDetails?.Cookbooks}
-                      keyExtractor={item => item._id}
-                      renderItem={({ item, index }) => <AuthorCookbookCard item={item} navigation={navigation} index={index} />}
-                      contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
-                    />
-                  }
-                </>
-                <View style={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }} >
-                  <AuthorAbout description={authorDetails?.description} authSocials={authorDetails?.authSocials} />
+        <>
+          { authorDetails ?
+            <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false} >
+              <View style={Styles.wrapper} >
+                <View style={Styles.headerContainer} >
+                  <AuthorScreenHeader author={authorDetails?.name} isVerified={authorDetails?.isVerified} navigation={navigation} onPressMore={onPressMore} />
+                  <AuthorBox authorDetails={authorDetails} />
                 </View>
-              </ScrollView>
-              {/**
-               * features to be added here.
-              */}
-            </View>
-            :
+                <Tabs />
+                <ScrollView nestedScrollEnabled horizontal pagingEnabled showsHorizontalScrollIndicator={false} contentContainerStyle={{ height: Dimensions.get('window').height }} >
+                  <>
+                    {authorDetails?.Cookbooks.length === 0 ?
+                      <View style={Styles.emptyDataContainer} >
+                        <Text style={Styles.noDataText} >No Recipes yet</Text>
+                      </View>
+                      :
+                      <FlatList
+                        numColumns={2}
+                        columnWrapperStyle={{ justifyContent: 'space-between', }}
+                        nestedScrollEnabled
+                        data={authorDetails?.Cookbooks}
+                        keyExtractor={item => item._id}
+                        renderItem={({ item, index }) => <AuthorCookbookCard item={item} navigation={navigation} index={index} />}
+                        contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
+                      />
+                    }
+                  </>
+                  <>
+                    {authorDetails?.Recipes.length === 0 ?
+                      <View style={Styles.emptyDataContainer} >
+                        <Text style={Styles.noDataText} >No Recipes yet</Text>
+                      </View>
+                      :
+                      <FlatList
+                        nestedScrollEnabled
+                        data={authorDetails?.Recipes}
+                        keyExtractor={item => item._id}
+                        renderItem={({ item }) => <AuthorRecipeCard navigation={navigation} item={item} />}
+                        contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12 }}
+                      />
+                    }
+                  </>
+                  <View style={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }} >
+                    <AuthorAbout description={authorDetails?.description} authSocials={authorDetails?.authSocials} />
+                  </View>
+                </ScrollView>
+                {/**
+                  * features to be added here.
+                */}
+              </View >
+            </ScrollView>
+          :
             <View style={Styles.retryContainer} >
               <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
                 <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
@@ -108,7 +110,7 @@ function AuthorScreen({ route, navigation }) {
               </TouchableOpacity>
             </View>
           }
-        </ScrollView>
+        </>
       }
       <Portal>
         <BottomActionSheet sheetRef={moreSheetRef} sheetSnapPoints={moreSheetSnapPoints} isActive={isMoreSheetActive} setIsActive={setIsMoreSheetActive} >
@@ -122,3 +124,9 @@ function AuthorScreen({ route, navigation }) {
 
 export default AuthorScreen;
 
+
+
+/**
+ * 
+ 
+ */

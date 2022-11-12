@@ -1,11 +1,9 @@
-import getData from "./homeScreenData";
-import getRecipeDetailsData from "./recipeDetailsScreenData";
-import getAuthorDetailsData from "./authorDetailScreenData";
+import { getHomeData, getAuthorDetailsData, getRecipeDetailsData } from "./get";
 
 
 export {
-    getData,
-    getRecipeDetailsData,
+    getHomeData,
     getAuthorDetailsData,
+    getRecipeDetailsData,
 };
 
