@@ -73,7 +73,7 @@ function AuthorScreen({ route, navigation }) {
                         nestedScrollEnabled
                         data={authorDetails?.Cookbooks}
                         keyExtractor={item => item._id}
-                        renderItem={({ item, index }) => <AuthorCookbookCard item={item} navigation={navigation} index={index} />}
+                        renderItem={({ item, index }) => <AuthorCookbookCard item={item} authorImg={authorDetails.thumbnail} authorName={authorDetails.name} isVerified={authorDetails.isVerified} navigation={navigation} />}
                         contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
                       />
                     }

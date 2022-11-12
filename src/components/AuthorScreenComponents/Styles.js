@@ -227,7 +227,7 @@ export const authorRecipeCardStyles = StyleSheet.create({
 export const authorCookbookCardStyles = StyleSheet.create({
     container: {
         width: '48%',
-        height: 200,
+        height: 190,
         // paddingHorizontal: 5,
         borderRadius: 7,
         marginTop: 20,
@@ -235,7 +235,7 @@ export const authorCookbookCardStyles = StyleSheet.create({
     },
     headerImage: {
         width: '100%',
-        height: 115,
+        aspectRatio: 16 / 9,
         borderTopLeftRadius: 7,
         borderTopRightRadius: 7,
     },
