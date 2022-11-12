@@ -249,16 +249,23 @@ export const authorCookbookCardStyles = StyleSheet.create({
         fontFamily: AppStyles.primaryFontFamilyBold,
         fontSize: 14,
         paddingRight: 4,
+        marginTop: 5,
     },
     ratingContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginVertical: 5,
+        marginVertical: 7,
+    },
+    ratingCount: {
+        color: AppStyles.secondaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 13,
+        marginLeft: 5,
     },
     authorContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        marginTop: 5,
+        //marginTop: 5,
     },
     authorImg: {
         width: 25,

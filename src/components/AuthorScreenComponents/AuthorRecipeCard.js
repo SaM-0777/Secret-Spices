@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, TouchableOpacity, Text, Image, Dimensions, ScrollView } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import moment from 'moment';
 
 import AppStyles from '../../AppStyles';
 import { authorRecipeCardStyles } from './Styles';
@@ -33,7 +34,7 @@ function AuthorRecipeCard({ navigation, item }) {
           </View>
           <View style={authorRecipeCardStyles.durationContainer} >
             <Ionicons name='alarm-outline' size={20} color={AppStyles.secondaryTextColor} />
-            <Text style={authorRecipeCardStyles.durationText} >{item.duration} secs</Text>
+            <Text style={authorRecipeCardStyles.durationText} >{moment.utc(item.duration * 1000).format('mm:ss')} min</Text>
           </View>
         </View>
       </View>
