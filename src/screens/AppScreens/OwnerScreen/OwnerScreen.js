@@ -55,8 +55,8 @@ function OwnerScreen({ route, navigation }) {
             <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false} >
               <View style={Styles.wrapper} >
                 <View style={Styles.headerContainer} >
-                  <OwnerScreenHeader navigation={navigation} author={ownerDetails?.name} onPressCreate={onPressCreate} onPressMore={onPressMore} isVerified />
-                  <OwnerBox owner={{}} navigation={navigation} />
+                  <OwnerScreenHeader navigation={navigation} author={ownerDetails?.name} onPressCreate={onPressCreate} onPressMore={onPressMore} isVerified={ownerDetails?.isVerified} />
+                  <OwnerBox ownerName={ownerDetails?.name} ownerCookbookCount={ownerDetails?.cookbookCount} ownerRecipeCount={ownerDetails?.recipeCount} ownerSubscriptionCount={ownerDetails?.subscriptionCount} navigation={navigation} />
                 </View>
                 <OwnerScreenTabs />
                 <ScrollView nestedScrollEnabled horizontal pagingEnabled showsHorizontalScrollIndicator={false} contentContainerStyle={{ height: Dimensions.get('window').height }} >

@@ -18,6 +18,7 @@ import {
   OwnerScreen,
   AddRecipeScreen,
   CookbookScreen,
+  EditProfileScreen,
 } from '../../screens';
 import AppStyles from '../../AppStyles';
 
@@ -92,6 +93,7 @@ const AppStack = ({ }) => {
       <AppNavigationStack.Screen name={'recipe-details'} component={RecipeDetailsScreen} />
       <AppNavigationStack.Screen name={'add-recipe'} component={AddRecipeScreen} />
       <AppNavigationStack.Screen name={'cookbook-details'} component={CookbookScreen} />
+      <AppNavigationStack.Screen name={'edit-profile'} component={EditProfileScreen} />
     </AppNavigationStack.Navigator>
   )
 };

@@ -7,7 +7,7 @@ import { ownerBoxStyles } from './Styles';
 
 function OwnerBox({ navigation, ownerName, ownerSubscriptionCount, ownerCookbookCount, ownerRecipeCount }) {
   
-  function onPressEditProfile() { navigation.navigate('') }
+  function onPressEditProfile() { navigation.navigate('edit-profile') }
 
   return (
     <View style={ownerBoxStyles.container} >

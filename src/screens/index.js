@@ -12,6 +12,7 @@ import {
     OwnerScreen,
     AddRecipeScreen,
     CookbookScreen,
+    EditProfileScreen,
 } from './AppScreens';
 
 
@@ -31,5 +32,6 @@ export {
     OwnerScreen,
     AddRecipeScreen,
     CookbookScreen,
+    EditProfileScreen,
 };
 
