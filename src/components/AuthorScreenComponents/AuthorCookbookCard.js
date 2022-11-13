@@ -41,8 +41,10 @@ function AuthorCookbookCard({ navigation, item, authorImg, authorName, isVerifie
           <Text style={authorCookbookCardStyles.ratingCount} >{item.CookbookRatings.ratingCount}</Text>
         </View>
         <View style={authorCookbookCardStyles.authorContainer} >
-          <Image source={{ uri: authorImg, scale: 1.0 }} resizeMode={'cover'} style={authorCookbookCardStyles.authorImg} />
-          <Text style={authorCookbookCardStyles.authorName} >{authorName}</Text>
+          <View style={authorCookbookCardStyles.author} >
+            <Image source={{ uri: authorImg, scale: 1.0 }} resizeMode={'cover'} style={authorCookbookCardStyles.authorImg} />
+            <Text style={authorCookbookCardStyles.authorName} ellipsizeMode={'tail'} numberOfLines={1} >{authorName}</Text>
+          </View>
           {isVerified ? <Ionicons name='checkmark-done-circle' size={15} color={AppStyles.primaryColor} /> : null}
         </View>
       </View>

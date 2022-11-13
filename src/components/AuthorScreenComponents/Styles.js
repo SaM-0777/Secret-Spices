@@ -266,7 +266,13 @@ export const authorCookbookCardStyles = StyleSheet.create({
     authorContainer: {
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'space-between',
         //marginTop: 5,
+    },
+    author: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingRight: 7,
     },
     authorImg: {
         width: 25,
@@ -278,7 +284,7 @@ export const authorCookbookCardStyles = StyleSheet.create({
         color: AppStyles.primaryTextColor,
         fontFamily: AppStyles.primaryFontFamilyRegular,
         fontSize: 14,
-        marginRight: 5,
+        // marginRight: 5,
     },
     footerContainer: {
         flexDirection: 'row',

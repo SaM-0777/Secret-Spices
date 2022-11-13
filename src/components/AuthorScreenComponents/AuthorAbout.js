@@ -10,10 +10,12 @@ const AuthorAbout = ({ description, authSocials }) => {
     <View style={authorAboutStyles.container} >
       <Text style={authorAboutStyles.descHeader} >Description</Text>
       <Text style={authorAboutStyles.desc} >{description}</Text>
-      <View style={authorAboutStyles.linkContainer} >
-        <Text style={authorAboutStyles.linkHeader} >Links</Text>
-        
-      </View>
+      {authSocials?.length > 0 &&
+        <View style={authorAboutStyles.linkContainer} >
+          <Text style={authorAboutStyles.linkHeader} >Links</Text>
+          
+        </View>
+      }
     </View>
   )
 };

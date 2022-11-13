@@ -1,17 +1,20 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StatusBar, ScrollView, FlatList, Dimensions } from 'react-native';
 import { Portal } from '@gorhom/portal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { OwnerScreenHeader, OwnerBox, OwnerScreenTabs, OwnerAbout, CustomLoading, RetryBox, EmptyListMessageBox, BottomActionSheet } from '../../../components';
+import { OwnerScreenHeader, OwnerBox, OwnerScreenTabs, OwnerAbout, AuthorCookbookCard, AuthorRecipeCard, CustomLoading, RetryBox, EmptyListMessageBox, BottomActionSheet } from '../../../components';
+
+import { getOwnerAuthorDetailsData } from '../../../utils/api/get';
 
 import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
 
 
 function OwnerScreen({ route, navigation }) {
+  const userId = "aws004"
   const [loading, setLoading] = useState(false)
-  const [ownerDetails, setOwnerDetails] = useState([])
+  const [ownerDetails, setOwnerDetails] = useState(null)
 
   const moreSheetRef = useRef()
   const [isMoreSheetActive, setIsMoreSheetActive] = useState(false)
@@ -20,6 +23,23 @@ function OwnerScreen({ route, navigation }) {
   const createSheetRef = useRef()
   const [isCreateSheetActive, setIsCreateSheetActive] = useState(false)
   const createSheetSnapPoints = ['50%',]
+
+  async function getResponse() {
+    setLoading(true)
+    const response = await getOwnerAuthorDetailsData(userId)
+    setOwnerDetails(response[0])
+    setLoading(false)
+  }
+
+  function onRetry() {
+    getResponse()
+  }
+
+  useEffect(() => {
+    if (!ownerDetails) getResponse()
+    // getResponse()
+    return () => { }
+  }, [])
 
   function onPressMore() { setIsMoreSheetActive(true) }
   function onPressCreate() { setIsCreateSheetActive(true) }
@@ -44,14 +64,28 @@ function OwnerScreen({ route, navigation }) {
                     {ownerDetails?.Cookbooks?.length === 0 ?
                       <EmptyListMessageBox text="No Cookbooks yet" />
                       :
-                      <FlatList />
+                      <FlatList
+                        numColumns={2}
+                        columnWrapperStyle={{ justifyContent: 'space-between', }}
+                        nestedScrollEnabled
+                        data={ownerDetails?.Cookbooks}
+                        keyExtractor={item => item._id}
+                        renderItem={({ item, index }) => <AuthorCookbookCard item={item} authorImg={ownerDetails.thumbnail} authorName={ownerDetails.name} isVerified={ownerDetails.isVerified} navigation={navigation} />}
+                        contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }}
+                      />
                     }
                   </>
                   <>
                     {ownerDetails?.Recipes?.length === 0 ?
                       <EmptyListMessageBox text="No Recipes yet" />
                       :
-                      <FlatList />
+                      <FlatList
+                        nestedScrollEnabled
+                        data={ownerDetails?.Recipes}
+                        keyExtractor={item => item._id}
+                        renderItem={({ item }) => <AuthorRecipeCard navigation={navigation} item={item || []} />}
+                        contentContainerStyle={{ width: Dimensions.get('window').width, paddingHorizontal: 12 }}
+                      />
                     }
                   </>
                   <View style={{ width: Dimensions.get('window').width, paddingHorizontal: 12, }} >
@@ -61,7 +95,7 @@ function OwnerScreen({ route, navigation }) {
               </View>
             </ScrollView>
             :
-            <RetryBox  />
+            <RetryBox onPress={onRetry} />
           }
         </>
       }

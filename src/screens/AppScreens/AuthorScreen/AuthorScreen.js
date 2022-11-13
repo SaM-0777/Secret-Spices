@@ -65,7 +65,7 @@ function AuthorScreen({ route, navigation }) {
                   <>
                     {authorDetails?.Cookbooks.length === 0 ?
                       <View style={Styles.emptyDataContainer} >
-                        <Text style={Styles.noDataText} >No Recipes yet</Text>
+                        <Text style={Styles.noDataText} >No Cookbooks yet</Text>
                       </View>
                       :
                       <FlatList
