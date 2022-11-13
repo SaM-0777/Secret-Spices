@@ -54,13 +54,13 @@ export default StyleSheet.create({
         flexGrow: 1,
     },
     emptyDataContainer: {
-        flex: 1,
+        width: Dimensions.get('window').width,
         alignItems: 'center',
-        justifyContent: 'center',
+        // justifyContent: 'center',
     },
     noDataText: {
         color: AppStyles.primaryTextColor,
-        fontFamily: AppStyles.primaryFontFamilyRegular,
+        fontFamily: AppStyles.primaryFontFamilyBold,
         fontSize: 16,
     },
 });

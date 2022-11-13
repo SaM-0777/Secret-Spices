@@ -16,6 +16,7 @@ function AuthorScreen({ route, navigation }) {
   const { authorId } = route?.params
   const [loading, setLoading] = useState(false)
   const [authorDetails, setAuthorDetails] = useState(null)
+  
   const moreSheetRef = useRef()
   const [isMoreSheetActive, setIsMoreSheetActive] = useState(false)
   const moreSheetSnapPoints = ['50%',]
