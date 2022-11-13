@@ -10,9 +10,11 @@ export const headerStyles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     leftContainer: {
+        width: "65%",
         flexDirection: 'row',
         alignItems: 'center',
         // justifyContent: 'center',
+        // backgroundColor: 'red',
     },
     authorText: {
         color: AppStyles.primaryTextColor,

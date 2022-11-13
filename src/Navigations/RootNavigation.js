@@ -40,11 +40,6 @@ const RootNavigation = ({  }) => {
       .catch(() => console.log('Not signed in'))
   }
 
-  useEffect(() => {
-    console.log(user)
-    return () => {}
-  }, [user])
-
   return (
     <>
       {JSON.stringify(user) ? <AppStack /> : <AuthStack />}

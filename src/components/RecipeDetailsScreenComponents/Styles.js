@@ -19,6 +19,7 @@ export const headerCarouselStyles = StyleSheet.create({
     carouselImage: {
         width: Dimensions.get('window').width,
         aspectRatio: 16 / 9,
+        backgroundColor: AppStyles.primaryBackgroundColor,
         /*borderBottomRightRadius: 10,
         borderBottomLeftRadius: 10,*/
     },

@@ -55,7 +55,7 @@ function OwnerScreen({ route, navigation }) {
             <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false} >
               <View style={Styles.wrapper} >
                 <View style={Styles.headerContainer} >
-                  <OwnerScreenHeader navigation={navigation} author={'Tony Fal'} onPressCreate={onPressCreate} onPressMore={onPressMore} isVerified />
+                  <OwnerScreenHeader navigation={navigation} author={ownerDetails?.name} onPressCreate={onPressCreate} onPressMore={onPressMore} isVerified />
                   <OwnerBox owner={{}} navigation={navigation} />
                 </View>
                 <OwnerScreenTabs />

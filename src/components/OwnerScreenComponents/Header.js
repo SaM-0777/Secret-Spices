@@ -15,7 +15,7 @@ function Header({ author, navigation, onPressMore, onPressCreate, isVerified }) 
     <View style={headerStyles.container} >
       <View style={headerStyles.leftContainer} >
         <Ionicons onPress={onPressBack} name={'chevron-back'} size={25} color={AppStyle.secondaryColor} />
-        <Text style={headerStyles.authorText} >{author}</Text>
+        <Text ellipsizeMode='tail' numberOfLines={1} style={headerStyles.authorText} >{author}</Text>
         {isVerified ?
           <Ionicons onPress={onPressMore} name={'checkmark-done-circle-outline'} size={25} color={AppStyle.primaryColor} style={{ marginLeft: 10, }} />
           :
