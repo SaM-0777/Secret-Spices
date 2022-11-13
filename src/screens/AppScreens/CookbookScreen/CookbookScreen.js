@@ -52,12 +52,22 @@ function CookbookScreen({ route, navigation }) {
           {cookbookDetailsData ?
             <>
               <CookbookScreenHeader navigation={navigation} onPressMore={onPressMore} />
-              <ScrollView contentContainerStyle={{ flex: 1, }} >
-                <Banner thumbnail={cookbookDetailsData?.thumbnail} name={cookbookDetailsData?.name} authorName={cookbookDetailsData?.Author[0].name} authorIsVerified={cookbookDetailsData?.Author[0].isVerified} rating={cookbookDetailsData?.CookbookRating} />
-                <View style={{ marginTop: 10, paddingHorizontal: 12, }} >
-                  {cookbookDetailsData?.Recipes.map((item, i) => (
-                    <CookbookRecipeCard key={i.toString()} item={item} navigation={navigation}  />
-                  ))}
+              <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 20, }} >
+                <View style={{ flex: 0.4 }} >
+                  <Banner thumbnail={cookbookDetailsData?.thumbnail} name={cookbookDetailsData?.name} authorName={cookbookDetailsData?.Author[0].name} authorIsVerified={cookbookDetailsData?.Author[0].isVerified} rating={cookbookDetailsData?.CookbookRating} />
+                </View>
+                <View style={{ marginTop: 20, paddingHorizontal: 12, }} >
+                  {cookbookDetailsData?.Recipes.length === 0 ?
+                    <View style={Styles.emptyRecipeContainer} >
+                      <Text style={Styles.emptyRecipeText} >No Recipes yet.</Text>
+                    </View>
+                  :
+                    <View style={{ flex: 0.6 }} >
+                      {cookbookDetailsData?.Recipes.map((item, i) => (
+                        <CookbookRecipeCard key={i.toString()} item={item} navigation={navigation}  />
+                      ))}
+                    </View>
+                  }
                 </View>
               </ScrollView>
             </>

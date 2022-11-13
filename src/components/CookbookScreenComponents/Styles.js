@@ -16,12 +16,12 @@ export const headerStyle = StyleSheet.create({
 export const bannerStyle = StyleSheet.create({
     container: {
         width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height / 2,
+        height: '50%',
         marginTop: 10,
     },
     backgroundImage: {
         width: '100%',
-        aspectRatio: 1 / 1,
+        aspectRatio: 1 / 0.95,
     },
     wrapper: {
         margin: 12,
@@ -61,7 +61,7 @@ export const bannerStyle = StyleSheet.create({
     iconContainer: {
         marginTop: 10,
         flexDirection: 'row',
-        
+        alignItems: 'center',
     },
 });
 
@@ -73,6 +73,7 @@ export const recipeCardStyles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'flex-start',
         borderRadius: 10,
+        marginTop: 15,
         backgroundColor: AppStyles.primaryBackgroundColor,
     },
     thumbnail: {

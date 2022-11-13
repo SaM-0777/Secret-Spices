@@ -36,5 +36,14 @@ export default StyleSheet.create({
         fontSize: 14,
         marginLeft: 7,
     },
+    emptyRecipeContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    emptyRecipeText: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyBold,
+        fontSize: 15,
+    },
 });
 

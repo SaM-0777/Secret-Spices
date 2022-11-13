@@ -10,7 +10,7 @@ import { recipeCardStyles } from './Styles';
 function RecipeCard({ navigation, item }) {
   return (
     <TouchableOpacity activeOpacity={0.95} onPress={() => navigation.navigate('recipe-details', { recipeId: item._id })} style={recipeCardStyles.container} >
-      <Image source={{ uri: item.thumbnail }} resizeMode={'cover'} style={recipeCardStyles.thumbnail} />
+      <Image source={{ uri: item.thumbnail, scale: 1.0 }} resizeMode={'cover'} style={recipeCardStyles.thumbnail} />
       <View style={recipeCardStyles.infoWrapper} >
         <View style={recipeCardStyles.categoryContainer} >
           <View style={recipeCardStyles.categoryTextContainer} >
@@ -21,10 +21,7 @@ function RecipeCard({ navigation, item }) {
         </View>
         <Text style={recipeCardStyles.title} ellipsizeMode="tail" numberOfLines={1} >{item.title}</Text>
         <View style={recipeCardStyles.ratingsWrapper} >
-          {[...Array(5).keys()].map(i => (
-            <Ionicons key={i.toString()} name='star' size={14} color='#F58549' />
-          ))}
-          <Text style={recipeCardStyles.viewText} >{item.viewCount} Likes</Text>
+          <Text style={recipeCardStyles.viewText} >{item.likes} Likes</Text>
         </View>
         <View style={recipeCardStyles.footerContainer} >
           <View style={recipeCardStyles.authorContainer} >
