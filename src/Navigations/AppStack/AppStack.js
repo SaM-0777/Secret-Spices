@@ -88,6 +88,7 @@ const AppStack = ({ }) => {
       <AppNavigationStack.Screen name={'bottom-tab'} component={BottomTab} />
       <AppNavigationStack.Screen name={'search-screen'} component={SearchScreen} />
       <AppNavigationStack.Screen name={'author'} component={AuthorScreen} />
+      <AppNavigationStack.Screen name={'owner'} component={OwnerScreen} />
       <AppNavigationStack.Screen name={'recipe-details'} component={RecipeDetailsScreen} />
       <AppNavigationStack.Screen name={'add-recipe'} component={AddRecipeScreen} />
       <AppNavigationStack.Screen name={'cookbook-details'} component={CookbookScreen} />

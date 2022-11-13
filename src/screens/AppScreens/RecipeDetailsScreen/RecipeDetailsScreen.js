@@ -56,7 +56,7 @@ function RecipeDetailsScreen({ route, navigation }) {
           <>
             { recipeDetails !== null ?
               <>
-                <HeaderCarousel heroBanner={recipeDetails?.heroBanner} />
+                <HeaderCarousel navigation={navigation} heroBanner={recipeDetails?.heroBanner} />
                 <View style={Styles.wrapper} >
                   <RecipeInfoBox recipeDetails={recipeDetails} onShare={onShareRecipe} />
                   <RecipeAuthorBox navigation={navigation} recipeDetails={recipeDetails} />

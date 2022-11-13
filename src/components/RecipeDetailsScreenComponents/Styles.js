@@ -7,6 +7,15 @@ export const headerCarouselStyles = StyleSheet.create({
     container: {
         // paddingTop: 50,
     },
+    backContainer: {
+        position: 'absolute',
+        top: 5,
+        left: 5,
+        padding: 5,
+        borderRadius: 100,
+        backgroundColor: AppStyles.secondaryBackgroundColor,
+        zIndex: 99,
+    },
     carouselImage: {
         width: Dimensions.get('window').width,
         aspectRatio: 16 / 9,

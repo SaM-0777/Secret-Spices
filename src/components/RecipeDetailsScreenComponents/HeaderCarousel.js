@@ -12,7 +12,7 @@ function RenderItem({ item }) {
   )
 }
 
-function HeaderCarousel({ heroBanner }) {
+function HeaderCarousel({ navigation, heroBanner }) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const scrollX = useRef(new Animated.Value(0)).current
   const slideRef = useRef(null)
@@ -23,11 +23,15 @@ function HeaderCarousel({ heroBanner }) {
 
   const viewConfig = useRef({ viewAreaCoveragePercentThreshold: 50 }).current
 
+  function onPressGoBack() { navigation.goBack() }
   function onPressLeft () {}
   function onPressRight () {}
   
   return (
     <View style={headerCarouselStyles.container} >
+      <View style={headerCarouselStyles.backContainer} >
+        <Ionicons onPress={onPressGoBack} name='chevron-back' size={22} color={AppStyles.primaryTextColor}  />
+      </View>
       <FlatList
         data={heroBanner}
         renderItem={({ item }) => <RenderItem item={item} />}
