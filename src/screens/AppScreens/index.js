@@ -10,6 +10,7 @@ import OwnerScreen from "./OwnerScreen";
 import AddRecipeScreen from "./AddRecipeScreen";
 import CookbookScreen from "./CookbookScreen";
 import EditProfileScreen from "./EditProfileScreen";
+import AuthorSubscriberScreen from "./AuthorSubscriberScreen";
 
 
 export {
@@ -25,5 +26,6 @@ export {
     AddRecipeScreen,
     CookbookScreen,
     EditProfileScreen,
+    AuthorSubscriberScreen,
 };
 

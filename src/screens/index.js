@@ -13,6 +13,7 @@ import {
     AddRecipeScreen,
     CookbookScreen,
     EditProfileScreen,
+    AuthorSubscriberScreen,
 } from './AppScreens';
 
 
@@ -20,7 +21,6 @@ export {
     OnBoardingScreen,
     SignupScreen,
     LoginScreen,
-
     HomeScreen,
     CategoryScreen,
     MealPlannerScreen,
@@ -33,5 +33,6 @@ export {
     AddRecipeScreen,
     CookbookScreen,
     EditProfileScreen,
+    AuthorSubscriberScreen,
 };
 

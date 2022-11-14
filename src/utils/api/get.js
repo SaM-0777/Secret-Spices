@@ -75,6 +75,25 @@ export async function getCookbookDetailsData(cookbookId) {
 };
 
 
+export async function getCurrentUser(userId) {
+    const url = `${backendUrl}/api/owner/author/${userId}`
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-type': 'application/json'
+            }
+        })
+        const data = await response.json()
+        return data
+    } catch (error) {
+        return [null]
+    }
+};
+
+
 export async function getOwnerAuthorDetailsData(userId) {
     const url = `${backendUrl}/api/owner/author/details/${userId}`
 

@@ -6,9 +6,7 @@ import { headerStyles } from './Styles';
 import AppStyles from '../../AppStyles';
 
 
-const Header = ({ navigation }) => {
-  const [username, setUsername] = useState('Angela')
-
+const Header = ({ navigation, username, profileImage }) => {
   function onPress() { 
     navigation.navigate('owner')
   }
@@ -20,7 +18,7 @@ const Header = ({ navigation }) => {
         <Text style={headerStyles.text} >What do you want to cook today?</Text>
       </View>
       <TouchableOpacity activeOpacity={0.8} onPress={onPress} style={headerStyles.profileContainer} >
-        <Image source={require('../../../assets/images/profile-1.jpg')} style={headerStyles.profileImage} />
+        <Image source={{ uri: profileImage, scale: 1.0 }} resizeMode="cover" style={headerStyles.profileImage} />
       </TouchableOpacity>
     </View>
   )

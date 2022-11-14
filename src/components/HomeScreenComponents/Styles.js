@@ -29,10 +29,6 @@ export const headerStyles = StyleSheet.create({
         width: 55,
         height: 55,
         borderRadius: 100,
-        elevation: 5,
-        shadowColor: '#000',
-        shadowOffset: 10,
-        shadowRadius: 12,
     },
 });
 

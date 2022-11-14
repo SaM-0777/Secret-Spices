@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, createContext } from 'react';
 import { View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -19,7 +19,12 @@ import {
   AddRecipeScreen,
   CookbookScreen,
   EditProfileScreen,
+  AuthorSubscriberScreen,
 } from '../../screens';
+import { CustomLoading, RetryBox } from '../../components';
+
+import { getCurrentUser } from '../../utils/api/get';
+
 import AppStyles from '../../AppStyles';
 
 
@@ -79,25 +84,66 @@ function BottomTab() {
   )
 }
 
-const AppStack = ({ }) => {
+const UserContext = createContext()
+
+function AppStack ({  }) {
+  const userId = "aws004"
+  const [loading, setLoading] = useState(true)
+  const [currentUser, setCurrentUser] = useState(null)
   const [screenOptions, setScreenoptions] = useState({
     headerShown: false,
   })
 
+  async function getResponse() {
+    setLoading(true)
+    const response = await getCurrentUser(userId)
+    setCurrentUser(response[0])
+    setLoading(false)
+  }
+
+  async function onRetry() {
+    await getResponse()
+  }
+
+  useEffect(() => {
+    getResponse()
+    return () => {}
+  }, [])
+
+  /*useEffect(() => {
+    // setLoading(false)
+  }, [currentUser])*/
+
   return (
-    <AppNavigationStack.Navigator screenOptions={screenOptions} >
-      <AppNavigationStack.Screen name={'bottom-tab'} component={BottomTab} />
-      <AppNavigationStack.Screen name={'search-screen'} component={SearchScreen} />
-      <AppNavigationStack.Screen name={'author'} component={AuthorScreen} />
-      <AppNavigationStack.Screen name={'owner'} component={OwnerScreen} />
-      <AppNavigationStack.Screen name={'recipe-details'} component={RecipeDetailsScreen} />
-      <AppNavigationStack.Screen name={'add-recipe'} component={AddRecipeScreen} />
-      <AppNavigationStack.Screen name={'cookbook-details'} component={CookbookScreen} />
-      <AppNavigationStack.Screen name={'edit-profile'} component={EditProfileScreen} />
-    </AppNavigationStack.Navigator>
+    <>
+      {loading ? <CustomLoading />
+        :
+        <>
+          {currentUser ?
+            <UserContext.Provider value={currentUser} >
+              <AppNavigationStack.Navigator screenOptions={screenOptions} >
+                <AppNavigationStack.Screen name={'bottom-tab'} component={BottomTab} />
+                <AppNavigationStack.Screen name={'search-screen'} component={SearchScreen} />
+                <AppNavigationStack.Screen name={'author'} component={AuthorScreen} />
+                <AppNavigationStack.Screen name={'owner'} component={OwnerScreen} />
+                <AppNavigationStack.Screen name={'recipe-details'} component={RecipeDetailsScreen} />
+                <AppNavigationStack.Screen name={'add-recipe'} component={AddRecipeScreen} />
+                <AppNavigationStack.Screen name={'cookbook-details'} component={CookbookScreen} />
+                <AppNavigationStack.Screen name={'edit-profile'} component={EditProfileScreen} />
+                <AppNavigationStack.Screen name={'author-subscriber'} component={AuthorSubscriberScreen} />
+              </AppNavigationStack.Navigator>
+            </UserContext.Provider>
+          :
+            <RetryBox onPress={onRetry} />
+          }
+        </>
+      }
+    </>
   )
 };
 
+
+export { UserContext };
 
 export default AppStack;
 
