@@ -44,11 +44,6 @@ const HomeScreen = ({ navigation }) => {
     return () => {}
   }, [])
 
-  useEffect(() => {
-    console.log(currentUser)
-    return () => {}
-  }, [currentUser])
-
   return (
     <SafeAreaView style={Styles.container} >
       <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />

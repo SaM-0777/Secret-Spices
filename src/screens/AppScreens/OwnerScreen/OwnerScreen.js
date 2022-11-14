@@ -1,9 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import { View, Text, StatusBar, ScrollView, FlatList, Dimensions } from 'react-native';
 import { Portal } from '@gorhom/portal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { OwnerScreenHeader, OwnerBox, OwnerScreenTabs, OwnerAbout, AuthorCookbookCard, AuthorRecipeCard, CustomLoading, RetryBox, EmptyListMessageBox, BottomActionSheet } from '../../../components';
+
+import { UserContext } from '../../../Navigations/AppStack/AppStack';
 
 import { getOwnerAuthorDetailsData } from '../../../utils/api/get';
 
@@ -12,7 +14,7 @@ import Styles from './Styles';
 
 
 function OwnerScreen({ route, navigation }) {
-  const userId = "aws004"
+  const currentUser = useContext(UserContext)
   const [loading, setLoading] = useState(false)
   const [ownerDetails, setOwnerDetails] = useState(null)
 
@@ -26,6 +28,7 @@ function OwnerScreen({ route, navigation }) {
 
   async function getResponse() {
     setLoading(true)
+    const { userId } = currentUser
     const response = await getOwnerAuthorDetailsData(userId)
     setOwnerDetails(response[0])
     setLoading(false)
