@@ -60,14 +60,14 @@ function BottomTab() {
           <Ionicons name={'grid-sharp'} size={25} color={focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor} />
         )
       }} name={'category'} component={CategoryScreen} />
-      <Tab.Screen options={{
+      {/*<Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
           <View style={{ width: 55, height: 35, justifyContent: 'center', alignItems: 'center', borderRadius: 10, backgroundColor: focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor }} >
             <Ionicons name={focused ? 'fast-food-sharp' : 'fast-food-outline'} size={25} color={AppStyles.secondaryColor} />
           </View>
         )
-      }} name={'meal-planner'} component={MealPlannerScreen} />
+      }} name={'meal-planner'} component={MealPlannerScreen} />*/}
       <Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (

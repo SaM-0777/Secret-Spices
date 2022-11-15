@@ -21,6 +21,7 @@ import { AuthorScreenHeader, AuthorBox, Tabs, AuthorRecipeCard, AuthorCookbookCa
 import { CookbookScreenHeader, Banner, CookbookRecipeCard } from "./CookbookScreenComponents";
 import { OwnerScreenHeader, OwnerBox, OwnerScreenTabs, OwnerAbout } from './OwnerScreenComponents';
 import { SubscriberCard } from './AuthorSubscribersScreenComponents';
+import { ActivityScreenHeader } from './ActivityScreenComponents';
 
 
 export {
@@ -108,5 +109,8 @@ export {
 
     //
     SubscriberCard,
+
+    //
+    ActivityScreenHeader,
 };
 

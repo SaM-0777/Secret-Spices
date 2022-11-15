@@ -28,6 +28,10 @@ function AuthorSubscriberScreen({ route, navigation }) {
     setLoading(false)
   }
 
+  async function onPressRetry() {
+    await getResponse()
+  }
+
   useEffect(() => {
     if (!subscribersDetail) getResponse()
     return () => {}
@@ -49,7 +53,7 @@ function AuthorSubscriberScreen({ route, navigation }) {
               </ScrollView>
             </View>
             :
-            <RetryBox />
+            <RetryBox onPress={onPressRetry} />
           }
         </>
       }
