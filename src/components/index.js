@@ -20,6 +20,7 @@ import { HeaderCarousel, RecipeInfoBox, RecipeAuthorBox, RecipeDescription, Ingr
 import { AuthorScreenHeader, AuthorBox, Tabs, AuthorRecipeCard, AuthorCookbookCard, AuthorAbout } from "./AuthorScreenComponents";
 import { CookbookScreenHeader, Banner, CookbookRecipeCard } from "./CookbookScreenComponents";
 import { OwnerScreenHeader, OwnerBox, OwnerScreenTabs, OwnerAbout } from './OwnerScreenComponents';
+import { SubscriberCard } from './AuthorSubscribersScreenComponents';
 
 
 export {
@@ -104,5 +105,8 @@ export {
     OwnerBox,
     OwnerScreenTabs,
     OwnerAbout,
+
+    //
+    SubscriberCard,
 };
 

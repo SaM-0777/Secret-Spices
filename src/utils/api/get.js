@@ -112,3 +112,22 @@ export async function getOwnerAuthorDetailsData(userId) {
     }
 };
 
+
+export async function getAuthorSubscribersData(userId, authorId) {
+    const url = `${backendUrl}/api/user/subscription/author/${authorId}/${userId}`
+
+    try {
+        const response = await fetch(url, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-type': 'application/json'
+            }
+        })
+        const data = await response.json()
+        return data
+    } catch (error) {
+        return null
+    }
+};
+

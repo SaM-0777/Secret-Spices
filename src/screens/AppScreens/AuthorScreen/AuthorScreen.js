@@ -58,7 +58,7 @@ function AuthorScreen({ route, navigation }) {
               <View style={Styles.wrapper} >
                 <View style={Styles.headerContainer} >
                   <AuthorScreenHeader author={authorDetails?.name} isVerified={authorDetails?.isVerified} navigation={navigation} onPressMore={onPressMore} />
-                  <AuthorBox authorDetails={authorDetails} />
+                  <AuthorBox navigation={navigation} authorDetails={authorDetails} />
                 </View>
                 <Tabs />
                 <ScrollView nestedScrollEnabled horizontal pagingEnabled showsHorizontalScrollIndicator={false} contentContainerStyle={{ height: Dimensions.get('window').height }} >

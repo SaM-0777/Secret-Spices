@@ -5,10 +5,11 @@ import AppStyles from '../../AppStyles';
 import { authorBoxStyles } from './Styles';
 
 
-function AuthorBox({ authorDetails }) {
+function AuthorBox({ navigation, authorDetails }) {
   const [isSubscribed, setIsSubscribed] = useState(false)
 
-  function onSubscribe () { setIsSubscribed(prevState => !prevState) }
+  function onSubscribe() { setIsSubscribed(prevState => !prevState) }
+  function onPressShowSubscribers() { navigation.navigate('author-subscriber', { authorId: authorDetails?._id }) }
 
   return (
     <View style={authorBoxStyles.container} >
@@ -16,24 +17,24 @@ function AuthorBox({ authorDetails }) {
       <Text style={authorBoxStyles.authorName} >{authorDetails?.name}</Text>
       <Text style={authorBoxStyles.authorAbout} >{"Chef @KFC"}</Text>
       <View style={authorBoxStyles.boxContainer} >
-        <View style={authorBoxStyles.box} >
+        <TouchableOpacity onPress={onPressShowSubscribers} activeOpacity={0.85} style={authorBoxStyles.box} >
           <View style={authorBoxStyles.dataContainer} >
             <Text style={authorBoxStyles.boxData} >{authorDetails?.subscriptionCount}</Text>
           </View>
           <Text style={authorBoxStyles.boxText} >Subscribers</Text>
-        </View>
-        <View style={[authorBoxStyles.box, { marginHorizontal: 25, }]} >
+        </TouchableOpacity>
+        <TouchableOpacity style={[authorBoxStyles.box, { marginHorizontal: 25, }]} >
           <View style={authorBoxStyles.dataContainer} >
             <Text style={authorBoxStyles.boxData} >{authorDetails?.cookbookCount || "N/A"}</Text>
           </View>
           <Text style={authorBoxStyles.boxText} >Cookbooks</Text>
-        </View>
-        <View style={authorBoxStyles.box} >
+        </TouchableOpacity>
+        <TouchableOpacity style={authorBoxStyles.box} >
           <View style={authorBoxStyles.dataContainer} >
             <Text style={authorBoxStyles.boxData} >{authorDetails?.recipeCount}</Text>
           </View>
           <Text style={authorBoxStyles.boxText} >Recipes</Text>
-        </View>
+        </TouchableOpacity>
       </View>
       <TouchableOpacity activeOpacity={0.9} onPress={onSubscribe} style={[authorBoxStyles.actionContainer, isSubscribed ? { borderRadius: 10, backgroundColor: AppStyles.primaryBackgroundColor } : { backgroundColor:AppStyles.primaryColor, borderRadius: 10, }]} >
         <Text style={authorBoxStyles.btnText} >{isSubscribed ? "Subscribed" : "Subscribe"}</Text>
