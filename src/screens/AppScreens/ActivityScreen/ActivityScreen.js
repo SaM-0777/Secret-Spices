@@ -4,7 +4,18 @@ import { Text } from 'react-native-paper';
 import { Portal } from '@gorhom/portal';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { ActivityScreenHeader, CustomLoading, RetryBox, BottomActionSheet } from '../../../components';
+import {
+  ActivityScreenHeader,
+  SubscriptionActivityCard,
+  RatingActivityCard,
+  CustomLoading,
+  RetryBox,
+  BottomActionSheet,
+  RecipeLikeActivityCard,
+  RecipeCommentActivity,
+  CommentLikeActivity,
+  CommentReplyActivity,
+} from '../../../components';
 
 import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
@@ -30,7 +41,12 @@ function ActivityScreen({ navigation }) {
             <View style={Styles.wrapper} >
               <ActivityScreenHeader navigation={navigation} onPressSettings={onPressSettings} />
               <ScrollView>
-                
+                <SubscriptionActivityCard />
+                <RatingActivityCard />
+                <RecipeLikeActivityCard />
+                <RecipeCommentActivity />
+                <CommentLikeActivity />
+                <CommentReplyActivity />
               </ScrollView>
             </View>
           :
@@ -49,3 +65,4 @@ function ActivityScreen({ navigation }) {
 
 
 export default ActivityScreen;
+
