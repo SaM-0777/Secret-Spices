@@ -15,6 +15,7 @@ import {
     EditProfileScreen,
     AuthorSubscriberScreen,
     ChangePasswordScreen,
+    AccountScreen,
 } from './AppScreens';
 
 
@@ -37,5 +38,6 @@ export {
     EditProfileScreen,
     AuthorSubscriberScreen,
     ChangePasswordScreen,
+    AccountScreen,
 };
 

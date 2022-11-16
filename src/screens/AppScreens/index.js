@@ -12,6 +12,7 @@ import CookbookScreen from "./CookbookScreen";
 import EditProfileScreen from "./EditProfileScreen";
 import AuthorSubscriberScreen from "./AuthorSubscriberScreen";
 import ChangePasswordScreen from "./ChangePasswordScreen";
+import AccountScreen from "./AccountScreen";
 
 
 export {
@@ -29,5 +30,6 @@ export {
     EditProfileScreen,
     AuthorSubscriberScreen,
     ChangePasswordScreen,
+    AccountScreen,
 };
 

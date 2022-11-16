@@ -16,6 +16,7 @@ function SettingsScreen({ navigation }) {
   const [loading, setLoading] = useState(false)
 
   function onPressChangePassword () { navigation.navigate('change-password') }
+  function onPressAccount () { navigation.navigate('user-account') }
   function onShowLogoutModal () { setIsLogoutModalVisible(true) }
   function onHideLogoutModal() { setIsLogoutModalVisible(false) }
   async function onPressLogout() { 
@@ -31,10 +32,10 @@ function SettingsScreen({ navigation }) {
         <View style={Styles.wrapper} >
           <SettingScreenHeader navigation={navigation} />
           <SettingTab text={'Change Password'} icon='chevron-forward' onPress={onPressChangePassword} />
-          <SettingTab text={'Account'} icon='chevron-forward' />
+          <SettingTab text={'Account'} icon='chevron-forward' onPress={onPressAccount} />
           {/*<SettingTab text={'Language'} />*/}
           <SettingTab text={'Get Help'} icon='chevron-forward' />
-          <SettingTab text={'Report Problems'} icon='chevron-forward' />
+          <SettingTab text={'Report a Problem'} icon='chevron-forward' />
           <SettingTab text={'Terms of Use'} icon='chevron-forward' />
           <SettingTab text={'Log Out'} icon='log-out-outline' onPress={onShowLogoutModal} />
         </View>

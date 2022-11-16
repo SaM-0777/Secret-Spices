@@ -21,6 +21,7 @@ import {
   EditProfileScreen,
   AuthorSubscriberScreen,
   ChangePasswordScreen,
+  AccountScreen,
 } from '../../screens';
 import { CustomLoading, RetryBox } from '../../components';
 
@@ -133,6 +134,7 @@ function AppStack ({  }) {
                 <AppNavigationStack.Screen name={'edit-profile'} component={EditProfileScreen} />
                 <AppNavigationStack.Screen name={'author-subscriber'} component={AuthorSubscriberScreen} />
                 <AppNavigationStack.Screen name={'change-password'} component={ChangePasswordScreen} />
+                <AppNavigationStack.Screen name={'user-account'} component={AccountScreen} />
               </AppNavigationStack.Navigator>
             </UserContext.Provider>
           :
