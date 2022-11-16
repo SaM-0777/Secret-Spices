@@ -116,5 +116,17 @@ export const forgotPasswordSubmit = async (data, successCallBack, failureCallBac
         console.log(error)
         failureCallBack(error.message)
     }
-};  
+};
+
+
+export async function changePassword(data, successCallBack, failureCallBack) {
+    const { oldPassword, newPassword } = data
+
+    Auth.currentAuthenticatedUser()
+        .then(user => {
+            return Auth.changePassword(user, oldPassword, newPassword)
+        })
+        .then(data => successCallBack(data))
+        .catch(err => failureCallBack(err.message))
+};
 

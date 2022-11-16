@@ -14,6 +14,7 @@ import {
     CookbookScreen,
     EditProfileScreen,
     AuthorSubscriberScreen,
+    ChangePasswordScreen,
 } from './AppScreens';
 
 
@@ -21,6 +22,7 @@ export {
     OnBoardingScreen,
     SignupScreen,
     LoginScreen,
+    
     HomeScreen,
     CategoryScreen,
     MealPlannerScreen,
@@ -34,5 +36,6 @@ export {
     CookbookScreen,
     EditProfileScreen,
     AuthorSubscriberScreen,
+    ChangePasswordScreen,
 };
 

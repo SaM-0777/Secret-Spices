@@ -9,7 +9,7 @@ import AppStyles from '../../../AppStyles';
 import { enterNewPasswordScreenStyles } from './Styles';
 
 
-const EnterNewPasswordScreen = ({ route, navigation }) => {
+function EnterNewPasswordScreen ({ route, navigation }) {
   const [loading, setLoading] = useState(false)
   const [username, setUsername] = useState(route?.params?.username)
   const [newAttributes, setNewAttributes] = useState({code: "", newPassword: ""})

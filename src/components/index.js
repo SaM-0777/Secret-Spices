@@ -23,6 +23,7 @@ import { OwnerScreenHeader, OwnerBox, OwnerScreenTabs, OwnerAbout } from './Owne
 import { SubscriberCard } from './AuthorSubscribersScreenComponents';
 import { ActivityScreenHeader, SubscriptionActivityCard, RatingActivityCard, RecipeLikeActivityCard, RecipeCommentActivity, CommentLikeActivity, CommentReplyActivity } from './ActivityScreenComponents';
 import { SettingScreenHeader, SettingTab, LogoutModalContent } from './SettingsScreenComponents';
+import { ChangePasswordScreenHeader, NewPasswordInput, OldPasswordInput } from './ChangePasswordScreenComponents';
 
 
 export {
@@ -124,5 +125,10 @@ export {
     SettingScreenHeader,
     SettingTab,
     LogoutModalContent,
+
+    //
+    ChangePasswordScreenHeader,
+    NewPasswordInput,
+    OldPasswordInput,
 };
 
