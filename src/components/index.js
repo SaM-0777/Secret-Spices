@@ -22,6 +22,7 @@ import { CookbookScreenHeader, Banner, CookbookRecipeCard } from "./CookbookScre
 import { OwnerScreenHeader, OwnerBox, OwnerScreenTabs, OwnerAbout } from './OwnerScreenComponents';
 import { SubscriberCard } from './AuthorSubscribersScreenComponents';
 import { ActivityScreenHeader, SubscriptionActivityCard, RatingActivityCard, RecipeLikeActivityCard, RecipeCommentActivity, CommentLikeActivity, CommentReplyActivity } from './ActivityScreenComponents';
+import { SettingScreenHeader, SettingTab, LogoutModalContent } from './SettingsScreenComponents';
 
 
 export {
@@ -118,5 +119,10 @@ export {
     RecipeCommentActivity,
     CommentLikeActivity,
     CommentReplyActivity,
+
+    //
+    SettingScreenHeader,
+    SettingTab,
+    LogoutModalContent,
 };
 

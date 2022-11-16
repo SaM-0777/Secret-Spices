@@ -85,6 +85,15 @@ export const signIn = async (data, successCallback, failureCallback) => {
 };
 
 
+export async function logOut() {
+    try {
+        await Auth.signOut()
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+
 // Send confirmation code to user's email
 export const forgotPassword = async (username, successCallback, failureCallBack) => {
     try {
