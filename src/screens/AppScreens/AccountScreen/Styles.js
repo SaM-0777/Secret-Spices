@@ -8,6 +8,9 @@ export default StyleSheet.create({
         flex: 1,
         backgroundColor: AppStyles.secondaryBackgroundColor,
     },
+    wrapper: {
+        paddingHorizontal: 12,
+    },
 });
 
 
