@@ -12,21 +12,21 @@ import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
 
 
-const LoginScreen = ({ navigation }) => {
+function LoginScreen ({ navigation }) {
   const [loading, setLoading] = useState(false)
   const [signInAttributes, setSignInAttributes] = useState({
     email: "",
     password: "",
   })
 
-  const navigateBack = () => navigation.goBack()
-  const handleSignInAttributes = (target, value) => setSignInAttributes({...signInAttributes, [target]: value})
+  function navigateBack() { navigation.goBack() }
+  function handleSignInAttributes(target, value) { setSignInAttributes({ ...signInAttributes, [target]: value }) }
 
-  const signinFailureCallback = (message) => {
+  function signinFailureCallback (message) {
     setLoading(false)
     ToastAndroid.show(message, ToastAndroid.LONG, ToastAndroid.CENTER)
   }
-  const signinSuccessCallback = async (user) => {
+  async function signinSuccessCallback (user) {
     /*try {
       await AsyncStorage.setItem('@user', JSON.stringify(user))
       // navigation.reset({ index: 0, routes: [{ name: 'app-navigator', params: { screen: 'home' } }] })
@@ -35,7 +35,7 @@ const LoginScreen = ({ navigation }) => {
       setLoading(false)
       ToastAndroid.show('An error occured', ToastAndroid.CENTER)
     }*/
-    setLoading(false)
+    // setLoading(false)
   }
 
   const handleTroubleSigningIn = () => navigation.navigate('forgot-password-username')
@@ -43,7 +43,7 @@ const LoginScreen = ({ navigation }) => {
   const handleNext = async () => {
     setLoading(true)
     await signIn(signInAttributes, signinSuccessCallback, signinFailureCallback)
-    setLoading(false)
+    // setLoading(false)
   }
 
   return(
