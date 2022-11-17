@@ -24,7 +24,7 @@ import { SubscriberCard } from './AuthorSubscribersScreenComponents';
 import { ActivityScreenHeader, SubscriptionActivityCard, RatingActivityCard, RecipeLikeActivityCard, RecipeCommentActivity, CommentLikeActivity, CommentReplyActivity } from './ActivityScreenComponents';
 import { SettingScreenHeader, SettingTab, LogoutModalContent } from './SettingsScreenComponents';
 import { ChangePasswordScreenHeader, NewPasswordInput, OldPasswordInput } from './ChangePasswordScreenComponents';
-import { AccountBox, AccountField } from './AccountScreenComponents';
+import { AccountBox, AccountField, AccountLinks } from './AccountScreenComponents';
 
 
 export {
@@ -135,5 +135,6 @@ export {
     //
     AccountBox,
     AccountField,
+    AccountLinks,
 };
 

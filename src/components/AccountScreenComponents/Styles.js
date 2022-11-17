@@ -60,3 +60,63 @@ export const inputFieldStyles = StyleSheet.create({
     },
 });
 
+
+export const linksStyles = StyleSheet.create({
+    container: {
+        marginTop: 20,
+    },
+    headerText: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyBold,
+        fontSize: 16,
+        marginBottom: 10,
+    },
+    linkContainer: {
+        marginTop: 10,
+    },
+    linkHeader: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.primaryFontFamilyBold,
+        fontSize: 14,
+        marginBottom: 10,
+    },
+    inputWrapper: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    type: {
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderBottomWidth: 0.7,
+    },
+    typeText: {
+        color: AppStyles.secondaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+    },
+    typeOption: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyBold,
+        fontSize: 15,
+        textTransform: 'capitalize',
+        marginBottom: 7,
+    },
+    inputContainer: {
+        marginTop: 7,
+        marginBottom: 10,
+    },
+    urlText: {
+        color: AppStyles.secondaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+    },
+    link: {
+        height: 40,
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        borderBottomWidth: 0.7,
+        // backgroundColor: 'red',
+    },
+});
+
