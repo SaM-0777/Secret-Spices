@@ -3,7 +3,7 @@ import { StatusBar, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { AccountBox, CustomLoading, RetryBox } from '../../../components';
+import { AccountBox, AccountField, CustomLoading, RetryBox } from '../../../components';
 
 import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
@@ -27,6 +27,10 @@ function AccountScreen({ navigation }) {
             <View style={Styles.wrapper} >
               <Ionicons onPress={onPressGoBack} name='chevron-back' size={25} color={AppStyles.primaryTextColor} />
               <AccountBox />
+              <View style={Styles.fieldContainer} >
+                <AccountField label={'Username'} focused />
+                <AccountField label={'Bio'}  />
+              </View>
             </View>
             :
             <RetryBox onPress={onPressRetry} />

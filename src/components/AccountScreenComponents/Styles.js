@@ -30,3 +30,33 @@ export const accountBoxStyles = StyleSheet.create({
     },
 });
 
+
+export const inputFieldStyles = StyleSheet.create({
+    container: {
+        marginTop: 20,
+    },
+    label: {
+        color: AppStyles.secondaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 14,
+    },
+    inputContainer: {
+        height: 40,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderBottomWidth: 0.7,
+        borderBottomColor: AppStyles.secondaryTextColor,
+    },
+    input: {
+        width: '92%',
+        height: '100%',
+        // backgroundColor: 'red'
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 14,
+    },
+    icon: {
+
+    },
+});
+

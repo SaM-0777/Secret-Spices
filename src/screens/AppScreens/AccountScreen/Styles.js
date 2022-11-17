@@ -11,6 +11,9 @@ export default StyleSheet.create({
     wrapper: {
         paddingHorizontal: 12,
     },
+    fieldContainer: {
+        // marginTop: 20,
+    },
 });
 
 
