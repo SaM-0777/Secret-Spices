@@ -62,7 +62,7 @@ function AccountScreen({ navigation }) {
                 <AccountLinks len={2} data={selectedOptions} onPress={onPressLinksSheet} onTextChange={onFieldsChange} />
               </View>
               <View style={Styles.primaryBtnContainer} >
-                <PrimaryButton label={'Next'} disabled={false} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
+                <PrimaryButton label={'Update'} disabled={true} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
               </View>
             </ScrollView>
             :
