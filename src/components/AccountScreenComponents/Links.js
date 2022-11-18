@@ -6,11 +6,14 @@ import AppStyles from '../../AppStyles';
 import { linksStyles } from './Styles';
 
 
-function Links({ len, data, onPress }) {
+function Links({ len, data, onPress, onTextChange }) {
   const [currentFocusedInput, setCurrentFocusedInput] = useState(0)
 
   function onFocus(index) { setCurrentFocusedInput(index) }
   function onBlur() { setCurrentFocusedInput() }
+  function onFieldChange(text, index) {
+    if (data[index]) onTextChange(data[index], text)
+  }
 
   return (
     <View style={linksStyles.container} >
@@ -27,7 +30,7 @@ function Links({ len, data, onPress }) {
           </TouchableOpacity>
           <View style={linksStyles.inputContainer} >
             <Text style={[linksStyles.urlText, currentFocusedInput === i ? { fontSize: 14, marginBottom: 7, } : { fontSize: 16, marginBottom: 10, }]} >URL</Text>
-            <TextInput onFocus={() => onFocus(i)} onBlur={onBlur} cursorColor={AppStyles.primaryTextColor} style={linksStyles.link} />
+            <TextInput onFocus={() => onFocus(i)} onBlur={onBlur} onChangeText={(text) => onFieldChange(text, i.toString())} cursorColor={AppStyles.primaryTextColor} style={linksStyles.link} />
           </View>
         </View>
       ))}

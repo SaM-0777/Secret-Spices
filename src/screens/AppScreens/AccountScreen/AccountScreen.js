@@ -5,7 +5,7 @@ import { BottomSheetView } from '@gorhom/bottom-sheet';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { AccountBox, AccountField, AccountLinks, BottomActionSheet, CustomLoading, RetryBox } from '../../../components';
+import { AccountBox, AccountField, AccountLinks, BottomActionSheet, PrimaryButton, CustomLoading, RetryBox } from '../../../components';
 
 import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
@@ -14,6 +14,7 @@ import Styles from './Styles';
 function AccountScreen({ navigation }) {
   const [loading, setLoading] = useState(false)
   const [userAccount, setUserAccount] = useState({})
+  const [updatedFields, setUpdatedFields] = useState({})
   const [options, setOptions] = useState(["instagram", "youtube",])
   const [selectedOptions, setSelectedOptions] = useState([])
 
@@ -21,7 +22,11 @@ function AccountScreen({ navigation }) {
   const [isLinksSheetActive, setIsLinksSheetActive] = useState(false)
   const linksSheetSnapPoints = ['30%',]
 
-  function onPressLinksSheet () { setIsLinksSheetActive(true) }
+  function onPressLinksSheet() { setIsLinksSheetActive(true) }
+  
+  function onFieldsChange(target, value) {
+    setUpdatedFields({...updatedFields, [target]: value})
+  }
 
   function onPressSocialItem(item) {
     setIsLinksSheetActive(false)
@@ -36,6 +41,10 @@ function AccountScreen({ navigation }) {
   function onPressGoBack() { navigation.goBack() }
   function onPressRetry() { }
 
+  function handleNext() {
+    console.log(updatedFields)
+  }
+
   return (
     <SafeAreaView style={Styles.container} >
       <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
@@ -48,9 +57,12 @@ function AccountScreen({ navigation }) {
               <Ionicons onPress={onPressGoBack} name='chevron-back' size={25} color={AppStyles.primaryTextColor} />
               <AccountBox />
               <View style={Styles.fieldContainer} >
-                <AccountField label={'Username'} focused />
-                <AccountField label={'Bio'} />
-                <AccountLinks len={2} data={selectedOptions} onPress={onPressLinksSheet} />
+                <AccountField label={'Username'} focused onTextChange={onFieldsChange} />
+                <AccountField label={'Bio'} onTextChange={onFieldsChange} />
+                <AccountLinks len={2} data={selectedOptions} onPress={onPressLinksSheet} onTextChange={onFieldsChange} />
+              </View>
+              <View style={Styles.primaryBtnContainer} >
+                <PrimaryButton label={'Next'} disabled={false} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />
               </View>
             </ScrollView>
             :

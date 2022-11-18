@@ -39,6 +39,9 @@ export default StyleSheet.create({
         fontSize: 15,
         textTransform: 'capitalize',
     },
+    primaryBtnContainer: {
+        marginVertical: 10,
+    },
 });
 
 
