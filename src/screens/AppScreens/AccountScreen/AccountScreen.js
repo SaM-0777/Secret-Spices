@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { StatusBar, View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { Portal } from '@gorhom/portal';
 import { BottomSheetView } from '@gorhom/bottom-sheet';
@@ -7,15 +7,20 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { AccountBox, AccountField, AccountLinks, BottomActionSheet, PrimaryButton, CustomLoading, RetryBox } from '../../../components';
 
+import { UserContext } from '../../../Navigations/AppStack/AppStack';
+
+import { getAuthorAccountData } from '../../../utils/api/get';
+
 import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
 
 
 function AccountScreen({ navigation }) {
+  const { _id } = useContext(UserContext)
   const [loading, setLoading] = useState(false)
   const [userAccount, setUserAccount] = useState({})
   const [updatedFields, setUpdatedFields] = useState({})
-  const [options, setOptions] = useState(["instagram", "youtube",])
+  const [options, setOptions] = useState(["instagram", "youtube", "pinterest"])
   const [selectedOptions, setSelectedOptions] = useState([])
 
   const linksSheetRef = useRef()
@@ -36,7 +41,7 @@ function AccountScreen({ navigation }) {
   useEffect(() => {
     setOptions(options.filter(item => !selectedOptions.includes(item)))
     return () => {}
-  }, [selectedOptions])
+  }, [selectedOptions, setSelectedOptions])
 
   function onPressGoBack() { navigation.goBack() }
   function onPressRetry() { }
@@ -44,6 +49,28 @@ function AccountScreen({ navigation }) {
   function handleNext() {
     console.log(updatedFields)
   }
+
+  async function getResponse() {
+    setLoading(true)
+    const response = await getAuthorAccountData(_id)
+    setUserAccount(response[0])
+    setLoading(false)
+  }
+
+  useEffect(() => {
+    getResponse()
+    return () => {}
+  }, [])
+
+  useEffect(() => {
+    setSelectedOptions(() => {
+      let socials = []
+      userAccount?.authorSocials?.map(item => {
+        socials.push(item.socialName)
+      })
+      return socials
+    })
+  }, [userAccount])
 
   return (
     <SafeAreaView style={Styles.container} >
@@ -55,11 +82,11 @@ function AccountScreen({ navigation }) {
           {userAccount ? 
             <ScrollView showsVerticalScrollIndicator={false} style={Styles.wrapper} >
               <Ionicons onPress={onPressGoBack} name='chevron-back' size={25} color={AppStyles.primaryTextColor} />
-              <AccountBox />
+              <AccountBox thumbnail={userAccount?.thumbnail} />
               <View style={Styles.fieldContainer} >
-                <AccountField label={'Username'} focused onTextChange={onFieldsChange} />
-                <AccountField label={'Bio'} onTextChange={onFieldsChange} />
-                <AccountLinks len={2} data={selectedOptions} onPress={onPressLinksSheet} onTextChange={onFieldsChange} />
+                <AccountField value={userAccount?.name} label={'Username'} focused onTextChange={onFieldsChange} />
+                <AccountField value={userAccount?.description?.split(" ", 1)[0]} label={'Bio'} onTextChange={onFieldsChange} />
+                <AccountLinks len={3} data={userAccount?.authorSocials || []} onPress={onPressLinksSheet} onTextChange={onFieldsChange} />
               </View>
               <View style={Styles.primaryBtnContainer} >
                 <PrimaryButton label={'Update'} disabled={true} onPress={handleNext} textColor={AppStyles.secondaryColor} buttonColor={AppStyles.primaryColor} />

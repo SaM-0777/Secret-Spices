@@ -115,7 +115,6 @@ export const linksStyles = StyleSheet.create({
         height: 40,
         color: AppStyles.primaryTextColor,
         fontFamily: AppStyles.secondaryFontFamilyRegular,
-        borderBottomWidth: 0.7,
         // backgroundColor: 'red',
     },
 });

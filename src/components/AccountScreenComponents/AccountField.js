@@ -6,7 +6,7 @@ import AppStyles from '../../AppStyles';
 import { inputFieldStyles } from './Styles';
 
 
-function AccountField({ label, focused, onTextChange }) {
+function AccountField({ label, value, focused, onTextChange }) {
   const [isFocused, setIsFocused] = useState(focused)
 
   function onFocused () { setIsFocused(true) }
@@ -17,7 +17,7 @@ function AccountField({ label, focused, onTextChange }) {
     <View style={inputFieldStyles.container} >
       <Text style={inputFieldStyles.label} >{label}</Text>
       <View style={inputFieldStyles.inputContainer} >
-        <TextInput onFocus={onFocused} onBlur={onBlurred} onChangeText={(text) => onFieldChange(text)} maxLength={20} cursorColor={AppStyles.primaryTextColor} style={inputFieldStyles.input} />
+        <TextInput value={value} onFocus={onFocused} onBlur={onBlurred} onChangeText={(text) => onFieldChange(text)} maxLength={20} cursorColor={AppStyles.primaryTextColor} style={inputFieldStyles.input} />
         {/*<Ionicons name='chevron-forward' size={22} color={AppStyles.primaryTextColor} />*/}
       </View>
     </View>
