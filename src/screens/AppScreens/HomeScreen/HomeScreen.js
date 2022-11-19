@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { View, StatusBar, Text, TouchableOpacity, ScrollView, FlatList, Animated } from 'react-native';
+import Share from 'react-native-share';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Portal } from '@gorhom/portal';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -23,8 +24,18 @@ const HomeScreen = ({ navigation }) => {
   const [loading, setLoading] = useState(false)
   const [data, setData] = useState(null)
 
-  function onShareRecipe() {
-    setIsShareSheetActive(true)
+  async function onShareRecipe(item) {
+    // setIsShareSheetActive(true)
+    const options = {
+      message: `https://secret-spices-test-api-twktq52o5a-uc.a.run.app/api/user/recipe/details/${item._id}`,
+    }
+
+    try {
+      const shareResponse = await Share.open(options)
+      // console.log(JSON.stringify(shareResponse))
+    } catch (error) {
+      console.log("Share Error: ", error)
+    }
   }
 
   async function getResponse() {
@@ -60,7 +71,7 @@ const HomeScreen = ({ navigation }) => {
             :
             <>
               { data !== null ? data.map(item => (
-                <RecipeCard key={item._id} item={item} navigation={navigation} onShare={onShareRecipe} />
+                <RecipeCard key={item._id} item={item} navigation={navigation} onShare={() => onShareRecipe(item)} />
               )) : 
                 <View style={Styles.retryContainer} >
                   <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
