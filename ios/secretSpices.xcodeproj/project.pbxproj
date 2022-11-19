@@ -29,7 +29,7 @@
 /* Begin PBXContainerItemProxy section */
 		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			containerPortal = 83CBB9F71A601CBA00E9B192;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
 			remoteInfo = secretSpices;
@@ -54,16 +54,16 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = secretSpices/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-secretSpices-secretSpicesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-secretSpices-secretSpicesTests.release.xcconfig"; path = "Target Support Files/Pods-secretSpices-secretSpicesTests/Pods-secretSpices-secretSpicesTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		4554377E2A3A4464971BC720 /* DMSans_Bold.ttf */ = {isa = PBXFileReference; name = "DMSans_Bold.ttf"; path = "../assets/fonts/DMSans_Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3F9E2787941549B4AF96FFC6 /* DMSans_Medium.ttf */ = {isa = PBXFileReference; name = "DMSans_Medium.ttf"; path = "../assets/fonts/DMSans_Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8BB1F8B0E6C74D6188A7F298 /* DMSans_Regular.ttf */ = {isa = PBXFileReference; name = "DMSans_Regular.ttf"; path = "../assets/fonts/DMSans_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		371C6C68059B4EE99C83518F /* Mulish_Bold.ttf */ = {isa = PBXFileReference; name = "Mulish_Bold.ttf"; path = "../assets/fonts/Mulish_Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		8291518ADB1D4F5BB410C5BB /* Mulish_ExtraBold.ttf */ = {isa = PBXFileReference; name = "Mulish_ExtraBold.ttf"; path = "../assets/fonts/Mulish_ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0C92929BF9B5467E8BD2A65E /* Mulish_ExtraLight.ttf */ = {isa = PBXFileReference; name = "Mulish_ExtraLight.ttf"; path = "../assets/fonts/Mulish_ExtraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		9684001888E642F8AA25A7A0 /* Mulish_Light.ttf */ = {isa = PBXFileReference; name = "Mulish_Light.ttf"; path = "../assets/fonts/Mulish_Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4AE8EE7C97D647B69CE18B75 /* Mulish_Medium.ttf */ = {isa = PBXFileReference; name = "Mulish_Medium.ttf"; path = "../assets/fonts/Mulish_Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		0BCCB497B8A846FDB5E6B3D2 /* Mulish_Regular.ttf */ = {isa = PBXFileReference; name = "Mulish_Regular.ttf"; path = "../assets/fonts/Mulish_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C115D9DA7447423CABC5253D /* Mulish_SemiBold.ttf */ = {isa = PBXFileReference; name = "Mulish_SemiBold.ttf"; path = "../assets/fonts/Mulish_SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4554377E2A3A4464971BC720 /* DMSans_Bold.ttf */ = {isa = PBXFileReference; name = DMSans_Bold.ttf; path = ../assets/fonts/DMSans_Bold.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3F9E2787941549B4AF96FFC6 /* DMSans_Medium.ttf */ = {isa = PBXFileReference; name = DMSans_Medium.ttf; path = ../assets/fonts/DMSans_Medium.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8BB1F8B0E6C74D6188A7F298 /* DMSans_Regular.ttf */ = {isa = PBXFileReference; name = DMSans_Regular.ttf; path = ../assets/fonts/DMSans_Regular.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		371C6C68059B4EE99C83518F /* Mulish_Bold.ttf */ = {isa = PBXFileReference; name = Mulish_Bold.ttf; path = ../assets/fonts/Mulish_Bold.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		8291518ADB1D4F5BB410C5BB /* Mulish_ExtraBold.ttf */ = {isa = PBXFileReference; name = Mulish_ExtraBold.ttf; path = ../assets/fonts/Mulish_ExtraBold.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0C92929BF9B5467E8BD2A65E /* Mulish_ExtraLight.ttf */ = {isa = PBXFileReference; name = Mulish_ExtraLight.ttf; path = ../assets/fonts/Mulish_ExtraLight.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9684001888E642F8AA25A7A0 /* Mulish_Light.ttf */ = {isa = PBXFileReference; name = Mulish_Light.ttf; path = ../assets/fonts/Mulish_Light.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4AE8EE7C97D647B69CE18B75 /* Mulish_Medium.ttf */ = {isa = PBXFileReference; name = Mulish_Medium.ttf; path = ../assets/fonts/Mulish_Medium.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0BCCB497B8A846FDB5E6B3D2 /* Mulish_Regular.ttf */ = {isa = PBXFileReference; name = Mulish_Regular.ttf; path = ../assets/fonts/Mulish_Regular.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C115D9DA7447423CABC5253D /* Mulish_SemiBold.ttf */ = {isa = PBXFileReference; name = Mulish_SemiBold.ttf; path = ../assets/fonts/Mulish_SemiBold.ttf; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +133,7 @@
 			name = Libraries;
 			sourceTree = "<group>";
 		};
-		83CBB9F61A601CBA00E9B192 = {
+		83CBB9F61A601CBA00E9B192 /* PBXGroup */ = {
 			isa = PBXGroup;
 			children = (
 				13B07FAE1A68108700A75B9A /* secretSpices */,
@@ -170,7 +170,7 @@
 			sourceTree = "<group>";
 		};
 		DACAC16C6842412DB3ECD760 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				4554377E2A3A4464971BC720 /* DMSans_Bold.ttf */,
 				3F9E2787941549B4AF96FFC6 /* DMSans_Medium.ttf */,
@@ -236,14 +236,14 @@
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+		83CBB9F71A601CBA00E9B192 = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1210;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						TestTargetID = 13B07F861A680F5B00A75B9A;
+						TestTargetID = 13B07F861A680F5B00A75B9A /* secretSpices */;
 					};
 					13B07F861A680F5B00A75B9A = {
 						LastSwiftMigration = 1120;
@@ -258,7 +258,7 @@
 				en,
 				Base,
 			);
-			mainGroup = 83CBB9F61A601CBA00E9B192;
+			mainGroup = 83CBB9F61A601CBA00E9B192 /* PBXGroup */;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -487,7 +487,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = secretSpicesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -511,7 +511,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = secretSpicesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -627,7 +627,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -691,7 +691,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -745,5 +745,5 @@
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+	rootObject = 83CBB9F71A601CBA00E9B192;
 }
