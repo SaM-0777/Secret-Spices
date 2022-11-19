@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, ScrollView, StatusBar, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Share from 'react-native-share';
 import { Portal } from '@gorhom/portal';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -20,8 +21,18 @@ function RecipeDetailsScreen({ route, navigation }) {
   const [isShareSheetActive, setIsShareSheetActive] = useState(false)
   const shareSheetSnapPoints = ['50%',]
 
-  function onShareRecipe() {
-    setIsShareSheetActive(true)
+  async function onShareRecipe() {
+    // setIsShareSheetActive(true)
+    const options = {
+      message: `https://secret-spices-test-api-twktq52o5a-uc.a.run.app/api/user/recipe/details/${recipeDetails._id}`,
+    }
+
+    try {
+      const shareResponse = await Share.open(options)
+      // console.log(JSON.stringify(shareResponse))
+    } catch (error) {
+      console.log("Share Error: ", error)
+    }
   }
 
   async function getResponse() {
