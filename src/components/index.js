@@ -25,6 +25,7 @@ import { ActivityScreenHeader, SubscriptionActivityCard, RatingActivityCard, Rec
 import { SettingScreenHeader, SettingTab, LogoutModalContent } from './SettingsScreenComponents';
 import { ChangePasswordScreenHeader, NewPasswordInput, OldPasswordInput } from './ChangePasswordScreenComponents';
 import { AccountBox, AccountField, AccountLinks } from './AccountScreenComponents';
+import { CategoryScreenHeader, Section } from './CategoryScreenComponents';
 
 
 export {
@@ -136,5 +137,9 @@ export {
     AccountBox,
     AccountField,
     AccountLinks,
+
+    //
+    CategoryScreenHeader,
+    Section,
 };
 

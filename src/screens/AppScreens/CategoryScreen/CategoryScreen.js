@@ -1,15 +1,27 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text } from 'react-native-paper';
+import { View, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-const CategoryScreen = ({  }) => {
+import { CategoryScreenHeader, Section } from '../../../components';
+
+import AppStyles from '../../../AppStyles';
+import Styles from './Styles';
+
+
+const CategoryScreen = ({ navigation }) => {
   return (
-    <View>
-      <Text>Category Screen</Text>
-    </View>
+    <SafeAreaView style={Styles.conatiner} >
+      <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
+      <View style={Styles.wrapper} >
+        <CategoryScreenHeader navigation={navigation} />
+        <View style={Styles.sectionContainer} >
+          <Section header={"Trending"} />
+        </View>
+      </View>
+    </SafeAreaView>
   )
 };
 
-const styles = StyleSheet.create({});
 
 export default CategoryScreen;
+
