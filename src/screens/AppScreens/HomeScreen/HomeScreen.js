@@ -21,10 +21,6 @@ const HomeScreen = ({ navigation }) => {
   const [shareLoading, setShareLoading] = useState(false)
   const [data, setData] = useState(null)
 
-  async function onShareRecipe(item) {
-    
-  }
-
   async function getResponse() {
     setLoading(true)
     const response = await getHomeData()
