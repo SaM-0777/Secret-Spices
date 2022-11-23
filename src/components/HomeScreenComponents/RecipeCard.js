@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Image, Text, TouchableOpacity, ToastAndroid } from 'react-native';
+import Share from 'react-native-share';
 import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -8,7 +9,7 @@ import AppStyles from '../../AppStyles';
 import { recipeCardStyles } from './Styles';
 
 
-const RecipeCard = ({ item, navigation, onShare }) => {
+const RecipeCard = ({ item, navigation, setShareLoading }) => {
   const [recipeItem, setRecipeItem] = useState(item)
   const [relativeTime, setRelativeTime] = useState(() => {
     const dateTime = new Date(recipeItem?.createdAt)
@@ -23,6 +24,21 @@ const RecipeCard = ({ item, navigation, onShare }) => {
     navigation.navigate('recipe-details', {
       recipeId: recipeItem._id
     })
+  }
+
+  async function onShare() {
+    setShareLoading(true)
+    // setIsShareSheetActive(true)
+    try {
+      const shareResponse = await Share.open({
+        title: recipeItem.title,
+        message: `https://secret-spices-test-api-twktq52o5a-uc.a.run.app/api/user/recipe/details/${recipeItem._id}`,
+      })
+      // console.log(JSON.stringify(shareResponse))
+    } catch (error) {
+      console.log("Share Error: ", error)
+    }
+    setShareLoading(false)
   }
 
   function onBookmark() {

@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useRef, useState } from 'react';
 import { View, StatusBar, Text, TouchableOpacity, ScrollView, FlatList, Animated } from 'react-native';
 import Share from 'react-native-share';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { Portal } from '@gorhom/portal';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, BottomActionSheet, RecipeHomeCardSkeleton } from '../../../components';
+import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, RecipeHomeCardSkeleton, ShareLoadingMask, } from '../../../components';
 
 import { UserContext } from '../../../Navigations/AppStack/AppStack';
 
@@ -18,24 +17,12 @@ import AppStyles from '../../../AppStyles';
 const HomeScreen = ({ navigation }) => {
   const HEADER_HEIGHT = 180
   const currentUser = useContext(UserContext)
-  const shareSheetRef = useRef()
-  const [isShareSheetActive, setIsShareSheetActive] = useState(false)
-  const shareSheetSnapPoints = ['50%',]
   const [loading, setLoading] = useState(false)
+  const [shareLoading, setShareLoading] = useState(false)
   const [data, setData] = useState(null)
 
   async function onShareRecipe(item) {
-    // setIsShareSheetActive(true)
-    const options = {
-      message: `https://secret-spices-test-api-twktq52o5a-uc.a.run.app/api/user/recipe/details/${item._id}`,
-    }
-
-    try {
-      const shareResponse = await Share.open(options)
-      // console.log(JSON.stringify(shareResponse))
-    } catch (error) {
-      console.log("Share Error: ", error)
-    }
+    
   }
 
   async function getResponse() {
@@ -57,38 +44,37 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={Styles.container} >
-      <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
-      <View style={Styles.wrapper} >
-        <View style={[Styles.header ]} >
-          <HomeScreenHeader username={currentUser?.name.split(" ")[0]} profileImage={currentUser?.thumbnail} navigation={navigation} />
-          <SearchBar navigation={navigation} />
-          <MenuTypeScrollBar />
+      {shareLoading ?
+        <ShareLoadingMask />
+        :
+        <View style={Styles.wrapper} >
+          <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
+          <View style={[Styles.header]} >
+            <HomeScreenHeader username={currentUser?.name.split(" ")[0]} profileImage={currentUser?.thumbnail} navigation={navigation} />
+            <SearchBar navigation={navigation} />
+            <MenuTypeScrollBar />
+          </View>
+          <ScrollView vertical contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false} >
+            {loading ? [...Array(5).keys()].map(index => (
+              <RecipeHomeCardSkeleton key={index} />
+            ))
+              :
+              <>
+                {data !== null ? data.map(item => (
+                  <RecipeCard key={item._id} item={item} navigation={navigation} setShareLoading={setShareLoading} />
+                )) :
+                  <View style={Styles.retryContainer} >
+                    <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
+                      <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
+                      <Text style={Styles.retryText} >Retry</Text>
+                    </TouchableOpacity>
+                  </View>
+                }
+              </>
+            }
+          </ScrollView>
         </View>
-        <ScrollView vertical contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false} >
-          {loading ? [...Array(5).keys()].map(index => (
-            <RecipeHomeCardSkeleton key={index} />
-          ))
-            :
-            <>
-              { data !== null ? data.map(item => (
-                <RecipeCard key={item._id} item={item} navigation={navigation} onShare={() => onShareRecipe(item)} />
-              )) : 
-                <View style={Styles.retryContainer} >
-                  <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
-                    <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
-                    <Text style={Styles.retryText} >Retry</Text>
-                  </TouchableOpacity>
-                </View>
-              }
-            </>
-          }
-        </ScrollView>
-      </View>
-      <Portal>
-        <BottomActionSheet sheetRef={shareSheetRef} sheetSnapPoints={shareSheetSnapPoints} isActive={isShareSheetActive} setIsActive={setIsShareSheetActive} >
-          {}
-        </BottomActionSheet>
-      </Portal>
+      }
     </SafeAreaView>
   )
 };

@@ -49,3 +49,36 @@ export const emptyListMessageBoxStyles = StyleSheet.create({
     },
 });
 
+
+export const shareLoadingMaskStyles = StyleSheet.create({
+    container: {
+        flex: 1,
+        // zIndex: -9,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    mask: {
+        flex: 1,
+        ...StyleSheet.absoluteFillObject,
+        opacity: 0.8,
+        zIndex: -1,
+        backgroundColor: '#000',
+    },
+    text: {
+        color: '#FFF',
+        fontFamily: AppStyles.secondaryFontFamilyRegular,
+        fontSize: 14,
+        marginLeft: 10,
+    },
+    loadingContainer: {
+        width: 120,
+        height: 50,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 7,
+        backgroundColor: '#000',
+        zIndex: 10,
+    },
+});
+
