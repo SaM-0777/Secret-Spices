@@ -10,7 +10,7 @@ function Section({data, header}) {
   return (
     <View style={sectionStyles.conatiner} >
       <Text style={sectionStyles.header} >{header || "Today's Recipes"}</Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{ marginTop: 10, }} >
+      <ScrollView nestedScrollEnabled horizontal showsHorizontalScrollIndicator={false} style={{ marginTop: 10, }} >
         {[...Array(5).keys()].map(i => (
           <TouchableOpacity key={i.toString()} activeOpacity={0.9} style={sectionStyles.contentContainer} >
             <Image source={require('../../../assets/images/person-1.jpg')} resizeMode={'cover'} style={sectionStyles.contentThumbnail} />

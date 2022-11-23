@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, StatusBar } from 'react-native';
+import { View, StatusBar, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { CategoryScreenHeader, Section } from '../../../components';
+import { CategoryScreenHeader, Section, VerticalSection } from '../../../components';
 
 import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
@@ -14,9 +14,11 @@ const CategoryScreen = ({ navigation }) => {
       <StatusBar barStyle={'dark-content'} translucent backgroundColor={'transparent'} />
       <View style={Styles.wrapper} >
         <CategoryScreenHeader navigation={navigation} />
-        <View style={Styles.sectionContainer} >
+        <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false} style={Styles.sectionContainer} >
           <Section header={"Trending"} />
-        </View>
+          <Section header={"Special Dinner"} />
+          <VerticalSection header={"Latest Recipes"} />
+        </ScrollView>
       </View>
     </SafeAreaView>
   )
