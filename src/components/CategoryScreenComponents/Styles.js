@@ -18,7 +18,6 @@ export const headerStyles = StyleSheet.create({
 });
 
 
-
 export const sectionStyles = StyleSheet.create({
     conatiner: {
         marginBottom: 20,
@@ -186,6 +185,24 @@ export const verticalSectionStyles = StyleSheet.create({
         fontFamily: AppStyles.secondaryFontFamilyRegular,
         fontSize: 14,
         marginLeft: 4,
+    },
+});
+
+
+export const exploreButtonStyles = StyleSheet.create({
+    container: {
+        width: 0.5 * Dimensions.get('window').width - 20,
+        height: 36,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 7,
+        margin: 3,
+        backgroundColor: AppStyles.primaryColor,
+    },
+    label: {
+        color: AppStyles.primaryTextColor,
+        fontFamily: AppStyles.secondaryFontFamilyBold,
+        fontSize: 15,
     },
 });
 

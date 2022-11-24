@@ -14,5 +14,12 @@ export default StyleSheet.create({
     sectionContainer: {
         marginTop: 5,
     },
+    btnContainer: {
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        marginVertical: 20,
+    },
 });
 
