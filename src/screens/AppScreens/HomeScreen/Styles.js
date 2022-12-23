@@ -14,12 +14,13 @@ export default StyleSheet.create({
         paddingHorizontal: 12,
     },
     header: {
-        /*position: 'absolute',
+        position: 'absolute',
         left: 0,
         right: 0,
         top: 0,
-        zIndex: 1000,
-        paddingHorizontal: 12,*/
+        overflow: 'hidden',
+        zIndex: 999,
+        paddingHorizontal: 12,
     },
     retryContainer: {
         flex: 1,

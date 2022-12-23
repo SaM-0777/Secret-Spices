@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { View, StatusBar, Text, TouchableOpacity, ScrollView, FlatList, Animated } from 'react-native';
-import Share from 'react-native-share';
+import { View, StatusBar, Text, TouchableOpacity, ScrollView, Animated } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -16,6 +15,12 @@ import AppStyles from '../../../AppStyles';
 
 const HomeScreen = ({ navigation }) => {
   const HEADER_HEIGHT = 180
+  const scrollOffsetY = useRef(new Animated.Value(0)).current
+  const headerScrollHeight = scrollOffsetY.interpolate({
+    inputRange: [0, HEADER_HEIGHT],
+    outputRange: [HEADER_HEIGHT, 0],
+    extrapolate: 'clamp',
+  })
   const currentUser = useContext(UserContext)
   const [loading, setLoading] = useState(false)
   const [shareLoading, setShareLoading] = useState(false)
@@ -45,12 +50,12 @@ const HomeScreen = ({ navigation }) => {
         :
         <View style={Styles.wrapper} >
           <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
-          <View style={[Styles.header]} >
+          <Animated.View style={[Styles.header, { height: headerScrollHeight }]} >
             <HomeScreenHeader username={currentUser?.name.split(" ")[0]} profileImage={currentUser?.thumbnail} navigation={navigation} />
             <SearchBar navigation={navigation} />
             <MenuTypeScrollBar />
-          </View>
-          <ScrollView vertical contentContainerStyle={{ flexGrow: 1 }} showsVerticalScrollIndicator={false} >
+          </Animated.View>
+          <ScrollView onScroll={Animated.event([{nativeEvent: {contentOffset: {y: scrollOffsetY}}}], { useNativeDriver: false })} scrollEventThrottle={16} vertical contentContainerStyle={{ paddingTop: HEADER_HEIGHT }} showsVerticalScrollIndicator={false} >
             {loading ? [...Array(5).keys()].map(index => (
               <RecipeHomeCardSkeleton key={index} />
             ))
