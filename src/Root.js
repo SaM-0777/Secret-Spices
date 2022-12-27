@@ -43,7 +43,7 @@ const Root = ({ }) => {
       {loading ?
         <View style={Styles.container} >
           <View style={Styles.loadingOverlay} />
-          <Text>from Root</Text>
+          {/*<Text>from Root</Text>*/}
           <ActivityIndicator size={"large"} color={AppStyles.primaryColor} style={Styles.loadingIndicator} />
         </View>
         :

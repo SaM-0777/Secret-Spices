@@ -30,12 +30,12 @@ const HomeScreen = ({ navigation }) => {
     setLoading(true)
     const response = await getHomeData()
     setData(response)
+    // console.log(response)
     setLoading(false)
   }
 
-  function onRetry() {
-    getResponse()
-  }
+  function onRetry() { getResponse() }
+  function onRefresh() { getResponse() }
 
   useEffect(() => {
     if (!data) getResponse()
@@ -50,12 +50,13 @@ const HomeScreen = ({ navigation }) => {
         :
         <View style={Styles.wrapper} >
           <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
-          <Animated.View style={[Styles.header, { height: headerScrollHeight }]} >
-            <HomeScreenHeader username={currentUser?.name.split(" ")[0]} profileImage={currentUser?.thumbnail} navigation={navigation} />
-            <SearchBar navigation={navigation} />
-            <MenuTypeScrollBar />
+          <Animated.View style={[Styles.header, /*{ height: headerScrollHeight }*/]} >
+            {/*<HomeScreenHeader username={currentUser?.name.split(" ")[0]} profileImage={currentUser?.thumbnail} navigation={navigation} />*/}
+            {/*<SearchBar navigation={navigation} />*/}
+            {/*<MenuTypeScrollBar />*/}
           </Animated.View>
-          <ScrollView onScroll={Animated.event([{nativeEvent: {contentOffset: {y: scrollOffsetY}}}], { useNativeDriver: false })} scrollEventThrottle={16} vertical contentContainerStyle={{ paddingTop: HEADER_HEIGHT }} showsVerticalScrollIndicator={false} >
+          <ScrollView /*onScroll={Animated.event([{nativeEvent: {contentOffset: {y: scrollOffsetY}}}], { useNativeDriver: false })} scrollEventThrottle={16}*/ vertical contentContainerStyle={{ /*paddingTop: HEADER_HEIGHT*/ }} showsVerticalScrollIndicator={false} >
+            <SearchBar navigation={navigation} />
             {loading ? [...Array(5).keys()].map(index => (
               <RecipeHomeCardSkeleton key={index} />
             ))

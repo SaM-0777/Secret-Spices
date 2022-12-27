@@ -17,7 +17,7 @@ const CategoryScreen = ({ navigation }) => {
         <ScrollView nestedScrollEnabled showsVerticalScrollIndicator={false} style={Styles.sectionContainer} >
           <View style={Styles.btnContainer} >
             {[...Array(4).keys()].map(i => (
-              <ExploreButton label={"Breakfast"} />
+              <ExploreButton key={i.toString()} label={"Breakfast"} />
             ))}
           </View>
           <Section header={"Trending"} />

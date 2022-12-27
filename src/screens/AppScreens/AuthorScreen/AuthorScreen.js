@@ -39,7 +39,7 @@ function AuthorScreen({ route, navigation }) {
   }
 
   useEffect(() => {
-    if (!authorDetails) getResponse()
+    // if (!authorDetails) getResponse()
     // getResponse()
     return () => {}
   }, [])

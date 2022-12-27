@@ -10,7 +10,7 @@ import AppStack from './AppStack';
 // const UserContext = createContext()
 
 const RootNavigation = ({  }) => {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null)  // user form aws-amplify
 
   useEffect(() => {
     Hub.listen('auth', ({ payload: { event, data } }) => {
@@ -33,6 +33,11 @@ const RootNavigation = ({  }) => {
     
     return () => {}
   }, [])
+
+  /*useEffect(() => {
+    console.log(user);
+    return () => {}
+  }, [user])*/
   
   async function getUser() {
     return Auth.currentAuthenticatedUser({ bypassCache: true })

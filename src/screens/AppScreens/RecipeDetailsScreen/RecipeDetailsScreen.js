@@ -12,6 +12,8 @@ import AppStyles from '../../../AppStyles';
 import Styles from './Styles';
 
 
+const THUMBNAILURL = "https://secret-spices-media-storage64145-staging.s3.amazonaws.com/recipe-thumbnails/"
+
 function RecipeDetailsScreen({ route, navigation }) {
   const { recipeId } = route?.params
   const [loading, setLoading] = useState(false)
@@ -36,6 +38,7 @@ function RecipeDetailsScreen({ route, navigation }) {
     setLoading(true)
     const response = await getRecipeDetailsData(recipeId)
     setRecipeDetails(response[0])
+    console.log(response[0])
     setLoading(false)
   }
 
@@ -68,39 +71,40 @@ function RecipeDetailsScreen({ route, navigation }) {
               <>
                 { recipeDetails !== null ?
                   <>
-                    <HeaderCarousel navigation={navigation} heroBanner={recipeDetails?.heroBanner} />
+                    <HeaderCarousel navigation={navigation} heroBanner={[`${THUMBNAILURL}${recipeDetails.Image_Name}.jpg`]} />
                     <View style={Styles.wrapper} >
                       <RecipeInfoBox recipeDetails={recipeDetails} onShare={onShareRecipe} />
-                      <RecipeAuthorBox navigation={navigation} recipeDetails={recipeDetails} />
-                      <RecipeDescription recipeDetails={recipeDetails} />
+                      {/*<RecipeAuthorBox navigation={navigation} recipeDetails={recipeDetails} />*/}
+                      {/*<RecipeDescription recipeDetails={recipeDetails} />*/}
                       <View style={Styles.ingredientContainer} >
-                        <Text style={Styles.ingredientText} >Ingredients ({recipeDetails?.ingridients.length})</Text>
-                        <ScrollView horizontal showsHorizontalScrollIndicator={false} >
-                          {recipeDetails?.ingridients.map((item, i) => (
-                            <IngridientBox key={i.toString()} item={item} index={i.toString()} />
-                          ))}
-                        </ScrollView>
+                        <Text style={Styles.ingredientText} >Ingredients ({recipeDetails?.Ingredients.length})</Text>
+                        {recipeDetails?.Ingredients.map((item, i) => (
+                          /*<IngridientBox key={i.toString()} item={item} index={i.toString()} />*/
+                          <StepContainer key={i.toString()} item={item} index={i} />
+                        ))}
+                        {/*<ScrollView horizontal showsHorizontalScrollIndicator={false} >
+                        </ScrollView>*/}
                       </View>
                       <View style={Styles.stepContainer} >
                         <View style={Styles.stepContainerHeader} >
                           <Text style={Styles.stepText} >Steps</Text>
-                          <View style={Styles.durationContainer} >
+                          {/*<View style={Styles.durationContainer} >
                             <Ionicons name={'alarm-outline'} size={22} color={AppStyles.primaryTextColor} />
                             <Text style={Styles.durationText} >{recipeDetails?.duration} secs</Text>
-                          </View>
+                          </View>*/}
                         </View>
-                        {recipeDetails?.steps.map((item, index) => (
-                          <StepContainer key={index} item={item} index={index} />
+                        {recipeDetails?.Instructions.map((item, index) => (
+                          <StepContainer key={index.toString()} item={item} index={index} />
                         ))}
                       </View>
-                      <View style={Styles.nutrientSContainer} >
+                      {/*<View style={Styles.nutrientSContainer} >
                         <View style={Styles.nutrientsHeader} >
                           <Text style={Styles.nutrientText} >Nutrients</Text>
                         </View>
                         {recipeDetails?.nutrients.map((item, index) => (
                           <NutrientsCard key={index} item={item} />
                         ))}
-                      </View>
+                      </View>*/}
                       {/**
                     * Comment Section
                     * Ratings etc.

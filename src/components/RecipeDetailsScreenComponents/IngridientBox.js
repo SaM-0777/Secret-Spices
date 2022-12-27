@@ -9,7 +9,8 @@ import { ingredientBoxStyles } from './Styles';
 const IngridientBox = ({ item, index }) => {
   return (
     <View style={[ingredientBoxStyles.container, { marginRight: 10, }]} >
-      <SvgUri width={"100%"} height={"100%"} uri={item?.image.toString()} />
+      {/*<SvgUri width={"100%"} height={"100%"} uri={item?.image.toString()} />*/}
+      
     </View>
   )
 };

@@ -40,7 +40,7 @@ const RecipeInfoBox = ({ recipeDetails, onShare }) => {
           <Ionicons onPress={onPressSave} name={saved ? 'bookmark' : 'bookmark-outline'} size={22} color={AppStyles.secondaryColor} />
         </View>
       </View>
-      <View style={recipeInfoBoxStyles.infoContainer} >
+      {/*<View style={recipeInfoBoxStyles.infoContainer} >
         {[...Array(5).keys()].map((_, i) => (
           <Ionicons key={i.toString()} name={'star-sharp'} size={22} color={'#F58549'} />
         ))}
@@ -61,7 +61,7 @@ const RecipeInfoBox = ({ recipeDetails, onShare }) => {
           <Ionicons name={'flame-outline'} size={22} color={AppStyles.secondaryColor} />
           <Text style={recipeInfoBoxStyles.boxText} >{recipeDetails?.nutrients[0].Calories}</Text>
         </View>
-      </View>
+      </View>*/}
       <View>
 
       </View>

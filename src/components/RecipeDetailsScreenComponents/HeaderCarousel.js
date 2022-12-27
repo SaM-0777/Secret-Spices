@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { View, Image, FlatList, Animated, Dimensions } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AppStyles from '../../AppStyles';
@@ -8,7 +8,7 @@ import { headerCarouselStyles } from './Styles';
 
 function RenderItem({ item }) {
   return (
-    <Image source={{ uri: item, scale: 1.0 }} resizeMode={'contain'} style={headerCarouselStyles.carouselImage} />
+    <Image source={{ uri: item, scale: 1.0 }} resizeMode={'cover'} style={headerCarouselStyles.carouselImage} />
   )
 }
 
@@ -25,7 +25,7 @@ function HeaderCarousel({ navigation, heroBanner }) {
 
   function onPressGoBack() { navigation.goBack() }
   function onPressLeft () {}
-  function onPressRight () {}
+  function onPressRight() { }
   
   return (
     <View style={headerCarouselStyles.container} >

@@ -1,4 +1,4 @@
-const backendUrl = "https://crane-shoe.cyclic.app"
+const backendUrl = "https://amethyst-bonobo-fez.cyclic.app/"
 
 
 export async function getHomeData() {

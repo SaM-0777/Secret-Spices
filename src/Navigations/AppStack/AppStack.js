@@ -56,12 +56,12 @@ function BottomTab() {
           <Ionicons name={'home-sharp'} size={25} color={focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor} />
         )
       }} name={'home'} component={HomeScreen} />
-      <Tab.Screen options={{
+      {/*<Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
           <Ionicons name={'grid-sharp'} size={25} color={focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor} />
         )
-      }} name={'category'} component={CategoryScreen} />
+      }} name={'category'} component={CategoryScreen} />*/}
       {/*<Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
@@ -70,12 +70,12 @@ function BottomTab() {
           </View>
         )
       }} name={'meal-planner'} component={MealPlannerScreen} />*/}
-      <Tab.Screen options={{
+      {/*<Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
           <Ionicons name={'notifications-sharp'} size={25} color={focused ? AppStyles.primaryColor : AppStyles.secondaryBackgroundColor} />
         )
-      }} name={'activity'} component={ActivityScreen} />
+      }} name={'activity'} component={ActivityScreen} />*/}
       <Tab.Screen options={{
         tabBarShowLabel: false,
         tabBarIcon: ({ color, focused }) => (
@@ -107,42 +107,42 @@ function AppStack ({  }) {
     await getResponse()
   }
 
-  useEffect(() => {
+  /*useEffect(() => {
     getResponse()
     return () => {}
-  }, [])
+  }, [])*/
 
   /*useEffect(() => {
     // setLoading(false)
   }, [currentUser])*/
 
   return (
-    <>
+    <AppNavigationStack.Navigator screenOptions={screenOptions} >
+      <AppNavigationStack.Screen name={'bottom-tab'} component={BottomTab} />
+      <AppNavigationStack.Screen name={'search-screen'} component={SearchScreen} />
+      {/*<AppNavigationStack.Screen name={'author'} component={AuthorScreen} />
+      <AppNavigationStack.Screen name={'owner'} component={OwnerScreen} />*/}
+      <AppNavigationStack.Screen name={'recipe-details'} component={RecipeDetailsScreen} />
+      {/*<AppNavigationStack.Screen name={'add-recipe'} component={AddRecipeScreen} />
+      <AppNavigationStack.Screen name={'cookbook-details'} component={CookbookScreen} />
+      <AppNavigationStack.Screen name={'edit-profile'} component={EditProfileScreen} />*/}
+      {/*<AppNavigationStack.Screen name={'author-subscriber'} component={AuthorSubscriberScreen} />*/}
+      <AppNavigationStack.Screen name={'change-password'} component={ChangePasswordScreen} />
+      {/*<AppNavigationStack.Screen name={'user-account'} component={AccountScreen} />*/}
+    </AppNavigationStack.Navigator>
+    /*<>
       {loading ? <CustomLoading />
         :
         <>
           {currentUser ?
             <UserContext.Provider value={currentUser} >
-              <AppNavigationStack.Navigator screenOptions={screenOptions} >
-                <AppNavigationStack.Screen name={'bottom-tab'} component={BottomTab} />
-                <AppNavigationStack.Screen name={'search-screen'} component={SearchScreen} />
-                <AppNavigationStack.Screen name={'author'} component={AuthorScreen} />
-                <AppNavigationStack.Screen name={'owner'} component={OwnerScreen} />
-                <AppNavigationStack.Screen name={'recipe-details'} component={RecipeDetailsScreen} />
-                <AppNavigationStack.Screen name={'add-recipe'} component={AddRecipeScreen} />
-                <AppNavigationStack.Screen name={'cookbook-details'} component={CookbookScreen} />
-                <AppNavigationStack.Screen name={'edit-profile'} component={EditProfileScreen} />
-                <AppNavigationStack.Screen name={'author-subscriber'} component={AuthorSubscriberScreen} />
-                <AppNavigationStack.Screen name={'change-password'} component={ChangePasswordScreen} />
-                <AppNavigationStack.Screen name={'user-account'} component={AccountScreen} />
-              </AppNavigationStack.Navigator>
             </UserContext.Provider>
           :
             <RetryBox onPress={onRetry} />
           }
         </>
       }
-    </>
+    </>*/
   )
 };
 

@@ -130,10 +130,11 @@ export const recipeCardStyles = StyleSheet.create({
     },
     activityContainer: {
         flexDirection: 'row',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         justifyContent: 'space-between'
     },
     activityLeft: {
+        maxWidth: '80%',
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -172,6 +173,9 @@ export const recipeCardStyles = StyleSheet.create({
         fontSize: 14,
     },
     title: {
+        // maxWidth: '90%',
+        // paddingRight: 10,
+        // backgroundColor: 'red',
         color: AppStyles.primaryTextColor,
         fontSize: 18,
         fontFamily: AppStyles.poppinsFontRegular,

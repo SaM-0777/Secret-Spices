@@ -12,7 +12,7 @@ export default StyleSheet.create({
         paddingHorizontal: 10,
     },
     ingredientContainer: {
-        borderTopWidth: 0.182,
+        // borderTopWidth: 0.182,
         borderBottomWidth: 0.182,
         paddingVertical: 15,
         marginVertical: 20,
