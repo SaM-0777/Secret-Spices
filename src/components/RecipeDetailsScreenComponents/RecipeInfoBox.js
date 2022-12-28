@@ -33,7 +33,7 @@ const RecipeInfoBox = ({ recipeDetails, onShare }) => {
   return (
     <View style={recipeInfoBoxStyles.container} >
       <View style={recipeInfoBoxStyles.headerContainer} >
-        <Text style={recipeInfoBoxStyles.title} >{recipeDetails?.title}</Text>
+        <Text style={recipeInfoBoxStyles.title} >{recipeDetails?.Title}</Text>
         <View style={recipeInfoBoxStyles.activityContainer} >
           <Ionicons onPress={onPressLike} name={like ? 'heart' : 'heart-outline'} size={22} color={like ? 'red' : AppStyles.secondaryColor} />
           <Ionicons onPress={onShare} name={'paper-plane-outline'} size={22} color={AppStyles.secondaryColor} style={{ marginHorizontal: 15, }} />

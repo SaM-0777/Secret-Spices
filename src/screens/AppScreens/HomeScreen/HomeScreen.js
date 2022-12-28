@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
-import { View, StatusBar, Text, TouchableOpacity, RefreshControl, ScrollView, Animated } from 'react-native';
+import { View, StatusBar, Text, TouchableOpacity, RefreshControl, ScrollView, FlatList, Animated } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -59,36 +59,56 @@ const HomeScreen = ({ navigation }) => {
         :
         <View style={Styles.wrapper} >
           <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
-          <Animated.View style={[Styles.header, /*{ height: headerScrollHeight }*/]} >
-            {/*<HomeScreenHeader username={currentUser?.name.split(" ")[0]} profileImage={currentUser?.thumbnail} navigation={navigation} />*/}
-            {/*<SearchBar navigation={navigation} />*/}
-            {/*<MenuTypeScrollBar />*/}
-          </Animated.View>
-          <ScrollView /*onScroll={Animated.event([{nativeEvent: {contentOffset: {y: scrollOffsetY}}}], { useNativeDriver: false })} scrollEventThrottle={16}*/ refreshControl={
-            <RefreshControl 
-              refreshing={refreshing}
-              onRefresh={onRefresh}
-            />
-          } vertical contentContainerStyle={{ /*paddingTop: HEADER_HEIGHT*/ }} showsVerticalScrollIndicator={false} >
-            <SearchBar navigation={navigation} />
-            {loading ? [...Array(5).keys()].map(index => (
-              <RecipeHomeCardSkeleton key={index} />
-            ))
-              :
-              <>
-                {data !== null ? data.map(item => (
-                  <RecipeCard key={item._id} item={item} navigation={navigation} setShareLoading={setShareLoading} />
-                )) :
-                  <View style={Styles.retryContainer} >
-                    <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
-                      <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
-                      <Text style={Styles.retryText} >Retry</Text>
-                    </TouchableOpacity>
-                  </View>
-                }
-              </>
-            }
-          </ScrollView>
+          {loading ? 
+            <>
+              <SearchBar navigation={navigation} />
+              <FlatList
+                data={[...Array(15).keys()]}
+                renderItem={({ item }) => <RecipeHomeCardSkeleton key={item} />}
+                showsVerticalScrollIndicator={false}
+                keyExtractor={(item) => item._id}
+                /*onScroll={Animated.event([
+                  { nativeEvent: { contentOffset: { y: scrollY } } }
+                ], { useNativeDriver: false })}*/
+                scrollEventThrottle={16}
+                ListHeaderComponent={<SearchBar navigation={navigation} />}
+                refreshControl={< RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+              // style={{ flexGrow: 1 }}
+              />
+            </>
+            :
+            <>
+              {data !== null ?
+                <>
+                  <Animated.View style={[Styles.header, /*{ height: headerScrollHeight }*/]} >
+                    {/*<HomeScreenHeader username={currentUser?.name.split(" ")[0]} profileImage={currentUser?.thumbnail} navigation={navigation} />*/}
+                    {/*<SearchBar navigation={navigation} />*/}
+                    {/*<MenuTypeScrollBar />*/}
+                  </Animated.View>
+                  <FlatList
+                    data={data}
+                    renderItem={({ item }) => <RecipeCard key={item._id} item={item} navigation={navigation} setShareLoading={setShareLoading} />}
+                    showsVerticalScrollIndicator={false}
+                    keyExtractor={(item) => item._id}
+                    /*onScroll={Animated.event([
+                      { nativeEvent: { contentOffset: { y: scrollY } } }
+                    ], { useNativeDriver: false })}*/
+                    scrollEventThrottle={16}
+                    ListHeaderComponent={<SearchBar navigation={navigation} />}
+                    refreshControl={< RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+                  // style={{ flexGrow: 1 }}
+                  />
+                </>
+                :
+                <View style={Styles.retryContainer} >
+                  <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
+                    <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
+                    <Text style={Styles.retryText} >Retry</Text>
+                  </TouchableOpacity>
+                </View>
+              }
+            </>
+          }          
         </View>
       }
     </SafeAreaView>
@@ -100,6 +120,32 @@ export default HomeScreen;
 
 
 /**
+ * {<ScrollView onScroll={Animated.event([{nativeEvent: {contentOffset: {y: scrollOffsetY}}}], { useNativeDriver: false })} scrollEventThrottle={16} refreshControl = {
+            < RefreshControl
+refreshing = { refreshing }
+onRefresh = { onRefresh }
+  />
+          } vertical contentContainerStyle = {{ paddingTop: HEADER_HEIGHT }} showsVerticalScrollIndicator = { false} >
+  <SearchBar navigation={navigation} />
+{
+  loading ? [...Array(5).keys()].map(index => (
+    <RecipeHomeCardSkeleton key={index} />
+  ))
+    :
+    <>
+    {data !== null ? data.map(item => (
+      <RecipeCard key={item._id} item={item} navigation={navigation} setShareLoading={setShareLoading} />
+      )) :
+      <View style={Styles.retryContainer} >
+        <TouchableOpacity activeOpacity={0.9} onPress={onRetry} style={Styles.retryBtn} >
+          <Ionicons name={'alert-circle-outline'} size={25} color={AppStyles.secondaryColor} />
+          <Text style={Styles.retryText} >Retry</Text>
+        </TouchableOpacity>
+      </View>
+      }
+    </>
+}
+          </ScrollView >* /}
  * <FlatList
           data={data}
           renderItem={({ item }) => <RecipeCard key={item._id} item={item} navigation={navigation} onShare={onShareRecipe} />}
