@@ -87,7 +87,7 @@ function RecipeDetailsScreen({ route, navigation }) {
                       </View>
                       <View style={Styles.stepContainer} >
                         <View style={Styles.stepContainerHeader} >
-                          <Text style={Styles.stepText} >Steps</Text>
+                          <Text style={Styles.stepText} >Instructions</Text>
                           {/*<View style={Styles.durationContainer} >
                             <Ionicons name={'alarm-outline'} size={22} color={AppStyles.primaryTextColor} />
                             <Text style={Styles.durationText} >{recipeDetails?.duration} secs</Text>

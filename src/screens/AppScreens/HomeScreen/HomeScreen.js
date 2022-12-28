@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
-import { View, StatusBar, Text, TouchableOpacity, ScrollView, Animated } from 'react-native';
+import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
+import { View, StatusBar, Text, TouchableOpacity, RefreshControl, ScrollView, Animated } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -23,6 +23,7 @@ const HomeScreen = ({ navigation }) => {
   })
   const currentUser = useContext(UserContext)
   const [loading, setLoading] = useState(false)
+  const [refreshing, setRefreshing] = useState(false)
   const [shareLoading, setShareLoading] = useState(false)
   const [data, setData] = useState(null)
 
@@ -35,7 +36,15 @@ const HomeScreen = ({ navigation }) => {
   }
 
   function onRetry() { getResponse() }
-  function onRefresh() { getResponse() }
+  // function onRefresh() { getResponse() }
+
+  const onRefresh = React.useCallback(async function() {
+    setRefreshing(true)
+    // await getResponse()
+    const response = await getHomeData()
+    setData(response)
+    setRefreshing(false)
+  }, [])
 
   useEffect(() => {
     if (!data) getResponse()
@@ -55,7 +64,12 @@ const HomeScreen = ({ navigation }) => {
             {/*<SearchBar navigation={navigation} />*/}
             {/*<MenuTypeScrollBar />*/}
           </Animated.View>
-          <ScrollView /*onScroll={Animated.event([{nativeEvent: {contentOffset: {y: scrollOffsetY}}}], { useNativeDriver: false })} scrollEventThrottle={16}*/ vertical contentContainerStyle={{ /*paddingTop: HEADER_HEIGHT*/ }} showsVerticalScrollIndicator={false} >
+          <ScrollView /*onScroll={Animated.event([{nativeEvent: {contentOffset: {y: scrollOffsetY}}}], { useNativeDriver: false })} scrollEventThrottle={16}*/ refreshControl={
+            <RefreshControl 
+              refreshing={refreshing}
+              onRefresh={onRefresh}
+            />
+          } vertical contentContainerStyle={{ /*paddingTop: HEADER_HEIGHT*/ }} showsVerticalScrollIndicator={false} >
             <SearchBar navigation={navigation} />
             {loading ? [...Array(5).keys()].map(index => (
               <RecipeHomeCardSkeleton key={index} />
