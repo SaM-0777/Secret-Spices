@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { recipeSkeletonStyle } from './Styles';
 
 
-function RecipeHomeCardSkeleton({  }) {
+function RecipeHomeCardSkeleton({ }) {
   return (
     <View style={recipeSkeletonStyle.container} >
       <View style={recipeSkeletonStyle.header} >

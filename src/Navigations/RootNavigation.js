@@ -7,7 +7,7 @@ import AuthStack from './AuthStack';
 import AppStack from './AppStack';
 
 
-// const UserContext = createContext()
+const UserContext = createContext()
 
 const RootNavigation = ({  }) => {
   const [user, setUser] = useState(null)  // user form aws-amplify
@@ -47,11 +47,13 @@ const RootNavigation = ({  }) => {
 
   return (
     <>
-      {JSON.stringify(user) ? <AppStack /> : <AuthStack />}
+      {JSON.stringify(user) ? <UserContext.Provider value={user} ><AppStack /></UserContext.Provider> : <AuthStack />}
     </>
   )
 };
 
+
+export { UserContext };
 
 export default RootNavigation;
 

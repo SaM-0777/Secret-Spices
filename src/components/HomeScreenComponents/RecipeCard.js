@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Image, Text, TouchableOpacity, ToastAndroid } from 'react-native';
 import Share from 'react-native-share';
 import moment from 'moment';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import AppStyles from '../../AppStyles';
+import { UserContext } from '../../Navigations/RootNavigation';
 
+import { toggleSaveRecipeRequest } from '../../utils/api/post';
+
+import AppStyles from '../../AppStyles';
 import { recipeCardStyles } from './Styles';
 
 
 const THUMBNAILURL = "https://secret-spices-media-storage64145-staging.s3.amazonaws.com/recipe-thumbnails/"
 
 const RecipeCard = ({ item, navigation, setShareLoading }) => {
+  const currentAWSUser = useContext(UserContext)
   const [recipeItem, setRecipeItem] = useState(item)
+  const [isRecipeSaved, setIsRecipeSaved] = useState(false)
+  const [isRecipeSavedRequestMade, setIsRecipeSavedRequestMade] = useState(false)
   /*const [relativeTime, setRelativeTime] = useState(() => {
     const dateTime = new Date(recipeItem?.createdAt)
     return moment(dateTime.toISOString()).fromNow()
@@ -44,14 +50,22 @@ const RecipeCard = ({ item, navigation, setShareLoading }) => {
   }
 
   function onBookmark() {
-    if (recipeItem?.saved) {
+    setIsRecipeSaved(prevState => !prevState)
+
+    if (isRecipeSavedRequestMade) {
+
+    } else {
+      
+    }
+
+    /*if (recipeItem?.saved) {
       setRecipeItem({ ...recipeItem, "saved": false })
       ToastAndroid.show('Unsaved', ToastAndroid.SHORT, ToastAndroid.CENTER)
     }
     else {
       setRecipeItem({ ...recipeItem, "saved": true })
       ToastAndroid.show('Saved', ToastAndroid.SHORT, ToastAndroid.CENTER)
-    }
+    }*/
   }
 
   return (
@@ -78,7 +92,7 @@ const RecipeCard = ({ item, navigation, setShareLoading }) => {
             <Ionicons name={'paper-plane-outline'} size={22} color={AppStyles.primaryTextColor} />
           </TouchableOpacity>
           <TouchableOpacity activeOpacity={0.9} onPress={onBookmark} >
-            <Ionicons name={recipeItem.saved ? 'bookmark' : 'bookmark-outline'} size={22} color={AppStyles.primaryTextColor} />
+            <Ionicons name={isRecipeSaved ? 'bookmark' : 'bookmark-outline'} size={22} color={AppStyles.primaryTextColor} />
           </TouchableOpacity>
         </View>
       </View>

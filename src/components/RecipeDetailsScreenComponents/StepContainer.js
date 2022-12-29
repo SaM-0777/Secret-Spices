@@ -6,10 +6,6 @@ import { stepContainerStyles } from './Styles';
 
 
 const StepContainer = ({ index, item }) => {
-  useEffect(() => {
-    console.log(item)
-    return () => {}
-  }, [])
   return (
     <View style={stepContainerStyles.container} >
       <View style={stepContainerStyles.indexContainer} >

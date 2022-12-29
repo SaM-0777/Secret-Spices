@@ -5,7 +5,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, RecipeHomeCardSkeleton, ShareLoadingMask, } from '../../../components';
 
-import { UserContext } from '../../../Navigations/AppStack/AppStack';
+import { UserContext } from '../../../Navigations/RootNavigation';
 
 import { getHomeData } from "../../../utils/api";
 
@@ -21,11 +21,12 @@ const HomeScreen = ({ navigation }) => {
     outputRange: [HEADER_HEIGHT, 0],
     extrapolate: 'clamp',
   })
-  const currentUser = useContext(UserContext)
+  const currentAWSUser = useContext(UserContext)
   const [loading, setLoading] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [shareLoading, setShareLoading] = useState(false)
   const [data, setData] = useState(null)
+  // const [totalActiveSkeletonOnLoadMore, setTotalActiveSkeletonOnLoadMore] = useState(0)
 
   async function getResponse() {
     setLoading(true)
@@ -46,6 +47,13 @@ const HomeScreen = ({ navigation }) => {
     setRefreshing(false)
   }, [])
 
+  async function getMoreDataOnScroll() {
+    setData([...data, ...Array(5).keys()])
+    const response = await getHomeData()
+    const newData = data.splice(data.length - 5, 5, response)
+    setData(newData)
+  }
+
   useEffect(() => {
     if (!data) getResponse()
     // getResponse()
@@ -54,28 +62,25 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={Styles.container} >
+      <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
       {shareLoading ?
         <ShareLoadingMask />
         :
         <View style={Styles.wrapper} >
-          <StatusBar barStyle={'dark-content'} backgroundColor={'transparent'} translucent />
           {loading ? 
-            <>
-              <SearchBar navigation={navigation} />
-              <FlatList
-                data={[...Array(15).keys()]}
-                renderItem={({ item }) => <RecipeHomeCardSkeleton key={item} />}
-                showsVerticalScrollIndicator={false}
-                keyExtractor={(item) => item._id}
-                /*onScroll={Animated.event([
-                  { nativeEvent: { contentOffset: { y: scrollY } } }
-                ], { useNativeDriver: false })}*/
-                scrollEventThrottle={16}
-                ListHeaderComponent={<SearchBar navigation={navigation} />}
-                refreshControl={< RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+            <FlatList
+              data={[...Array(15).keys()]}
+              renderItem={({ item }) => <RecipeHomeCardSkeleton key={item} />}
+              showsVerticalScrollIndicator={false}
+              keyExtractor={(item) => item}
+              /*onScroll={Animated.event([
+                { nativeEvent: { contentOffset: { y: scrollY } } }
+              ], { useNativeDriver: false })}*/
+              ListHeaderComponent={<SearchBar navigation={navigation} />}
+              scrollEventThrottle={16}
+              refreshControl={< RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
               // style={{ flexGrow: 1 }}
-              />
-            </>
+            />
             :
             <>
               {data !== null ?
@@ -87,15 +92,17 @@ const HomeScreen = ({ navigation }) => {
                   </Animated.View>
                   <FlatList
                     data={data}
-                    renderItem={({ item }) => <RecipeCard key={item._id} item={item} navigation={navigation} setShareLoading={setShareLoading} />}
+                    renderItem={({ item }) => <RecipeCard item={item} navigation={navigation} setShareLoading={setShareLoading} /> }
                     showsVerticalScrollIndicator={false}
-                    keyExtractor={(item) => item._id}
+                    keyExtractor={(item, index) => `${item._id}${index}`}
                     /*onScroll={Animated.event([
                       { nativeEvent: { contentOffset: { y: scrollY } } }
                     ], { useNativeDriver: false })}*/
                     scrollEventThrottle={16}
                     ListHeaderComponent={<SearchBar navigation={navigation} />}
                     refreshControl={< RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+                    onEndReachedThreshold={0.5}
+                    onEndReached={getMoreDataOnScroll}
                   // style={{ flexGrow: 1 }}
                   />
                 </>

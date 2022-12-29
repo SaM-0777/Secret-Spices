@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import React, { useState, useEffect, createContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -24,6 +24,8 @@ import {
   AccountScreen,
 } from '../../screens';
 import { CustomLoading, RetryBox } from '../../components';
+
+import { UserContext } from '../RootNavigation';
 
 import { getCurrentUser } from '../../utils/api/get';
 
@@ -86,10 +88,10 @@ function BottomTab() {
   )
 }
 
-const UserContext = createContext()
+// const UserContext = createContext()
 
 function AppStack ({  }) {
-  const userId = "aws004"
+  const currentAWSUser = useContext(UserContext)
   const [loading, setLoading] = useState(true)
   const [currentUser, setCurrentUser] = useState(null)
   const [screenOptions, setScreenoptions] = useState({
@@ -147,7 +149,7 @@ function AppStack ({  }) {
 };
 
 
-export { UserContext };
+/*export { UserContext };*/
 
 export default AppStack;
 

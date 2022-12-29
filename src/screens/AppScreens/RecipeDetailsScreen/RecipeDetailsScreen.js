@@ -38,7 +38,7 @@ function RecipeDetailsScreen({ route, navigation }) {
     setLoading(true)
     const response = await getRecipeDetailsData(recipeId)
     setRecipeDetails(response[0])
-    console.log(response[0])
+    // console.log(response[0])
     setLoading(false)
   }
 
@@ -67,9 +67,9 @@ function RecipeDetailsScreen({ route, navigation }) {
                   <ActivityIndicator color={AppStyles.primaryColor} size={'large'} />
                 </View>
               </>
-              : 
+              :
               <>
-                { recipeDetails !== null ?
+                {recipeDetails !== null ?
                   <>
                     <HeaderCarousel navigation={navigation} heroBanner={[`${THUMBNAILURL}${recipeDetails.Image_Name}.jpg`]} />
                     <View style={Styles.wrapper} >
@@ -120,7 +120,7 @@ function RecipeDetailsScreen({ route, navigation }) {
                       </TouchableOpacity>
                     </View>
                   </>
-                }  
+                }
               </>
             }
           </ScrollView>
