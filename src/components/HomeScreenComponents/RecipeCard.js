@@ -1,15 +1,17 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { View, Image, Text, TouchableOpacity, ToastAndroid } from 'react-native';
 import Share from 'react-native-share';
 import moment from 'moment';
+import lodash, { debounce } from 'lodash';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import { UserContext } from '../../Navigations/RootNavigation';
 
-import { toggleSaveRecipeRequest } from '../../utils/api/post';
+import { createSaveRecipeRequest, deleteSaveRecipeRequest } from '../../utils/api/post';
 
 import AppStyles from '../../AppStyles';
 import { recipeCardStyles } from './Styles';
+import { useCallback } from 'react';
 
 
 const THUMBNAILURL = "https://secret-spices-media-storage64145-staging.s3.amazonaws.com/recipe-thumbnails/"
@@ -17,12 +19,20 @@ const THUMBNAILURL = "https://secret-spices-media-storage64145-staging.s3.amazon
 const RecipeCard = ({ item, navigation, setShareLoading }) => {
   const currentAWSUser = useContext(UserContext)
   const [recipeItem, setRecipeItem] = useState(item)
-  const [isRecipeSaved, setIsRecipeSaved] = useState(false)
+  const [isRecipeSaved, setIsRecipeSaved] = useState(() => {
+    if (item.UserSavedRecipe[0]) return true
+    else return false
+  })
   const [isRecipeSavedRequestMade, setIsRecipeSavedRequestMade] = useState(false)
   /*const [relativeTime, setRelativeTime] = useState(() => {
     const dateTime = new Date(recipeItem?.createdAt)
     return moment(dateTime.toISOString()).fromNow()
   })*/
+
+  /*useEffect(() => {
+    console.log(currentAWSUser)
+    return () => {}
+  }, [])*/
   
   function navigateToAuthor() {
     navigation.navigate('author', { authorId: recipeItem?.Author[0]._id })
@@ -49,15 +59,43 @@ const RecipeCard = ({ item, navigation, setShareLoading }) => {
     setShareLoading(false)
   }
 
+  async function makeCreateUserBookmarkRecipeRequest() {
+    const userIdToken = currentAWSUser.signInUserSession.idToken.jwtToken
+    const userId = currentAWSUser.username
+    const recipeId = item._id
+    /*console.log(userIdToken)
+    console.log(userId)
+    console.log(recipeId)*/
+    const response = await createSaveRecipeRequest(userIdToken, userId, recipeId)
+    console.log(response)
+  }
+
+  /*useEffect(() => {
+    if (isRecipeSavedRequestMade === false) {
+      if (isRecipeSaved) {
+        makeCreateUserBookmarkRecipeRequest()
+      } else {
+        
+      }
+    }
+    return () => {}
+  }, [isRecipeSaved])*/
+
+  /*const debounceMakeUserBookmarkRecipeRequest = lodash.debounce(() => makeUserBookmarkRecipeRequest, 1000)
+  const throttleMakeUserBookmarkRecipeRequest = lodash.throttle(makeUserBookmarkRecipeRequest, 1000, {leading: true, trailing: false})
+
+  const waitAfterMakingRequest = useCallback(debounce(makeUserBookmarkRecipeRequest, 1000), [])
+*/
   function onBookmark() {
     setIsRecipeSaved(prevState => !prevState)
+    // makeUserBookmarkRecipeRequest()
+    /*console.log("Request to be made")
+    waitAfterMakingRequest()*/
+    // debounceMakeUserBookmarkRecipeRequest()
+    /*if (!isRecipeSavedRequestMade) makeUserBookmarkRecipeRequest()
 
-    if (isRecipeSavedRequestMade) {
-
-    } else {
-      
-    }
-
+    setInterval(toggleIsRequestMade, 1000)*/
+    
     /*if (recipeItem?.saved) {
       setRecipeItem({ ...recipeItem, "saved": false })
       ToastAndroid.show('Unsaved', ToastAndroid.SHORT, ToastAndroid.CENTER)
@@ -88,12 +126,12 @@ const RecipeCard = ({ item, navigation, setShareLoading }) => {
           <Text style={recipeCardStyles.title} >{recipeItem.Title}</Text>
         </View>
         <View style={recipeCardStyles.activityRight} >
-          <TouchableOpacity activeOpacity={0.9} onPress={onShare} style={recipeCardStyles.sharebtn} >
+          {/*<TouchableOpacity activeOpacity={0.9} onPress={onShare} style={recipeCardStyles.sharebtn} >
             <Ionicons name={'paper-plane-outline'} size={22} color={AppStyles.primaryTextColor} />
-          </TouchableOpacity>
-          <TouchableOpacity activeOpacity={0.9} onPress={onBookmark} >
+          </TouchableOpacity>*/}
+          {/*<TouchableOpacity activeOpacity={0.9} onPress={onBookmark} >
             <Ionicons name={isRecipeSaved ? 'bookmark' : 'bookmark-outline'} size={22} color={AppStyles.primaryTextColor} />
-          </TouchableOpacity>
+          </TouchableOpacity>*/}
         </View>
       </View>
       {/*<View style={recipeCardStyles.footerContainer} >

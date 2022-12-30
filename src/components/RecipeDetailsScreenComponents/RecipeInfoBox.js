@@ -34,11 +34,11 @@ const RecipeInfoBox = ({ recipeDetails, onShare }) => {
     <View style={recipeInfoBoxStyles.container} >
       <View style={recipeInfoBoxStyles.headerContainer} >
         <Text style={recipeInfoBoxStyles.title} >{recipeDetails?.Title}</Text>
-        <View style={recipeInfoBoxStyles.activityContainer} >
+        {/*<View style={recipeInfoBoxStyles.activityContainer} >
           <Ionicons onPress={onPressLike} name={like ? 'heart' : 'heart-outline'} size={22} color={like ? 'red' : AppStyles.secondaryColor} />
           <Ionicons onPress={onShare} name={'paper-plane-outline'} size={22} color={AppStyles.secondaryColor} style={{ marginHorizontal: 15, }} />
           <Ionicons onPress={onPressSave} name={saved ? 'bookmark' : 'bookmark-outline'} size={22} color={AppStyles.secondaryColor} />
-        </View>
+        </View>*/}
       </View>
       {/*<View style={recipeInfoBoxStyles.infoContainer} >
         {[...Array(5).keys()].map((_, i) => (

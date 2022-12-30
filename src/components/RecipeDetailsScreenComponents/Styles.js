@@ -51,7 +51,7 @@ export const recipeInfoBoxStyles = StyleSheet.create({
         marginTop: 7,
     },
     title: {
-        width: '70%',
+        // width: '70%',
         color: AppStyles.primaryTextColor,
         fontFamily: AppStyles.secondaryFontFamilyRegular,
         fontWeight: '700',

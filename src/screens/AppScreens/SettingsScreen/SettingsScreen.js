@@ -32,11 +32,11 @@ function SettingsScreen({ navigation }) {
         <View style={Styles.wrapper} >
           <SettingScreenHeader navigation={navigation} />
           <SettingTab text={'Change Password'} icon='chevron-forward' onPress={onPressChangePassword} />
-          <SettingTab text={'Account'} icon='chevron-forward' onPress={onPressAccount} />
+          {/*<SettingTab text={'Account'} icon='chevron-forward' onPress={onPressAccount} />*/}
           {/*<SettingTab text={'Language'} />*/}
-          <SettingTab text={'Get Help'} icon='chevron-forward' />
+          {/*<SettingTab text={'Get Help'} icon='chevron-forward' />
           <SettingTab text={'Report a Problem'} icon='chevron-forward' />
-          <SettingTab text={'Terms of Use'} icon='chevron-forward' />
+          <SettingTab text={'Terms of Use'} icon='chevron-forward' />*/}
           <SettingTab text={'Log Out'} icon='log-out-outline' onPress={onShowLogoutModal} />
         </View>
         <Portal>
