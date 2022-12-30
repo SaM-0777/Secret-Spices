@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useRef, useState, useCallback } from 'react';
-import { View, StatusBar, Text, TouchableOpacity, RefreshControl, ScrollView, FlatList, Animated } from 'react-native';
+import { View, StatusBar, Text, TouchableOpacity, RefreshControl, ScrollView, FlatList, Animated, ActivityIndicator } from 'react-native';
+import { FlashList } from '@shopify/flash-list';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, RecipeHomeCardSkeleton, ShareLoadingMask, } from '../../../components';
+import { HomeScreenHeader, SearchBar, MenuTypeScrollBar, RecipeCard, RecipeHomeCardSkeleton, ShareLoadingMask, CustomLoading } from '../../../components';
 
 import { UserContext } from '../../../Navigations/RootNavigation';
 
@@ -23,6 +24,7 @@ const HomeScreen = ({ navigation }) => {
   })
   const currentAWSUser = useContext(UserContext)
   const [loading, setLoading] = useState(false)
+  const [loadingMore, setLoadingMore] = useState(false)
   const [refreshing, setRefreshing] = useState(false)
   const [shareLoading, setShareLoading] = useState(false)
   const [data, setData] = useState(null)
@@ -48,10 +50,14 @@ const HomeScreen = ({ navigation }) => {
   }, [])
 
   async function getMoreDataOnScroll() {
-    setData([...data, ...Array(5).keys()])
+    setLoadingMore(true)
     const response = await getHomeData()
+    // console.log(response)
+    setData([...data, ...response])
+    setLoadingMore(false)
+    /*setData([...data, ...Array(5).keys()])
     const newData = data.splice(data.length - 5, 5, response)
-    setData(newData)
+    setData(newData)*/
   }
 
   useEffect(() => {
@@ -76,7 +82,7 @@ const HomeScreen = ({ navigation }) => {
               /*onScroll={Animated.event([
                 { nativeEvent: { contentOffset: { y: scrollY } } }
               ], { useNativeDriver: false })}*/
-              ListHeaderComponent={<SearchBar navigation={navigation} />}
+              ListHeaderComponent={loadingMore && <SearchBar navigation={navigation} />}
               scrollEventThrottle={16}
               refreshControl={< RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
               // style={{ flexGrow: 1 }}
@@ -90,7 +96,7 @@ const HomeScreen = ({ navigation }) => {
                     {/*<SearchBar navigation={navigation} />*/}
                     {/*<MenuTypeScrollBar />*/}
                   </Animated.View>
-                  <FlatList
+                  <FlashList
                     data={data}
                     renderItem={({ item }) => <RecipeCard item={item} navigation={navigation} setShareLoading={setShareLoading} /> }
                     showsVerticalScrollIndicator={false}
@@ -100,9 +106,11 @@ const HomeScreen = ({ navigation }) => {
                     ], { useNativeDriver: false })}*/
                     scrollEventThrottle={16}
                     ListHeaderComponent={<SearchBar navigation={navigation} />}
+                    ListFooterComponent={<CustomLoading />}
                     refreshControl={< RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
                     onEndReachedThreshold={0.5}
                     onEndReached={getMoreDataOnScroll}
+                    estimatedItemSize={274}
                   // style={{ flexGrow: 1 }}
                   />
                 </>
